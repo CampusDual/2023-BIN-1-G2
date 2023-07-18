@@ -2,5 +2,4 @@
 * Pedro Costas Ferradas
 * Gabriel Costas Penha
 * Borja Miguens Suárez
-* Ismael Mosquera Montero
 * Mauro Vidal Antepazo
