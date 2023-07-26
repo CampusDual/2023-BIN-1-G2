@@ -32,9 +32,10 @@ public class RegisterRestController extends ORestController<IRegisterService> {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EntityResult> makeRequest(@RequestBody Map<String, Object> body) {
 
-        System.out.println("LLega");
 
         registerService.registerInsert(body);
+
+        System.out.println("LLega");
 
         return null;
     }
