@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "720be5cd-e0d0-4ff0-b940-9df8bfbcb5e5",
+		"name": "BootCamp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13220963"
+	},
+	"item": [
+		{
+			"name": "Proyecto Bootcamp (2023-BIN-1-G2)",
+			"item": [
+				{
+					"name": "Hello World",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/main",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"main"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Register",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"data\": {\r\n        \"plate\": \"ESTO ES UN PLATE MAS MOLONA\",\r\n        \"delivery_note\": 5,\r\n        \"width\": 7194871984.432,\r\n        \"id\":9\r\n    },\r\n    \"sqltypes\": {\r\n        \"DATE\": 12,\r\n        \"SCAN_VOLUME\": 8,\r\n        \"DEV\": 12,\r\n        \"CALCULATED_VOLUME\": 8,\r\n        \"WIDTH\": 8,\r\n        \"LENGTH\": 8,\r\n        \"PLATE\": 12,\r\n        \"ID\": 4,\r\n        \"TRAILER_PLATE\": 12,\r\n        \"DELIVERY_NOTE\": 4,\r\n        \"HEIGHT\": 8\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/registers/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"registers",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Register",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/registers/register?columns=id,dev,date,height,width,plate,scan_volume,calculated_volume,length,trailer_plate,delivery_note",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"registers",
+								"register"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "id,dev,date,height,width,plate,scan_volume,calculated_volume,length,trailer_plate,delivery_note"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "[https://github.com/CampusDual/2023-BIN-1-G2]()"
+		}
+	]
+}
