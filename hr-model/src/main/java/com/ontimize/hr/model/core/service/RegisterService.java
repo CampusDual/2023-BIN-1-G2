@@ -22,11 +22,13 @@ public class RegisterService implements IRegisterService {
     @Override
     public EntityResult registerQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
+
         return this.daoHelper.query(this.registerDao, keyMap, attrList);
     }
 
     @Override
     public EntityResult registerInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
+
         return this.daoHelper.insert(this.registerDao, attrMap);
     }
 

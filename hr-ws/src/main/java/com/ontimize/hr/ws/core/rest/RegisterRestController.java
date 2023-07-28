@@ -3,6 +3,7 @@ package com.ontimize.hr.ws.core.rest;
 import com.ontimize.hr.api.core.service.IRegisterService;
 import com.ontimize.jee.common.dto.EntityResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,13 +31,10 @@ public class RegisterRestController extends ORestController<IRegisterService> {
             value = "/makeRequest",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<EntityResult> makeRequest(@RequestBody Map<String, Object> body) {
-
+    public ResponseEntity<String> makeRequest(@RequestBody Map<String, Object> body) {
 
         registerService.registerInsert(body);
 
-        System.out.println("LLega");
-
-        return null;
+        return new ResponseEntity<>("Success!", HttpStatus.OK);
     }
 }
