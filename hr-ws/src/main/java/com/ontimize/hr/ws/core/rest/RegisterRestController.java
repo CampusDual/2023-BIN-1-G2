@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ontimize.jee.server.rest.ORestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -27,14 +28,5 @@ public class RegisterRestController extends ORestController<IRegisterService> {
         return this.registerService;
     }
 
-    @RequestMapping(
-            value = "/makeRequest",
-            method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> makeRequest(@RequestBody Map<String, Object> body) {
 
-        registerService.registerInsert(body);
-
-        return new ResponseEntity<>("Success!", HttpStatus.OK);
-    }
 }

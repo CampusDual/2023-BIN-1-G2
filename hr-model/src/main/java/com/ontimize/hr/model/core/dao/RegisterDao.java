@@ -13,7 +13,7 @@ public class RegisterDao extends OntimizeJdbcDaoSupport {
 
     public static final String ATTR_ID = "id";
 
-    public static final String ATTR_DEV = "dev";
+    public static final String ATTR_ID_DEV = "id_dev";
 
     public static final String ATTR_DATE = "date";
 
@@ -21,7 +21,7 @@ public class RegisterDao extends OntimizeJdbcDaoSupport {
 
     public static final String ATTR_CALCULATED_VOLUME = "calculated_volume";
 
-    public static final String ATTR_PLATE = "plate";
+    public static final String ATTR_ID_PLATE = "id_plate";
 
     public static final String ATTR_HEIGHT = "height";
 
@@ -29,8 +29,8 @@ public class RegisterDao extends OntimizeJdbcDaoSupport {
 
     public static final String ATTR_LENGTH = "length";
 
-    public static final String ATTR_TRAILER_PLATE = "trailer_plate";
+    public static final String ATTR_ID_TRAILER_PLATE = "id_trailer_plate";
 
-    public static final String ATTR_DELIVERY_NOTE = "delivery_note";
+    public static final String ATTR_ID_DELIVERY_NOTE = "id_delivery_note";
 
 }
