@@ -1,0 +1,79 @@
+<o-form service="registers" entity="register" keys="id" header-actions="R;U;D" show-header-navigation="yes">
+  
+
+  <o-row >
+    <o-column title-label="DELIVERY_NOTE"  fxFlex="70">
+      <o-text-input class="input-padding" attr="delivery_note" required="yes" ></o-text-input>
+    </o-column>
+    <o-column title-label="ID" fxFlex="30">
+      <o-integer-input class="input-padding" attr="id" sql-type="INTEGER" enabled="no"></o-integer-input>
+    </o-column> 
+  </o-row>
+
+  <o-row>
+    <o-column title-label="DATE" fxFlex="33">
+      <o-date-input class="input-padding" attr="date" ></o-date-input>
+    </o-column>
+    <o-column title-label="PLATE" fxFlex="33">
+      <o-text-input class="input-padding" attr="plate"  ></o-text-input>
+    </o-column>
+    <o-column title-label="TRAILER_PLATE" fxFlex="34">
+      <o-text-input class="input-padding" attr="trailer_plate"  ></o-text-input>
+    </o-column>
+  </o-row>
+  <o-row>
+    <o-column title-label="WIDTH" fxFlex="33">
+      <o-real-input class="input-padding" attr="width" max-decimal-digits="10" min-decimal-digits="0"></o-real-input>
+    </o-column>
+    <o-column title-label="HEIGHT" fxFlex="33">
+      <o-real-input class="input-padding" attr="height"  max-decimal-digits="10" min-decimal-digits="0"></o-real-input>
+    </o-column>
+    <o-column title-label="LENGTH" fxFlex="34">
+      <o-real-input class="input-padding" attr="length" max-decimal-digits="10" min-decimal-digits="0" ></o-real-input>
+    </o-column>
+  </o-row>
+  <o-row>
+    <o-column title-label="SCAN_VOLUME" fxFlex="33">
+      <o-real-input class="input-padding" attr="scan_volume" max-decimal-digits="10" min-decimal-digits="0"></o-real-input>
+    </o-column>
+    <o-column title-label="CALCULATED_VOLUME" fxFlex="33">
+      <o-real-input class="input-padding" attr="calculated_volume"  max-decimal-digits="10" min-decimal-digits="0"></o-real-input>
+    </o-column>
+    <o-column title-label="DEV" fxFlex="34">
+      <o-text-input class="input-padding" attr="dev" ></o-text-input>
+    </o-column>
+  </o-row>
+
+
+  
+  <!-- <o-row>
+    <o-column>
+      <o-image attr="EMPLOYEEPHOTO" empty-image="assets/images/no-image.png" sql-type="OTHER"></o-image>
+    </o-column>
+    <o-column title-label="EMPLOYEE_PERSONAL_INFORMATION" fxFlex>
+      <o-row>
+        <o-text-input class="input-padding" attr="EMPLOYEENAME" required="yes" fxFlex="40"></o-text-input>
+        <o-text-input class="input-padding" attr="EMPLOYEESURNAME" required="yes" fxFlex="40"></o-text-input>
+        <o-date-input attr="EMPLOYEESTARTDATE" fxFlex="20"></o-date-input>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="EMPLOYEEPHONE" fxFlex="40"></o-text-input>
+        <o-text-input class="input-padding" attr="EMPLOYEEEMAIL" fxFlex="40"></o-text-input>
+        <o-list-picker attr="EMPLOYEETYPEID" class="input-padding" fxFlex="20" service="employees" 
+           entity="employeeType" keys="EMPLOYEETYPEID" columns="EMPLOYEETYPEID;EMPLOYEETYPENAME" 
+           visible-columns="EMPLOYEETYPENAME" value-column="EMPLOYEETYPEID"></o-list-picker>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="EMPLOYEEADDRESS" fxFlex="65"></o-text-input>
+        <o-combo attr="OFFICEID" required="yes" class="input-padding" fxFlex="35" service="branches" 
+           entity="branch" keys="OFFICEID" columns="OFFICEID;NAME" 
+           visible-columns="NAME" value-column="OFFICEID"></o-combo>
+      </o-row>
+      <o-row>
+        <o-real-input attr="LONGITUDE" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" class="input-padding"
+          fxFlex="50"></o-real-input>
+        <o-real-input attr="LATITUDE" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" fxFlex="50"></o-real-input>
+      </o-row>
+    </o-column>
+  </o-row> -->
+</o-form>

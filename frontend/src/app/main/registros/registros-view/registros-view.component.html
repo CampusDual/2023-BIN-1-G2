@@ -1,6 +1,9 @@
-<div fxFill fxLayout="column" fxLayoutAlign="start">
-  <o-table attr="registersTable" service="registers" entity="register" keys="id" 
-    columns="id;dev;date;scan_volume;calculated_volume;plate;height;width;length;trailer_plate;delivery_note"
-    visible-columns="delivery_note;plate;trailer_plate;date;dev" query-rows="20">
-  </o-table>
-  </div>
+<o-form-layout-manager>
+  <div fxFill fxLayout="column" fxLayoutAlign="start">
+    <o-table attr="registersTable" service="registers" entity="register" keys="id" 
+      columns="id;dev;date;scan_volume;calculated_volume;plate;height;width;length;trailer_plate;delivery_note"
+      visible-columns="delivery_note;plate;trailer_plate;date;dev" query-rows="20">
+    </o-table>
+    </div>
+</o-form-layout-manager>
+
