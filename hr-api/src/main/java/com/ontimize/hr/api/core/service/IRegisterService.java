@@ -26,5 +26,6 @@ public interface IRegisterService {
 
     public EntityResult registerUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult registerDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-
+    public EntityResult completedQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult resumeDeliveryQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 }

@@ -1,4 +1,4 @@
-<o-form service="registers" entity="register" keys="id" header-actions="R;U;D" show-header-navigation="yes">
+<o-form service="registers" entity="completed" keys="id" header-actions="R;U;D" show-header-navigation="yes">
   
 
   <o-row >
@@ -15,10 +15,10 @@
       <o-date-input class="input-padding" attr="date" ></o-date-input>
     </o-column>
     <o-column title-label="PLATE" fxFlex="33">
-      <o-text-input class="input-padding" attr="plate"  ></o-text-input>
+      <o-text-input class="input-padding" attr="plate_name"  ></o-text-input>
     </o-column>
     <o-column title-label="TRAILER_PLATE" fxFlex="34">
-      <o-text-input class="input-padding" attr="trailer_plate"  ></o-text-input>
+      <o-text-input class="input-padding" attr="trailer_plate_name"  ></o-text-input>
     </o-column>
   </o-row>
   <o-row>
@@ -40,7 +40,7 @@
       <o-real-input class="input-padding" attr="calculated_volume"  max-decimal-digits="10" min-decimal-digits="0"></o-real-input>
     </o-column>
     <o-column title-label="DEV" fxFlex="34">
-      <o-text-input class="input-padding" attr="dev" ></o-text-input>
+      <o-text-input class="input-padding" attr="dev_name" ></o-text-input>
     </o-column>
   </o-row>
 

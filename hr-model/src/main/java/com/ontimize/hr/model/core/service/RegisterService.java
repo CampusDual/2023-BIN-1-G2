@@ -93,6 +93,15 @@ public class RegisterService implements IRegisterService {
         return this.daoHelper.delete(this.registerDao, keyMap);
     }
 
-
+    @Override
+    public EntityResult completedQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_COMPLETED);
+    }
+    @Override
+    public EntityResult resumeDeliveryQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_RESUME_DELIVERY);
+    }
 
 }
