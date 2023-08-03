@@ -3,9 +3,7 @@ package com.ontimize.hr.ws.core.rest;
 import com.ontimize.hr.api.core.service.IRegisterService;
 import com.ontimize.hr.model.core.dao.*;
 import com.ontimize.jee.common.dto.EntityResult;
-import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,11 +41,21 @@ public class RegisterRestController extends ORestController<IRegisterService> {
         Map<String,Object> mapDeliveryNotes= new HashMap<>();
         Map<String,Object> mapRegister= new HashMap<>(body);
 
+        boolean is_in=body.get("dev").equals("IN_SCAN_1");
+        String attr_id_dev= is_in? RegisterDao.ATTR_ID_DEV_IN: RegisterDao.ATTR_ID_DEV_OUT;
 
         mapDevices.put("dev_name",body.get("dev"));
         mapPlates.put("plate_name",body.get("plate"));
         mapTrailerPlates.put("trailer_plate_name",body.get("trailer_plate"));
         mapDeliveryNotes.put("delivery_note",body.get("delivery_note"));
+
+        if(is_in){
+            mapRegister.put(RegisterDao.ATTR_DATE_IN, body.get("date"));
+            mapRegister.put(RegisterDao.ATTR_SCAN_VOLUME_IN,body.get("scan_volume"));
+        }else{
+            mapRegister.put(RegisterDao.ATTR_DATE_OUT,body.get("date"));
+            mapRegister.put(RegisterDao.ATTR_SCAN_VOLUME_OUT,body.get("scan_volume"));
+        }
 
         EntityResult query;
         List<String> attr=new ArrayList<String>();
@@ -56,10 +64,10 @@ public class RegisterRestController extends ORestController<IRegisterService> {
         query=this.registerService.registerDevicesQuery(mapDevices,attr);
         attr.remove(0);
         if(query.calculateRecordNumber()>0){
-            mapRegister.put(RegisterDao.ATTR_ID_DEV,query.getRecordValues(0).get(DevicesDao.ATTR_ID_DEV));
+            mapRegister.put(attr_id_dev,query.getRecordValues(0).get(DevicesDao.ATTR_ID_DEV));
         }else{
             EntityResult resultDevices= registerService.registerDevicesInsert(mapDevices);
-            mapRegister.put(RegisterDao.ATTR_ID_DEV, resultDevices.get(DevicesDao.ATTR_ID_DEV));
+            mapRegister.put(attr_id_dev, resultDevices.get(DevicesDao.ATTR_ID_DEV));
         }
 
         attr.add(PlatesDao.ATTR_ID_PLATE);
@@ -87,14 +95,19 @@ public class RegisterRestController extends ORestController<IRegisterService> {
         attr.remove(0);
         if(query.calculateRecordNumber()>0){
             mapRegister.put(RegisterDao.ATTR_ID_DELIVERY_NOTE,query.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
+            attr.add(RegisterDao.ATTR_ID);
+            Map<String,Object> busquedaDeliveryNote= query.getRecordValues(0);
+            query=this.registerService.registerQuery(busquedaDeliveryNote,attr);
+            registerService.registerUpdate(mapRegister,query.getRecordValues(0));
         }else{
             EntityResult resultDeliveryNotes= registerService.registerDeliveryNotesInsert(mapDeliveryNotes);
             mapRegister.put(RegisterDao.ATTR_ID_DELIVERY_NOTE, resultDeliveryNotes.get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
+            //podemos aprovechar la query de los delivery_notes porque van a tener una entrada única en la tabla de registro_camiones
+            registerService.registerInsert(mapRegister);
         }
 
 
 
-        registerService.registerInsert(mapRegister);
         return null;
     }
 }

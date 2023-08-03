@@ -22,7 +22,6 @@
       #COLUMNS#
      from registros_camiones rc
     left join delivery_notes dn on rc.id_delivery_note = dn.id_delivery_note
-    left join devices d on rc.id_dev =d.id_dev
     left join plates p on rc.id_plate =p.id_plate
     left join trailer_plates tp on rc.id_trailer_plate =tp.id_trailer_plate
      #WHERE#
@@ -30,18 +29,6 @@
             </Sentence>
         </Query>
 
-        <Query id="resume_delivery">
 
-            <Sentence>
-                <![CDATA[
-     SELECT
-      delivery_note,string_agg(date,' ; ')
-     from registros_camiones rc
-    left join delivery_notes dn on rc.id_delivery_note = dn.id_delivery_note
-     #WHERE#
-     group by delivery_note
-   ]]>
-            </Sentence>
-        </Query>
     </Queries>
 </JdbcEntitySetup>

@@ -13,12 +13,12 @@ public class RegisterDao extends OntimizeJdbcDaoSupport {
 
     public static final String ATTR_ID = "id";
 
-    public static final String ATTR_ID_DEV = "id_dev";
-
-    public static final String ATTR_DATE = "date";
-
-    public static final String ATTR_SCAN_VOLUME = "scan_volume";
-
+    public static final String ATTR_ID_DEV_IN = "id_dev_in";
+    public static final String ATTR_ID_DEV_OUT = "id_dev_out";
+    public static final String ATTR_DATE_IN = "date_in";
+    public static final String ATTR_DATE_OUT = "date_out";
+    public static final String ATTR_SCAN_VOLUME_IN = "scan_volume_in";
+    public static final String ATTR_SCAN_VOLUME_OUT = "scan_volume_out";
     public static final String ATTR_CALCULATED_VOLUME = "calculated_volume";
 
     public static final String ATTR_ID_PLATE = "id_plate";
@@ -35,3 +35,6 @@ public class RegisterDao extends OntimizeJdbcDaoSupport {
     public static final String QUERY_COMPLETED = "completed";
     public static final String QUERY_RESUME_DELIVERY = "resume_delivery";
 }
+
+
+
