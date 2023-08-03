@@ -1,10 +1,9 @@
 
 <o-form-layout-manager>
   <div fxFill fxLayout="column" fxLayoutAlign="start">
-    <o-table attr="resumeDeliveryTable" service="registers" entity="resumeDelivery" keys="delivery_note" 
-    columns="calzoncillo;delivery_note;string_agg;spaguettis"
-      visible-columns="delivery_note;string_agg" query-rows="20">
-      <o-table-column attr="string_agg" title="dates"></o-table-column>
+    <o-table attr="resumeDeliveryTable" service="registers" entity="completed" keys="id" 
+    columns="id;date_in;date_out;delivery_note"
+      visible-columns="delivery_note;date_in;date_out" query-rows="20">
     </o-table>
     </div>
 </o-form-layout-manager>

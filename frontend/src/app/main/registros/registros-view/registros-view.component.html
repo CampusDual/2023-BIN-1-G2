@@ -1,8 +1,8 @@
 <o-form-layout-manager>
   <div fxFill fxLayout="column" fxLayoutAlign="start">
     <o-table attr="registersTable" service="registers" entity="completed" keys="id" 
-      columns="id;dev_name;date;scan_volume;calculated_volume;plate_name;height;width;length;trailer_plate_name;delivery_note"
-      visible-columns="delivery_note;plate_name;trailer_plate_name;date;dev_name" query-rows="20">
+      columns="id;date_in;date_out;scan_volume_in;scan_volume_out;calculated_volume;plate_name;height;width;length;trailer_plate_name;delivery_note"
+      visible-columns="delivery_note;date_in;date_out;trailer_plate_name" query-rows="20">
     </o-table>
     </div>
 </o-form-layout-manager>
