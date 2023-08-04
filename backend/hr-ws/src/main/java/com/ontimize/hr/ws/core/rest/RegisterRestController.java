@@ -34,80 +34,123 @@ public class RegisterRestController extends ORestController<IRegisterService> {
             value = "/makeRequest",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> makeRequest(@RequestBody Map<String, Object> body){
-        Map<String,Object> mapDevices= new HashMap<>();
-        Map<String,Object> mapPlates= new HashMap<>();
-        Map<String,Object> mapTrailerPlates= new HashMap<>();
-        Map<String,Object> mapDeliveryNotes= new HashMap<>();
-        Map<String,Object> mapRegister= new HashMap<>(body);
+    public ResponseEntity<String> makeRequest(@RequestBody Map<String, Object> body) {
+        Map<String, Object> mapDevices = new HashMap<>();
+        Map<String, Object> mapPlates = new HashMap<>();
+        Map<String, Object> mapTrailerPlates = new HashMap<>();
+        Map<String, Object> mapDeliveryNotes = new HashMap<>();
+        Map<String, Object> mapRegister = new HashMap<>(body);
 
-        boolean is_in=body.get("dev").equals("IN_SCAN_1");
-        String attr_id_dev= is_in? RegisterDao.ATTR_ID_DEV_IN: RegisterDao.ATTR_ID_DEV_OUT;
+        boolean is_in = body.get("dev").equals("IN_SCAN_1");
+        String attr_id_dev = is_in ? RegisterDao.ATTR_ID_DEV_IN : RegisterDao.ATTR_ID_DEV_OUT;
 
-        mapDevices.put("dev_name",body.get("dev"));
-        mapPlates.put("plate_name",body.get("plate"));
-        mapTrailerPlates.put("trailer_plate_name",body.get("trailer_plate"));
-        mapDeliveryNotes.put("delivery_note",body.get("delivery_note"));
+        mapDevices.put("dev_name", body.get("dev"));
+        mapPlates.put("plate_name", body.get("plate"));
+        mapTrailerPlates.put("trailer_plate_name", body.get("trailer_plate"));
+        mapDeliveryNotes.put("delivery_note", body.get("delivery_note"));
 
-        if(is_in){
+        if (is_in) {
             mapRegister.put(RegisterDao.ATTR_DATE_IN, body.get("date"));
-            mapRegister.put(RegisterDao.ATTR_SCAN_VOLUME_IN,body.get("scan_volume"));
-        }else{
-            mapRegister.put(RegisterDao.ATTR_DATE_OUT,body.get("date"));
-            mapRegister.put(RegisterDao.ATTR_SCAN_VOLUME_OUT,body.get("scan_volume"));
+            mapRegister.put(RegisterDao.ATTR_SCAN_VOLUME_IN, body.get("scan_volume"));
+        } else {
+            mapRegister.put(RegisterDao.ATTR_DATE_OUT, body.get("date"));
+            mapRegister.put(RegisterDao.ATTR_SCAN_VOLUME_OUT, body.get("scan_volume"));
         }
 
         EntityResult query;
-        List<String> attr=new ArrayList<String>();
+        List<String> attr = new ArrayList<String>();
         attr.add(DevicesDao.ATTR_ID_DEV);
 
-        query=this.registerService.registerDevicesQuery(mapDevices,attr);
+        query = this.registerService.registerDevicesQuery(mapDevices, attr);
         attr.remove(0);
-        if(query.calculateRecordNumber()>0){
-            mapRegister.put(attr_id_dev,query.getRecordValues(0).get(DevicesDao.ATTR_ID_DEV));
-        }else{
-            EntityResult resultDevices= registerService.registerDevicesInsert(mapDevices);
+        if (query.calculateRecordNumber() > 0) {
+            mapRegister.put(attr_id_dev, query.getRecordValues(0).get(DevicesDao.ATTR_ID_DEV));
+        } else {
+            EntityResult resultDevices = registerService.registerDevicesInsert(mapDevices);
             mapRegister.put(attr_id_dev, resultDevices.get(DevicesDao.ATTR_ID_DEV));
         }
 
         attr.add(PlatesDao.ATTR_ID_PLATE);
-        query=this.registerService.registerPlatesQuery(mapPlates,attr);
+        query = this.registerService.registerPlatesQuery(mapPlates, attr);
         attr.remove(0);
-        if(query.calculateRecordNumber()>0){
-            mapRegister.put(RegisterDao.ATTR_ID_PLATE,query.getRecordValues(0).get(PlatesDao.ATTR_ID_PLATE));
-        }else{
-            EntityResult resultPlates= registerService.registerPlatesInsert(mapPlates);
+        if (query.calculateRecordNumber() > 0) {
+            mapRegister.put(RegisterDao.ATTR_ID_PLATE, query.getRecordValues(0).get(PlatesDao.ATTR_ID_PLATE));
+        } else {
+            EntityResult resultPlates = registerService.registerPlatesInsert(mapPlates);
             mapRegister.put(RegisterDao.ATTR_ID_PLATE, resultPlates.get(PlatesDao.ATTR_ID_PLATE));
         }
 
         attr.add(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE);
-        query=this.registerService.registerTrailerPlatesQuery(mapTrailerPlates,attr);
+        query = this.registerService.registerTrailerPlatesQuery(mapTrailerPlates, attr);
         attr.remove(0);
-        if(query.calculateRecordNumber()>0){
-            mapRegister.put(RegisterDao.ATTR_ID_TRAILER_PLATE,query.getRecordValues(0).get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE));
-        }else{
-            EntityResult resultTrailerPlates= registerService.registerTrailerPlatesInsert(mapTrailerPlates);
+        if (query.calculateRecordNumber() > 0) {
+            mapRegister.put(RegisterDao.ATTR_ID_TRAILER_PLATE, query.getRecordValues(0).get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE));
+        } else {
+            EntityResult resultTrailerPlates = registerService.registerTrailerPlatesInsert(mapTrailerPlates);
             mapRegister.put(RegisterDao.ATTR_ID_TRAILER_PLATE, resultTrailerPlates.get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE));
         }
 
         attr.add(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
-        query=this.registerService.registerDeliveryNotesQuery(mapDeliveryNotes,attr);
+        query = this.registerService.registerDeliveryNotesQuery(mapDeliveryNotes, attr);
         attr.remove(0);
-        if(query.calculateRecordNumber()>0){
-            mapRegister.put(RegisterDao.ATTR_ID_DELIVERY_NOTE,query.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
-            attr.add(RegisterDao.ATTR_ID);
+
+
+        if (query.calculateRecordNumber() > 0) {
+            mapRegister.put(RegisterDao.ATTR_ID_DELIVERY_NOTE, query.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
+            /*attr.add(RegisterDao.ATTR_ID);
             Map<String,Object> busquedaDeliveryNote= query.getRecordValues(0);
             query=this.registerService.registerQuery(busquedaDeliveryNote,attr);
-            registerService.registerUpdate(mapRegister,query.getRecordValues(0));
-        }else{
-            EntityResult resultDeliveryNotes= registerService.registerDeliveryNotesInsert(mapDeliveryNotes);
+
+            List<String> attr_dev= new ArrayList<>();
+            attr_dev.add(RegisterDao.ATTR_ID);
+            attr_dev.add(RegisterDao.ATTR_ID_DEV_IN);
+            attr_dev.add(RegisterDao.ATTR_ID_DEV_OUT);
+            EntityResult query2;
+
+            query2=this.registerService.registerQuery(mapRegister,attr_dev);
+
+            if()
+            registerService.registerUpdate(mapRegister,query.getRecordValues(0));*/
+        } else {
+            EntityResult resultDeliveryNotes = registerService.registerDeliveryNotesInsert(mapDeliveryNotes);
             mapRegister.put(RegisterDao.ATTR_ID_DELIVERY_NOTE, resultDeliveryNotes.get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
             //podemos aprovechar la query de los delivery_notes porque van a tener una entrada única en la tabla de registro_camiones
-            registerService.registerInsert(mapRegister);
+            // registerService.registerInsert(mapRegister);
         }
 
+        mapRegister.remove("date");
+        mapRegister.remove("plate");
+        mapRegister.remove("delivery_note");
+        mapRegister.remove("scan_volume");
+        mapRegister.remove("dev");
+        mapRegister.remove("trailer_plate");
 
 
+        attr.add(RegisterDao.ATTR_ID);
+        attr.add(RegisterDao.ATTR_ID_DEV_IN);
+        attr.add(RegisterDao.ATTR_ID_DEV_OUT);
+        Map<String,Object> busquedaDeliveryNote= query.getRecordValues(0);
+        query = this.registerService.registerQuery(busquedaDeliveryNote, attr);
+
+        for (int i = 0; i < query.calculateRecordNumber(); i++) {
+            Object dev_in_value = query.getRecordValues(i).get(RegisterDao.ATTR_ID_DEV_IN);
+            Object dev_out_value = query.getRecordValues(i).get(RegisterDao.ATTR_ID_DEV_OUT);
+
+            if (dev_in_value != null && dev_out_value!=null) {
+                if(i==query.calculateRecordNumber()-1) {
+                    registerService.registerInsert(mapRegister);
+                    break;
+                }
+            }else{
+                Map<String,Object> id_update_map=new HashMap<>();
+                id_update_map.put(RegisterDao.ATTR_ID,query.getRecordValues(i).get(RegisterDao.ATTR_ID));
+                registerService.registerUpdate(mapRegister,id_update_map);
+                break;
+            }
+        }
+        if (query.calculateRecordNumber() == 0) {
+            registerService.registerInsert(mapRegister);
+        }
         return null;
     }
 }
