@@ -129,28 +129,32 @@ public class RegisterRestController extends ORestController<IRegisterService> {
         attr.add(RegisterDao.ATTR_ID);
         attr.add(RegisterDao.ATTR_ID_DEV_IN);
         attr.add(RegisterDao.ATTR_ID_DEV_OUT);
-        Map<String,Object> busquedaDeliveryNote= query.getRecordValues(0);
+
+        if (query.calculateRecordNumber() == 0) {
+            registerService.registerInsert(mapRegister);
+            return null;
+        }
+        Map<String, Object> busquedaDeliveryNote = query.getRecordValues(0);
         query = this.registerService.registerQuery(busquedaDeliveryNote, attr);
 
         for (int i = 0; i < query.calculateRecordNumber(); i++) {
             Object dev_in_value = query.getRecordValues(i).get(RegisterDao.ATTR_ID_DEV_IN);
             Object dev_out_value = query.getRecordValues(i).get(RegisterDao.ATTR_ID_DEV_OUT);
 
-            if (dev_in_value != null && dev_out_value!=null) {
-                if(i==query.calculateRecordNumber()-1) {
+            if (dev_in_value != null && dev_out_value != null) {
+                if (i == query.calculateRecordNumber() - 1) {
                     registerService.registerInsert(mapRegister);
                     break;
                 }
-            }else{
-                Map<String,Object> id_update_map=new HashMap<>();
-                id_update_map.put(RegisterDao.ATTR_ID,query.getRecordValues(i).get(RegisterDao.ATTR_ID));
-                registerService.registerUpdate(mapRegister,id_update_map);
+            } else {
+                Map<String, Object> id_update_map = new HashMap<>();
+                id_update_map.put(RegisterDao.ATTR_ID, query.getRecordValues(i).get(RegisterDao.ATTR_ID));
+                registerService.registerUpdate(mapRegister, id_update_map);
                 break;
             }
         }
-        if (query.calculateRecordNumber() == 0) {
-            registerService.registerInsert(mapRegister);
-        }
+
+
         return null;
     }
 }
