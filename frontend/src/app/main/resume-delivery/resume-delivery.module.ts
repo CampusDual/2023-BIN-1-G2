@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ResumeDeliveryViewComponent } from './resume-delivery-view/resume-delivery-view.component';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { ResumeDeliveryRoutingModule } from './resume-delivery-routing.module';
+import { OChartModule } from 'ontimize-web-ngx-charts';
 
 @NgModule({
   imports: [
     CommonModule,
     OntimizeWebModule,
-    ResumeDeliveryRoutingModule
+    ResumeDeliveryRoutingModule,
+    OChartModule
   ],
   declarations: [ResumeDeliveryViewComponent]
 })

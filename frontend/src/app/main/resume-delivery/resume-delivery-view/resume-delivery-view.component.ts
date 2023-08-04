@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartSeries, LineChartConfiguration } from 'ontimize-web-ngx-charts';
 
 @Component({
   selector: 'app-resume-delivery-view',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resume-delivery-view.component.css']
 })
 export class ResumeDeliveryViewComponent implements OnInit {
+
+  public movementTypesChartParams: LineChartConfiguration;
 
   constructor() { }
 

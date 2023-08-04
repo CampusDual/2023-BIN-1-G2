@@ -3,6 +3,10 @@
     <o-table attr="registersTable" service="registers" entity="completed" keys="id" 
       columns="id;date_in;date_out;scan_volume_in;scan_volume_out;calculated_volume;plate_name;height;width;length;trailer_plate_name;delivery_note"
       visible-columns="delivery_note;date_in;date_out;trailer_plate_name" query-rows="20">
+    
+      <o-table-column attr="date_in" type="time"></o-table-column>
+      <o-table-column attr="date_out" type="time"></o-table-column>
+    
     </o-table>
     </div>
 </o-form-layout-manager>

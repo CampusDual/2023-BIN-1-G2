@@ -1,9 +1,25 @@
-
 <o-form-layout-manager>
   <div fxFill fxLayout="column" fxLayoutAlign="start">
-    <o-table attr="resumeDeliveryTable" service="registers" entity="completed" keys="id" 
-    columns="id;date_in;date_out;delivery_note"
-      visible-columns="delivery_note;date_in;date_out" query-rows="20">
+    <o-table
+      attr="resumeDeliveryTable"
+      service="registers"
+      entity="completed"
+      keys="id"
+      columns="id;date_in;date_out;delivery_note"
+      visible-columns="delivery_note;date_in;date_out"
+      query-rows="20"
+    >
     </o-table>
-    </div>
+  </div>
 </o-form-layout-manager>
+
+<o-chart
+  type="line"
+  x-label="Time"
+  y-label="Nº"
+  service="registers"
+  entity="register"
+  x-axis="date_in"
+  y-axis="id_delivery_note"
+  x-data-type="time"
+></o-chart>
