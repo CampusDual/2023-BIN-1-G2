@@ -34,5 +34,6 @@
   "SCAN_VOLUME_IN": "Entry Volume",
   "SCAN_VOLUME_OUT": "Exit Volume",
   "IN": "IN",
-  "OUT": "OUT"
+  "OUT": "OUT",
+  "GO_TO": "View"
 }

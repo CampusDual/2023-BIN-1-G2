@@ -34,5 +34,6 @@
   "SCAN_VOLUME_IN": "Volumen entrada",
   "SCAN_VOLUME_OUT": "Volumen salida",
   "IN": "ENTRADA",
-  "OUT": "SALIDA"
+  "OUT": "SALIDA",
+  "GO_TO": "Ver"
 }
