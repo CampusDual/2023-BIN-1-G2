@@ -30,5 +30,4 @@ public interface IRegisterService {
     public EntityResult resumeDeliveryQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 
     public EntityResult trafficDateQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-
 }

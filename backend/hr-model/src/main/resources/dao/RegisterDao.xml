@@ -28,14 +28,15 @@
    ]]>
             </Sentence>
         </Query>
-
         <Query id="traffic_date">
+
             <Sentence>
                 <![CDATA[
-                    select fecha, count(id_delivery_note) as count_delivery
-                    from (select cast( rc.date_in as date) as fecha , rc.id_delivery_note from registros_camiones rc) as type_change
-                    group by fecha
-                ]]>
+     select fecha, count(id_delivery_note)
+    from (select cast( rc.date_in as date) as fecha , rc.id_delivery_note from registros_camiones rc) as type_change
+    group by fecha
+    #HAVING#
+   ]]>
             </Sentence>
         </Query>
 

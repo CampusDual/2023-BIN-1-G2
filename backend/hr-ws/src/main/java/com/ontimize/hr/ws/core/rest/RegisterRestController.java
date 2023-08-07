@@ -51,7 +51,7 @@ public class RegisterRestController extends ORestController<IRegisterService> {
         mapDeliveryNotes.put("delivery_note", body.get("delivery_note"));
 
         if (is_in) {
-            mapRegister.put(RegisterDao.ATTR_DATE_IN, Timestamp.valueOf((String) body.get("date")));
+            mapRegister.put(RegisterDao.ATTR_DATE_IN, Timestamp.valueOf( (String)body.get("date")));
             mapRegister.put(RegisterDao.ATTR_SCAN_VOLUME_IN, body.get("scan_volume"));
         } else {
             mapRegister.put(RegisterDao.ATTR_DATE_OUT, Timestamp.valueOf((String) body.get("date")));
@@ -98,9 +98,25 @@ public class RegisterRestController extends ORestController<IRegisterService> {
 
         if (query.calculateRecordNumber() > 0) {
             mapRegister.put(RegisterDao.ATTR_ID_DELIVERY_NOTE, query.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
+            /*attr.add(RegisterDao.ATTR_ID);
+            Map<String,Object> busquedaDeliveryNote= query.getRecordValues(0);
+            query=this.registerService.registerQuery(busquedaDeliveryNote,attr);
+
+            List<String> attr_dev= new ArrayList<>();
+            attr_dev.add(RegisterDao.ATTR_ID);
+            attr_dev.add(RegisterDao.ATTR_ID_DEV_IN);
+            attr_dev.add(RegisterDao.ATTR_ID_DEV_OUT);
+            EntityResult query2;
+
+            query2=this.registerService.registerQuery(mapRegister,attr_dev);
+
+            if()
+            registerService.registerUpdate(mapRegister,query.getRecordValues(0));*/
         } else {
             EntityResult resultDeliveryNotes = registerService.registerDeliveryNotesInsert(mapDeliveryNotes);
             mapRegister.put(RegisterDao.ATTR_ID_DELIVERY_NOTE, resultDeliveryNotes.get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
+            //podemos aprovechar la query de los delivery_notes porque van a tener una entrada única en la tabla de registro_camiones
+            // registerService.registerInsert(mapRegister);
         }
 
         mapRegister.remove("date");
