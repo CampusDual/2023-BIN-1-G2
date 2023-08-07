@@ -22,6 +22,7 @@
   "FOOTER_CREATED_BY": "Created by Imatia Innovation",
   "FOOTER_RIGHTS": "All rights reserved",
   "count_delivery": "Delivery Count (nº)",
+  "acumulated":"Delivery Count (nº)",
   "DELIVERY_NOTE": "Delivery Number",
   "DATE_IN": "Entry Date",
   "DATE_OUT": "Exit Date",
