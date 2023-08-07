@@ -8,6 +8,8 @@
   "LOGOUT": "Logout",
   "VIEW": "Views",
   "HOME": "Home",
+  "REGISTERS": "Registers",
+  "RESUME": "Plots",
   "LOGIN_TITLE": "Log in to your account",
   "ERROR_REQUIRED_FIELD": "Field is required",
   "ERROR_MIN_LENGTH_REQUIRED": "The value length entered must be at least 8 characters.",
@@ -18,6 +20,19 @@
   "REMEMBER_ME": "Remember me",
   "FORGOT_PWD": "Forgot your password?",
   "FOOTER_CREATED_BY": "Created by Imatia Innovation",
-  "FOOTER_RIGHTS": "All rights reserved"
- 
+  "FOOTER_RIGHTS": "All rights reserved",
+  "count_delivery": "Delivery Count (nº)",
+  "DELIVERY_NOTE": "Delivery Number",
+  "DATE_IN": "Entry Date",
+  "DATE_OUT": "Exit Date",
+  "TRAILER_PLATE_NAME": "Trailer Plate",
+  "PLATE_NAME": "Truck Plate",
+  "CALCULATED_VOLUME": "Calculated Volume",
+  "WIDTH": "Width",
+  "HEIGHT": "Height",
+  "LENGTH": "Length",
+  "SCAN_VOLUME_IN": "Entry Volume",
+  "SCAN_VOLUME_OUT": "Exit Volume",
+  "IN": "IN",
+  "OUT": "OUT"
 }

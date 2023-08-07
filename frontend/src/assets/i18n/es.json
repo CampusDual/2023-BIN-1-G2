@@ -8,6 +8,8 @@
   "LOGOUT": "Salir",
   "VIEW": "Vistas",
   "HOME": "Inicio",
+  "REGISTERS": "Registros",
+  "RESUME": "Gráficas",
   "LOGIN_TITLE": "Inicia sesión en tu cuenta",
   "ERROR_REQUIRED_FIELD": "El campo es requerido",
   "ERROR_MIN_LENGTH_REQUIRED": "El valor introducido tiene que tener una longitud mínima de 8 caracteres",
@@ -18,6 +20,19 @@
   "REMEMBER_ME": "Recuérdame",
   "FORGOT_PWD": "¿Has olvidado tu contraseña?",
   "FOOTER_CREATED_BY": "Creado por Imatia Innovation",
-  "FOOTER_RIGHTS": "Todos los derechos reservados"
- 
+  "FOOTER_RIGHTS": "Todos los derechos reservados",
+  "count_delivery": "Número de pedidos (nº)",
+  "DELIVERY_NOTE": "Número de pedido",
+  "DATE_IN": "Fecha de Entrada",
+  "DATE_OUT": "Fecha de Salida",
+  "TRAILER_PLATE_NAME": "Matrícula Trailer",
+  "PLATE_NAME": "Matrícula Camión",
+  "CALCULATED_VOLUME": "Volumen Calculado",
+  "WIDTH": "Ancho",
+  "HEIGHT": "Alto",
+  "LENGTH": "Largo",
+  "SCAN_VOLUME_IN": "Volumen entrada",
+  "SCAN_VOLUME_OUT": "Volumen salida",
+  "IN": "ENTRADA",
+  "OUT": "SALIDA"
 }

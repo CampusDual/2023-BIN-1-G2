@@ -1,18 +1,16 @@
-<o-form-layout-manager>
-  <div fxFill fxLayout="column" fxLayoutAlign="start">
-    <o-table
-      attr="resumeDeliveryTable"
-      service="registers"
-      entity="completed"
-      keys="id"
-      columns="id;date_in;date_out;delivery_note"
-      visible-columns="delivery_note;date_in;date_out"
-      query-rows="20"
-    >
-    </o-table>
-  </div>
-</o-form-layout-manager>
+<o-chart
+  type="line"
+  x-label="Time"
+  y-label="Nº"
+  service="registers"
+  entity="trafficDate"
+  x-axis="fecha"
+  y-axis="count_delivery"
+  x-data-type="time"
+  [chart-parameters]="movementTypesChartParams"
+></o-chart>
 
+<!-- 
 <o-chart
   type="line"
   x-label="Time"
@@ -20,6 +18,7 @@
   service="registers"
   entity="register"
   x-axis="date_in"
-  y-axis="id_delivery_note"
+  y-axis="calculated_volume"
   x-data-type="time"
-></o-chart>
+></o-chart> -->
+
