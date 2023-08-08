@@ -1,3 +1,14 @@
-.cabecera{
-    text-align: center;
+.cabecera {
+  text-align: center;
+}
+
+.col-in-out {
+    border: 1px solid gray;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f6f8faa1;
+    -webkit-box-shadow: 0px 7px 18px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 21px 18px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 18px -5px rgba(0,0,0,0.75);
 }

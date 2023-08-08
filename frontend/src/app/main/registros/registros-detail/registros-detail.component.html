@@ -19,40 +19,40 @@
       <o-text-input class="input-padding" attr="trailer_plate_name" label="TRAILER_PLATE_NAME"  ></o-text-input>
     </o-column>
   <o-column title-label="CALCULATED_VOLUME" fxFlex="33">
-    <o-real-input class="input-padding" attr="calculated_volume" label="CALCULATED_VOLUME"  max-decimal-digits="10" min-decimal-digits="0"></o-real-input>
+    <o-real-input class="input-padding" attr="calculated_volume" label="CALCULATED_VOLUME"  decimal-digits="2"></o-real-input>
   </o-column>
   </o-row>
 
 
   <o-row>
     <o-column title-label="WIDTH" fxFlex="33">
-      <o-real-input class="input-padding" attr="width" label="WIDTH" max-decimal-digits="10" min-decimal-digits="0"></o-real-input>
+      <o-real-input class="input-padding" attr="width" label="WIDTH" decimal-digits="2"></o-real-input>
     </o-column>
     <o-column title-label="HEIGHT" fxFlex="33">
-      <o-real-input class="input-padding" attr="height" label="HEIGHT"  max-decimal-digits="10" min-decimal-digits="0"></o-real-input>
+      <o-real-input class="input-padding" attr="height" label="HEIGHT"  decimal-digits="2"></o-real-input>
     </o-column>
     <o-column title-label="LENGTH" fxFlex="34">
-      <o-real-input class="input-padding" attr="length" label="LENGTH" max-decimal-digits="10" min-decimal-digits="0" ></o-real-input>
+      <o-real-input class="input-padding" attr="length" label="LENGTH" decimal-digits="2" ></o-real-input>
     </o-column>
   </o-row>
 
 <o-row>
-  <o-column title-label="IN" fxFlex="50">
+  <o-column title-label="IN" fxFlex="50" class="col-in-out">
     <h3 class="cabecera">{{'IN' | oTranslate}}</h3>
     <o-row title-label="DATE" >
       <o-time-input class="input-padding" label="DATE_IN" attr="date_in" fxFlex="100"></o-time-input>
     </o-row>
     <o-row  title-label="SCAN_VOLUME" >
-      <o-real-input class="input-padding" label="SCAN_VOLUME_IN" attr="scan_volume_in" max-decimal-digits="10" min-decimal-digits="0" fxFlex="100"></o-real-input>
+      <o-real-input class="input-padding" label="SCAN_VOLUME_IN" attr="scan_volume_in" decimal-digits="2" fxFlex="100"></o-real-input>
     </o-row>
   </o-column>
-  <o-column title-label="OUT" fxFlex="50">
+  <o-column title-label="OUT" fxFlex="50" class="col-in-out">
     <h3 class="cabecera">{{'OUT' | oTranslate}}</h3>
     <o-row title-label="DATE">
       <o-time-input class="input-padding" label="DATE_OUT" attr="date_out" fxFlex="100"></o-time-input>
     </o-row>
     <o-row  title-label="SCAN_VOLUME">
-      <o-real-input class="input-padding" label="SCAN_VOLUME_OUT"  attr="scan_volume_out" max-decimal-digits="10" min-decimal-digits="0" fxFlex="100"></o-real-input>
+      <o-real-input class="input-padding" label="SCAN_VOLUME_OUT"  attr="scan_volume_out" decimal-digits="2" fxFlex="100"></o-real-input>
     </o-row>
   </o-column>
 </o-row>
