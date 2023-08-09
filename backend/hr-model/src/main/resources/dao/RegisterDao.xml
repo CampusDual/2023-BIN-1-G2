@@ -32,16 +32,18 @@
         <Query id="traffic_date">
             <Sentence>
                 <![CDATA[
+                    WITH WRAPER AS(
                     WITH date_range AS
                      (SELECT generate_series(
                      (SELECT MIN(date_in)
                      FROM registros_camiones),
                     (SELECT MAX(date_in) FROM registros_camiones), '1 day' )::DATE AS generated_date )
-                    SELECT date_range.generated_date as day, COALESCE(conteo, 0) as acumulated FROM date_range
-                    LEFT JOIN ( SELECT date(date_in) AS fecha, COUNT(*) AS conteo FROM registros_camiones sr
-                    GROUP BY date(date_in) ) AS sr_count ON date_range.generated_date = sr_count.fecha
-                    #WHERE#
-                    ORDER BY date_range.generated_date;
+                    SELECT  extract(epoch from date_range.generated_date) * 1000 as day, COALESCE(conteo, 0) as acumulated FROM date_range
+                    LEFT JOIN (select extract(epoch from date(date_in)) * 1000 as fecha, COUNT(*) AS conteo FROM registros_camiones sr
+                    GROUP BY date(date_in) ) AS sr_count ON extract(epoch from date_range.generated_date) * 1000 = sr_count.fecha
+                    ORDER BY date_range.generated_date)
+                    SELECT * FROM WRAPER
+                    #WHERE#;
                 ]]>
             </Sentence>
         </Query>
