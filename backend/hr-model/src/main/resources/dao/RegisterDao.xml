@@ -40,6 +40,7 @@
                     SELECT date_range.generated_date as day, COALESCE(conteo, 0) as acumulated FROM date_range
                     LEFT JOIN ( SELECT date(date_in) AS fecha, COUNT(*) AS conteo FROM registros_camiones sr
                     GROUP BY date(date_in) ) AS sr_count ON date_range.generated_date = sr_count.fecha
+                    #WHERE#
                     ORDER BY date_range.generated_date;
                 ]]>
             </Sentence>

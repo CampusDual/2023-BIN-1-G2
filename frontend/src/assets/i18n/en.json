@@ -36,5 +36,10 @@
   "SCAN_VOLUME_OUT": "Exit Volume",
   "IN": "IN",
   "OUT": "OUT",
-  "GO_TO": "View"
+  "GO_TO": "View",
+  "DATE_FILTER": "Date Filter",
+  "START":"Start",
+  "END":"End",
+  "FILTER":"Filter",
+  "CLEAR":"Clear"
 }

@@ -36,5 +36,10 @@
   "SCAN_VOLUME_OUT": "Volumen salida",
   "IN": "ENTRADA",
   "OUT": "SALIDA",
-  "GO_TO": "Ver"
+  "GO_TO": "Ver",
+  "DATE_FILTER": "Filtro por Fecha",
+  "START":"Inicio",
+  "END":"Fin",
+  "FILTER":"Filtrar",
+  "CLEAR":"Borrar"
 }

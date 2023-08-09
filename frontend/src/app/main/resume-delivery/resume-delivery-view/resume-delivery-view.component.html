@@ -1,14 +1,47 @@
-<o-chart
-  type="line"
-  x-label="Time"
-  y-label="Nº"
-  service="registers"
-  entity="trafficDate"
-  x-axis="day"
-  y-axis="acumulated"
-  x-data-type="time"
-  [chart-parameters]="movementTypesChartParams"
-></o-chart>
+<o-form>
+<o-row>
+    <o-column fxFlex="80">
+      <o-chart 
+      type="line"
+      x-label="Time"
+      y-label="Nº"
+      service="registers"
+      entity="trafficDate"
+      x-axis="day"
+      y-axis="acumulated"
+      x-data-type="time"
+      [chart-parameters]="movementTypesChartParams"
+    ></o-chart>
+    </o-column>
+
+    <o-table #trafficChart attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="trafficDate" keys="day" 
+      columns="day;acumulated"
+      visible-columns="day;acumulated" query-rows="20">      
+    
+    </o-table>
+    
+    
+    <o-column-collapsible title="{{'DATE_FILTER' | oTranslate}}" fxFlex="20">  
+      <o-date-input value-type="date" sql-type="DATE" attr="startDateIn" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
+      <o-date-input value-type="date" sql-type="DATE" attr="endDateIn" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
+      <o-row>
+        <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder" label="FILTER"></o-button>
+        <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR"></o-button>        
+      </o-row>
+    </o-column-collapsible>
+    
+    </o-row>
+    
+    <o-filter-builder #filterBuilder attr="thefilter"  filters="STARTDATE_I:startDateIn; ENDDATE_I:endDateIn" 
+    [expression-builder]="createFilter" [target]="trafficChart" query-on-change="no" query-on-change-delay="500">
+      </o-filter-builder>
+
+      <!-- (onFilter)="onFilter($event)" -->
+    
+</o-form>
+
+
+
 
 <!-- 
 <o-chart
