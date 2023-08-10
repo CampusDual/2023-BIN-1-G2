@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { LineChartConfiguration, DataAdapterUtils } from "ontimize-web-ngx-charts";
+import {
+  LineChartConfiguration,
+  DataAdapterUtils,
+  DiscreteBarChartConfiguration,
+  ChartMarginConfiguration,
+} from "ontimize-web-ngx-charts";
 import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
 import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
 
@@ -10,7 +15,7 @@ import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
 })
 export class ResumeDeliveryViewComponent implements OnInit {
   public movementTypesChartParams: LineChartConfiguration;
-  public movementTypesChartParamsBalance: LineChartConfiguration;
+  public movementTypesChartParamsBalance: DiscreteBarChartConfiguration;
 
   public dataChartTraffic: any = [];
   public dataChartBalance: any = [];
@@ -19,6 +24,7 @@ export class ResumeDeliveryViewComponent implements OnInit {
     const d3Locale = this.d3LocaleService.getD3LocaleConfiguration();
     this._configureLineChart(d3Locale);
   }
+  
 
   ngOnInit() {}
 
@@ -27,11 +33,19 @@ export class ResumeDeliveryViewComponent implements OnInit {
     this.movementTypesChartParams.noDataMessage = "NO_DATA_FOUND";
     this.movementTypesChartParams.legendPosition = "bottom";
     this.movementTypesChartParams.legend.maxKeyLength = 23;
+    this.createBarChartParameters()
+  }
 
-    this.movementTypesChartParamsBalance = new LineChartConfiguration();
+  createBarChartParameters() {
+
+    this.movementTypesChartParamsBalance = new DiscreteBarChartConfiguration();
     this.movementTypesChartParamsBalance.noDataMessage = "NO_DATA_FOUND";
-    this.movementTypesChartParamsBalance.legendPosition = "bottom";
     this.movementTypesChartParamsBalance.legend.maxKeyLength = 23;
+    this.movementTypesChartParamsBalance.rightAlingYAxis = true;
+    this.movementTypesChartParamsBalance.rotateLabels = 270;
+    this.movementTypesChartParamsBalance.height = 600;
+    this.movementTypesChartParamsBalance.color = ["#1464a5"]
+
   }
 
   createFilterTraffic(values: Array<{ attr; value }>): Expression {
@@ -40,16 +54,22 @@ export class ResumeDeliveryViewComponent implements OnInit {
       if (fil.value) {
         if (fil.attr === "STARTDATE_I") {
           filters.push(
-            FilterExpressionUtils.buildExpressionMoreEqual("date_bigint", fil.value)
+            FilterExpressionUtils.buildExpressionMoreEqual(
+              "date_bigint",
+              fil.value
+            )
           );
         }
         if (fil.attr === "ENDDATE_I") {
-          let d=new Date(fil.value);
+          let d = new Date(fil.value);
           d.setHours(23);
           d.setMinutes(59);
           d.setSeconds(59);
           filters.push(
-            FilterExpressionUtils.buildExpressionLessEqual("date_bigint", Number(d))
+            FilterExpressionUtils.buildExpressionLessEqual(
+              "date_bigint",
+              Number(d)
+            )
           );
         }
       }
@@ -66,7 +86,6 @@ export class ResumeDeliveryViewComponent implements OnInit {
     } else {
       return null;
     }
-    
   }
 
   createFilterBalance(values: Array<{ attr; value }>): Expression {
@@ -75,16 +94,22 @@ export class ResumeDeliveryViewComponent implements OnInit {
       if (fil.value) {
         if (fil.attr === "STARTDATE_I") {
           filters.push(
-            FilterExpressionUtils.buildExpressionMoreEqual("day_date", fil.value)
+            FilterExpressionUtils.buildExpressionMoreEqual(
+              "day_date",
+              fil.value
+            )
           );
         }
         if (fil.attr === "ENDDATE_I") {
-          let d=new Date(fil.value);
+          let d = new Date(fil.value);
           d.setHours(23);
           d.setMinutes(59);
           d.setSeconds(59);
           filters.push(
-            FilterExpressionUtils.buildExpressionLessEqual("day_date", Number(d))
+            FilterExpressionUtils.buildExpressionLessEqual(
+              "day_date",
+              Number(d)
+            )
           );
         }
       }
@@ -104,12 +129,26 @@ export class ResumeDeliveryViewComponent implements OnInit {
   }
 
   loadDataTraffic(data: Array<any>) {
-    const adapter = DataAdapterUtils.createDataAdapter(this.movementTypesChartParams)
-    this.dataChartTraffic = adapter.adaptResult(data)
+    const adapter = DataAdapterUtils.createDataAdapter(
+      this.movementTypesChartParams
+    );
+    this.dataChartTraffic = adapter.adaptResult(data);
   }
 
   loadDataBalance(data: Array<any>) {
-    const adapter = DataAdapterUtils.createDataAdapter(this.movementTypesChartParamsBalance)
-    this.dataChartBalance = adapter.adaptResult(data)
+    // console.log(data)
+    // const colors = data.map((d) => (d.acumulated >= 0 ? "blue" : "red"));
+    // this.createBarChartParameters()
+    // this.colors= colors;
+    // this.movementTypesChartParamsBalance.color = colors;
+
+    const adapter = DataAdapterUtils.createDataAdapter(
+      this.movementTypesChartParamsBalance
+    );
+          
+    this.dataChartBalance = adapter.adaptResult(data);
+        
+    // console.log(colors)
+    // console.log(this.movementTypesChartParamsBalance.color)
   }
 }
