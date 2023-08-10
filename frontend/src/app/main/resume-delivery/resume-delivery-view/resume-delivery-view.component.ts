@@ -33,12 +33,16 @@ export class ResumeDeliveryViewComponent implements OnInit {
       if (fil.value) {
         if (fil.attr === "STARTDATE_I") {
           filters.push(
-            FilterExpressionUtils.buildExpressionMoreEqual("day", fil.value)
+            FilterExpressionUtils.buildExpressionMoreEqual("date_bigint", fil.value)
           );
         }
         if (fil.attr === "ENDDATE_I") {
+          let d=new Date(fil.value);
+          d.setHours(23);
+          d.setMinutes(59);
+          d.setSeconds(59);
           filters.push(
-            FilterExpressionUtils.buildExpressionLessEqual("day", fil.value)
+            FilterExpressionUtils.buildExpressionLessEqual("date_bigint", Number(d))
           );
         }
       }

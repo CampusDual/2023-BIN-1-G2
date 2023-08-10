@@ -3,9 +3,11 @@
     <o-column fxFlex="80">
       <o-chart 
       type="line"
+      service="registers"
+      entity="trafficDate"
       x-label="Time"
       y-label="Nº"
-      x-axis="day"
+      x-axis="date_bigint"
       y-axis="acumulated"
       x-data-type="time"
       [chart-parameters]="movementTypesChartParams"
@@ -13,11 +15,11 @@
     ></o-chart>
     </o-column>
 
-    <o-table style="display: none;" #trafficChart attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="trafficDate" keys="day" 
-      columns="day;acumulated" (onDataLoaded)="loadData($event)"
-      visible-columns="day;acumulated" query-rows="20">      
+    <o-table style="display: none;" #trafficChart attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="trafficDate" keys="date_bigint" 
+      columns="date_bigint;acumulated" (onDataLoaded)="loadData($event)"
+      visible-columns="date_bigint;acumulated" query-rows="20">      
 
-      <o-table-column attr="day" type="date"></o-table-column>
+      <o-table-column attr="date_bigint" type="date"></o-table-column>
     
     </o-table>
     
