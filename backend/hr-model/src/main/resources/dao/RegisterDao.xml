@@ -54,6 +54,23 @@ SELECT *  FROM WRAPER
                 ]]>
             </Sentence>
         </Query>
+        <Query id="completed_discrepancy">
+
+            <Sentence>
+                <![CDATA[
+with T as (
+	select *,
+	abs(scan_volume_in -scan_volume_out) as volume_diference,
+	abs(calculated_volume - abs(scan_volume_in -scan_volume_out))/calculated_volume as "discrepancia"
+	from registros_camiones rc
+	left join delivery_notes dn on rc.id_delivery_note = dn.id_delivery_note
+    left join plates p on rc.id_plate =p.id_plate
+    left join trailer_plates tp on rc.id_trailer_plate =tp.id_trailer_plate
+)
+SELECT #COLUMNS# from T #WHERE#
+   ]]>
+            </Sentence>
+        </Query>
 
     </Queries>
 </JdbcEntitySetup>
