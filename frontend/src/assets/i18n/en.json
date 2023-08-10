@@ -41,5 +41,8 @@
   "START":"Start",
   "END":"End",
   "FILTER":"Filter",
-  "CLEAR":"Clear"
+  "CLEAR":"Clear",
+  "VOLUME_DIFERENCE": "Volume Diference",
+  "DISCREPANCY":"Discrepancy(%)"
+
 }

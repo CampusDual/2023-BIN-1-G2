@@ -41,5 +41,7 @@
   "START":"Inicio",
   "END":"Fin",
   "FILTER":"Filtrar",
-  "CLEAR":"Borrar"
+  "CLEAR":"Borrar",
+  "VOLUME_DIFERENCE": "Diferencia de Volúmenes",
+  "DISCREPANCY":"Discrepancia(%)"
 }

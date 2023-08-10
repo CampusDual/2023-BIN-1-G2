@@ -1,34 +1,38 @@
 <o-form>
-<o-row-collapsible title="{{'DATE_FILTER' | oTranslate}}" fxFlex="50" > 
-  
-    <o-column title="{{'DATE_IN' | oTranslate}}" fxFlex="50">
+<o-column-collapsible title="{{'DATE_FILTER' | oTranslate}}"  id="filter_date"> 
+  <o-row  layout-align="center" layout-gap="18px">
+    <o-column title="{{'DATE_IN' | oTranslate}}" class="col" >
       <o-date-input attr="startDateIn" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
       <o-date-input attr="endDateIn" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
     </o-column>
- 
-    
-    
-    <o-column title="{{'DATE_OUT' | oTranslate}}" fxFlex="50">
+  
+    <o-column title="{{'DATE_OUT' | oTranslate}}" class="col" >
       <o-date-input attr="startDateOut" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
       <o-date-input attr="endDateOut" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
     </o-column> 
-    <o-column>
-    <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder" label="FILTER"></o-button>
-    <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR"></o-button>        
-  </o-column>
-</o-row-collapsible>
+  </o-row>
+
+  <o-row layout-align="center" layout-gap="18px" >
+    <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder" label="FILTER" color="primary" class="button"></o-button>
+    <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR" class="button"></o-button>        
+  </o-row>
+    
+</o-column-collapsible>
 
 <o-form-layout-manager >
   <div fxFill fxLayout="column" fxLayoutAlign="start">
-    <o-table #registersTable attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="completed" keys="id" 
-      columns="id;date_in;date_out;scan_volume_in;scan_volume_out;calculated_volume;plate_name;height;width;length;trailer_plate_name;delivery_note"
-      visible-columns="delivery_note;date_in;date_out;trailer_plate_name;plate_name" query-rows="20">
+    <o-table #registersTable attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="completedDiscrepancy" keys="id" 
+      columns="id;delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;width;height;length;scan_volume_in;scan_volume_out;volume_diference;discrepancia"
+      visible-columns="delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;volume_diference;discrepancia" query-rows="20">
     
       <o-table-column attr="delivery_note" title="DELIVERY_NOTE"></o-table-column>
       <o-table-column attr="date_in"  title="DATE_IN"  type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
       <o-table-column attr="date_out" title="DATE_OUT"  type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
       <o-table-column attr="trailer_plate_name" title="TRAILER_PLATE_NAME"></o-table-column>
       <o-table-column attr="plate_name" title="PLATE_NAME"></o-table-column>
+      <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" decimal-digits="2" ></o-table-column>
+      <o-table-column attr="volume_diference" title="VOLUME_DIFERENCE" decimal-digits="2"></o-table-column>
+      <o-table-column attr="discrepancia"  type = "percentage" title="DISCREPANCY" decimal-digits="2"></o-table-column>
     
     </o-table>
     </div>
@@ -36,6 +40,6 @@
 
 <o-filter-builder #filterBuilder attr="thefilter"  filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn;STARTDATE_O:startDateOut;ENDDATE_O:endDateOut" 
     [expression-builder]="createFilter" [target]="registersTable" query-on-change="no" query-on-change-delay="500">
-</o-filter-builder>
+</o-filter-builder> 
 
 </o-form>

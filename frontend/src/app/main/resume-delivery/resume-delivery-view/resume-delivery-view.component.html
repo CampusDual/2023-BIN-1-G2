@@ -1,6 +1,6 @@
 <o-form>
 <o-row>
-    <o-column fxFlex="80">
+    <o-column fxFlex="78">
       <o-chart 
       type="line"
       service="registers"
@@ -24,14 +24,14 @@
     </o-table>
     
     
-    <o-column-collapsible title="{{'DATE_FILTER' | oTranslate}}" fxFlex="20">  
+    <o-column title="{{'DATE_FILTER' | oTranslate}}" fxFlex="22"   id="box" layout-gap="10px">  
       <o-date-input attr="startDateIn" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
       <o-date-input attr="endDateIn" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
-      <o-row>
-        <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder" label="FILTER"></o-button>
-        <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR"></o-button>        
+      <o-row id="filter_btn" layout-align="center" layout-gap="10px">
+        <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder" label="FILTER" color="primary" class="button" ></o-button>
+        <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR" class="button" ></o-button>        
       </o-row>
-    </o-column-collapsible>
+    </o-column>
     
     </o-row>
     
