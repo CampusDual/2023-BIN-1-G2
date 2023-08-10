@@ -112,4 +112,9 @@ public class RegisterService implements IRegisterService {
             throws OntimizeJEERuntimeException {
                 return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_COMPLETED_DISCREPANCY);
     }
+
+    public EntityResult balanceQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_BALANCE);
+    }
 }

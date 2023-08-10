@@ -37,6 +37,8 @@ public class RegisterDao extends OntimizeJdbcDaoSupport {
 
     public static final String QUERY_TRAFFIC_DATE= "traffic_date";
     public static final String QUERY_COMPLETED_DISCREPANCY= "completed_discrepancy";
+
+    public static final String QUERY_BALANCE= "balance";
 }
 
 

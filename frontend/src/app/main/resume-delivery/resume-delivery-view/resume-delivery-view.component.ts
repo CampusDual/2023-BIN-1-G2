@@ -10,8 +10,10 @@ import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
 })
 export class ResumeDeliveryViewComponent implements OnInit {
   public movementTypesChartParams: LineChartConfiguration;
+  public movementTypesChartParamsBalance: LineChartConfiguration;
 
-  public dataChart: any = [];
+  public dataChartTraffic: any = [];
+  public dataChartBalance: any = [];
 
   constructor(protected d3LocaleService: D3LocaleService) {
     const d3Locale = this.d3LocaleService.getD3LocaleConfiguration();
@@ -25,9 +27,14 @@ export class ResumeDeliveryViewComponent implements OnInit {
     this.movementTypesChartParams.noDataMessage = "NO_DATA_FOUND";
     this.movementTypesChartParams.legendPosition = "bottom";
     this.movementTypesChartParams.legend.maxKeyLength = 23;
+
+    this.movementTypesChartParamsBalance = new LineChartConfiguration();
+    this.movementTypesChartParamsBalance.noDataMessage = "NO_DATA_FOUND";
+    this.movementTypesChartParamsBalance.legendPosition = "bottom";
+    this.movementTypesChartParamsBalance.legend.maxKeyLength = 23;
   }
 
-  createFilter(values: Array<{ attr; value }>): Expression {
+  createFilterTraffic(values: Array<{ attr; value }>): Expression {
     let filters: Array<Expression> = [];
     values.forEach((fil) => {
       if (fil.value) {
@@ -59,10 +66,50 @@ export class ResumeDeliveryViewComponent implements OnInit {
     } else {
       return null;
     }
+    
   }
 
-  loadData(data: Array<any>) {
+  createFilterBalance(values: Array<{ attr; value }>): Expression {
+    let filters: Array<Expression> = [];
+    values.forEach((fil) => {
+      if (fil.value) {
+        if (fil.attr === "STARTDATE_I") {
+          filters.push(
+            FilterExpressionUtils.buildExpressionMoreEqual("day_date", fil.value)
+          );
+        }
+        if (fil.attr === "ENDDATE_I") {
+          let d=new Date(fil.value);
+          d.setHours(23);
+          d.setMinutes(59);
+          d.setSeconds(59);
+          filters.push(
+            FilterExpressionUtils.buildExpressionLessEqual("day_date", Number(d))
+          );
+        }
+      }
+    });
+
+    if (filters.length > 0) {
+      return filters.reduce((exp1, exp2) =>
+        FilterExpressionUtils.buildComplexExpression(
+          exp1,
+          exp2,
+          FilterExpressionUtils.OP_AND
+        )
+      );
+    } else {
+      return null;
+    }
+  }
+
+  loadDataTraffic(data: Array<any>) {
     const adapter = DataAdapterUtils.createDataAdapter(this.movementTypesChartParams)
-    this.dataChart = adapter.adaptResult(data)
+    this.dataChartTraffic = adapter.adaptResult(data)
+  }
+
+  loadDataBalance(data: Array<any>) {
+    const adapter = DataAdapterUtils.createDataAdapter(this.movementTypesChartParamsBalance)
+    this.dataChartBalance = adapter.adaptResult(data)
   }
 }
