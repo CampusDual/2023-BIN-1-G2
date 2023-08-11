@@ -4,6 +4,8 @@ import { ResumeDeliveryViewComponent } from './resume-delivery-view/resume-deliv
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { ResumeDeliveryRoutingModule } from './resume-delivery-routing.module';
 import { OChartModule } from 'ontimize-web-ngx-charts';
+import { ResumeDeliveryBalanceComponent } from './resume-delivery-balance/resume-delivery-balance.component';
+import { ResumeDeliveryTrafficComponent } from './resume-delivery-traffic/resume-delivery-traffic.component';
 
 @NgModule({
   imports: [
@@ -12,6 +14,6 @@ import { OChartModule } from 'ontimize-web-ngx-charts';
     ResumeDeliveryRoutingModule,
     OChartModule
   ],
-  declarations: [ResumeDeliveryViewComponent]
+  declarations: [ResumeDeliveryViewComponent,ResumeDeliveryBalanceComponent,ResumeDeliveryTrafficComponent]
 })
 export class ResumeDeliveryModule { }

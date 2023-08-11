@@ -1,4 +1,4 @@
-<o-form>
+<o-form show-header="no">
 <o-column-collapsible title="{{'DATE_FILTER' | oTranslate}}"  id="filter_date"> 
   <o-row  layout-align="center" layout-gap="18px">
     <o-column title="{{'DATE_IN' | oTranslate}}" class="col" >
@@ -23,16 +23,16 @@
   <div fxFill fxLayout="column" fxLayoutAlign="start">
     <o-table #registersTable attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="completedDiscrepancy" keys="id" 
       columns="id;delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;width;height;length;scan_volume_in;scan_volume_out;volume_diference;discrepancia"
-      visible-columns="delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;volume_diference;discrepancia" query-rows="20">
+      visible-columns="delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;volume_diference;discrepancia" query-rows="20" auto-adjust="no">
     
       <o-table-column attr="delivery_note" title="DELIVERY_NOTE"></o-table-column>
       <o-table-column attr="date_in"  title="DATE_IN"  type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
       <o-table-column attr="date_out" title="DATE_OUT"  type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
-      <o-table-column attr="trailer_plate_name" title="TRAILER_PLATE_NAME"></o-table-column>
-      <o-table-column attr="plate_name" title="PLATE_NAME"></o-table-column>
-      <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" decimal-digits="2" ></o-table-column>
-      <o-table-column attr="volume_diference" title="VOLUME_DIFERENCE" decimal-digits="2"></o-table-column>
-      <o-table-column attr="discrepancia"  type = "percentage" title="DISCREPANCY" decimal-digits="2"></o-table-column>
+      <o-table-column attr="trailer_plate_name" title="TRAILER_PLATE_NAME" content-align="end"></o-table-column>
+      <o-table-column attr="plate_name" title="PLATE_NAME" content-align="end"></o-table-column>
+      <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" type="real" decimal-digits="2" ></o-table-column>
+      <o-table-column attr="volume_diference" title="VOLUME_DIFERENCE" type="real"decimal-digits="2"></o-table-column>
+      <o-table-column attr="discrepancia" tooltip="yes" tooltip-value="hola" type = "percentage" title="DISCREPANCY" decimal-digits="2" content-align="end"></o-table-column>
     
     </o-table>
     </div>
