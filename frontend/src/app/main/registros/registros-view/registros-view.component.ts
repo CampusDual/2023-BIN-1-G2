@@ -8,6 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrosViewComponent implements OnInit {
 
+  private duplicatedDelivery =  [];
+  private duplicatedIndex = [];
+
+  setRowClass(rowData: any, rowIndex: number): string | string[] {
+
+    if (this.duplicatedDelivery.includes(rowData.delivery_note) && !this.duplicatedIndex.includes(rowIndex)) {
+      return "error-row"
+    }
+
+    console.log(rowIndex)
+
+    if (!this.duplicatedDelivery.includes(rowData.delivery_note)) {
+      this.duplicatedDelivery.push(rowData.delivery_note)
+    }
+    if (!this.duplicatedIndex.includes(rowIndex)) {
+      this.duplicatedIndex.push(rowIndex)
+    }
+
+    return "";
+
+  }
+
   constructor() { }
 
   ngOnInit() {
