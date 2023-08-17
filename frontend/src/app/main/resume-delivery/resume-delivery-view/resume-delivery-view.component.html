@@ -1,2 +1,21 @@
-<app-resume-delivery-traffic></app-resume-delivery-traffic>
+<o-form show-header="no">
+
+<o-row>
+<o-column title="{{'DATE_FILTER' | oTranslate}}" fxFlex="22"   id="box" layout-gap="10px">  
+    <o-date-input attr="startDateIn" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
+    <o-date-input attr="endDateIn" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
+    <o-row id="filter_btn" layout-align="center" layout-gap="10px">
+      <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder2" label="FILTER" color="primary" class="button" ></o-button>
+      <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder2" label="CLEAR" class="button" ></o-button>        
+    </o-row>
+  </o-column>
+</o-row>
+
+  
+<o-filter-builder #filterBuilder2 attr="thefilter"  filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn" 
+[expression-builder]="createFilter" [target]="balanceChart"  query-on-change="no" query-on-change-delay="500">
+</o-filter-builder>
+
+<app-resume-delivery-traffic ></app-resume-delivery-traffic>
 <app-resume-delivery-balance></app-resume-delivery-balance>
+</o-form>

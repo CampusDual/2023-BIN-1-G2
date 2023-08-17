@@ -6,6 +6,7 @@ import {
 import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
 import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
 
+
 @Component({
   selector: 'app-resume-delivery-balance',
   templateUrl: './resume-delivery-balance.component.html',
