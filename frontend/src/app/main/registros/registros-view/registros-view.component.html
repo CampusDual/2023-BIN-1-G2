@@ -23,7 +23,7 @@
   <div fxFill fxLayout="column" fxLayoutAlign="start">
     <o-table #registersTable attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="completedDiscrepancy" keys="id" 
       columns="id;delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;width;height;length;scan_volume_in;scan_volume_out;volume_diference;discrepancia"
-      visible-columns="delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;volume_diference;discrepancia" query-rows="20" auto-adjust="no" [row-class]="setRowClass.bind(this)">
+      visible-columns="delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;volume_diference;discrepancia" query-rows="20" auto-adjust="no" [row-class]="setRowClass.bind(this)" (onDataLoaded)="loadData($event)">
     
       <o-table-column attr="delivery_note" title="DELIVERY_NOTE"></o-table-column>
       <o-table-column attr="date_in"  title="DATE_IN"  type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
