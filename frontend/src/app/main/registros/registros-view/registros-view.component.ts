@@ -9,24 +9,26 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrosViewComponent implements OnInit {
 
   private duplicatedDelivery =  [];
-  private duplicatedIndex = [];
+
+  loadData(data:any[]) {
+
+    const delivery_notes = data.map(d => d.delivery_note) 
+
+    const delivery_notes_filtered = delivery_notes.filter((delivery_note, index, arr) => {
+      return arr.indexOf(delivery_note) !== index;
+    })
+
+    this.duplicatedDelivery = delivery_notes_filtered
+
+  }
 
   setRowClass(rowData: any, rowIndex: number): string | string[] {
 
-    if (this.duplicatedDelivery.includes(rowData.delivery_note) && !this.duplicatedIndex.includes(rowIndex)) {
+    if (this.duplicatedDelivery.includes(rowData.delivery_note)) {
       return "error-row"
     }
 
-    console.log(rowIndex)
-
-    if (!this.duplicatedDelivery.includes(rowData.delivery_note)) {
-      this.duplicatedDelivery.push(rowData.delivery_note)
-    }
-    if (!this.duplicatedIndex.includes(rowIndex)) {
-      this.duplicatedIndex.push(rowIndex)
-    }
-
-    return "";
+    return ""
 
   }
 
