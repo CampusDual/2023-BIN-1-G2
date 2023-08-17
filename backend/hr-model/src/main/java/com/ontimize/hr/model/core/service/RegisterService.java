@@ -1,5 +1,6 @@
 package com.ontimize.hr.model.core.service;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -119,16 +120,34 @@ public class RegisterService implements IRegisterService {
     @Override
     public EntityResult completedDiscrepancyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {
-        List<String> attr = new ArrayList<String>();
-        attr.add(PlatesDao.ATTR_ID_PLATE);
-        EntityResult query = this.registerPlatesQuery(attrMap,attr);
-        if(query.calculateRecordNumber() > 0) {
-            return registerUpdate(query.getRecordValues(0),keyMap);
-            //return this.daoHelper.update(this.registerDao, attrMap, keyMap);
-        }else{
-            EntityResult resultPlates =registerPlatesInsert(attrMap);
-            return registerUpdate((Map)resultPlates,keyMap);
+
+        if (attrMap.containsKey(PlatesDao.ATTR_PLATE_NAME)) {
+            List<String> attr = new ArrayList<String>();
+            attr.add(PlatesDao.ATTR_ID_PLATE);
+            EntityResult query = this.registerPlatesQuery(attrMap, attr);
+            if (query.calculateRecordNumber() > 0) {
+                registerUpdate(query.getRecordValues(0), keyMap);
+                //return this.daoHelper.update(this.registerDao, attrMap, keyMap);
+            } else {
+                EntityResult resultPlates = registerPlatesInsert(attrMap);
+                registerUpdate((Map) resultPlates, keyMap);
+            }
         }
+        if (attrMap.containsKey(DeliveryNotesDao.ATTR_DELIVERY_NOTE)){
+            Map<String,Object> attrMapCast = new HashMap<>();
+            attrMapCast.put(DeliveryNotesDao.ATTR_DELIVERY_NOTE, new BigInteger((String) attrMap.get(DeliveryNotesDao.ATTR_DELIVERY_NOTE)));
+            List<String> attr = new ArrayList<String>();
+            attr.add(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
+            EntityResult query = this.registerDeliveryNotesQuery(attrMapCast, attr);
+            if (query.calculateRecordNumber() > 0) {
+                registerUpdate(query.getRecordValues(0), keyMap);
+                //return this.daoHelper.update(this.registerDao, attrMap, keyMap);
+            } else {
+                EntityResult resultDelivery = registerDeliveryNotesInsert(attrMapCast);
+                registerUpdate((Map) resultDelivery, keyMap);
+            }
+        }
+        return null;
     }
     public EntityResult balanceQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
