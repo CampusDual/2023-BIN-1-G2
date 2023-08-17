@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DuplicatedDeliveryService } from 'src/app/shared/duplicatedDelivery.service';
 
 @Component({
   selector: 'app-registros-detail',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrosDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor( private duplicatedService:DuplicatedDeliveryService) { }
+  private delivery_note:number;
 
   ngOnInit() {
   }
 
+  onDataLoaded(data:any){
+    this.delivery_note=data.delivery_note;
+  }
+
+   isDuplicated(): "yes"|"no" {
+    console.log("hola")
+      if(this.duplicatedService.duplicatedDelivery.includes(this.delivery_note)){
+        return "no"
+      }
+      return "yes"
+   }
 }

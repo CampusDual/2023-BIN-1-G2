@@ -1,5 +1,6 @@
 import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DuplicatedDeliveryService } from "src/app/shared/duplicatedDelivery.service";
 
 @Component({
   selector: 'app-registros-view',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrosViewComponent implements OnInit {
 
-  private duplicatedDelivery =  [];
+  
 
   loadData(data:any[]) {
 
@@ -18,13 +19,13 @@ export class RegistrosViewComponent implements OnInit {
       return arr.indexOf(delivery_note) !== index;
     })
 
-    this.duplicatedDelivery = delivery_notes_filtered
+    this.duplicatedService.duplicatedDelivery = delivery_notes_filtered
 
   }
 
   setRowClass(rowData: any, rowIndex: number): string | string[] {
 
-    if (this.duplicatedDelivery.includes(rowData.delivery_note)) {
+    if (this.duplicatedService.duplicatedDelivery.includes(rowData.delivery_note)) {
       return "error-row"
     }
 
@@ -32,10 +33,16 @@ export class RegistrosViewComponent implements OnInit {
 
   }
 
-  constructor() { }
+  
+
+  constructor( private duplicatedService: DuplicatedDeliveryService) { }
 
   ngOnInit() {
+   
   }
+
+  
+
 
   createFilter(values: Array<{ attr; value }>): Expression {
     let filters: Array<Expression> = [];

@@ -5,6 +5,7 @@ import { RegistrosRoutingModule } from './registros-routing.module';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { RegistrosViewComponent } from './registros-view/registros-view.component';
 import { RegistrosDetailComponent } from './registros-detail/registros-detail.component';
+import { DuplicatedDeliveryService } from 'src/app/shared/duplicatedDelivery.service';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { RegistrosDetailComponent } from './registros-detail/registros-detail.co
     CommonModule,
     RegistrosRoutingModule,
     OntimizeWebModule
+   
   ],
   declarations: [RegistrosViewComponent,RegistrosDetailComponent]
 })
