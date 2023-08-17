@@ -19,7 +19,6 @@ export class RegistrosDetailComponent implements OnInit {
   }
 
    isDuplicated(): "yes"|"no" {
-    console.log("hola")
       if(this.duplicatedService.duplicatedDelivery.includes(this.delivery_note)){
         return "no"
       }

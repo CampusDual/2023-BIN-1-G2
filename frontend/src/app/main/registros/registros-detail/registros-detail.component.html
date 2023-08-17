@@ -3,7 +3,7 @@
 
   <o-row >
     <o-column title-label="DELIVERY_NOTE"  fxFlex="70">
-      <o-text-input class="input-padding" attr="delivery_note" label="DELIVERY_NOTE" required="yes" [read-only]="isDuplicated()" ></o-text-input>
+      <o-integer-input class="input-padding" attr="delivery_note" label="DELIVERY_NOTE" thousand-separator="" required="yes" [read-only]="isDuplicated()" ></o-integer-input>
     </o-column>
     <o-column title-label="ID" fxFlex="30">
       <o-integer-input class="input-padding" attr="id" label="ID" sql-type="INTEGER" enabled="no"></o-integer-input>
