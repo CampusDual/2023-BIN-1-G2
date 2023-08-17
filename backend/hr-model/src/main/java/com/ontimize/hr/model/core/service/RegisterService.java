@@ -87,7 +87,11 @@ public class RegisterService implements IRegisterService {
             throws OntimizeJEERuntimeException {
         return this.daoHelper.update(this.registerDao, attrMap, keyMap);
     }
-
+    @Override
+    public EntityResult registerPlatesUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.update(this.platesDao, attrMap, keyMap);
+    }
     @Override
     public EntityResult registerDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
         return this.daoHelper.delete(this.registerDao, keyMap);
@@ -112,7 +116,20 @@ public class RegisterService implements IRegisterService {
             throws OntimizeJEERuntimeException {
                 return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_COMPLETED_DISCREPANCY);
     }
-
+    @Override
+    public EntityResult completedDiscrepancyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
+            throws OntimizeJEERuntimeException {
+        List<String> attr = new ArrayList<String>();
+        attr.add(PlatesDao.ATTR_ID_PLATE);
+        EntityResult query = this.registerPlatesQuery(attrMap,attr);
+        if(query.calculateRecordNumber() > 0) {
+            return registerUpdate(query.getRecordValues(0),keyMap);
+            //return this.daoHelper.update(this.registerDao, attrMap, keyMap);
+        }else{
+            EntityResult resultPlates =registerPlatesInsert(attrMap);
+            return registerUpdate((Map)resultPlates,keyMap);
+        }
+    }
     public EntityResult balanceQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_BALANCE);
