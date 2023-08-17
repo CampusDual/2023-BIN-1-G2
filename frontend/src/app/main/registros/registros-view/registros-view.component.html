@@ -1,30 +1,33 @@
 <o-form show-header="no">
-<o-column-collapsible title="{{'DATE_FILTER' | oTranslate}}"  id="filter_date"> 
-  <o-row  layout-align="center" layout-gap="18px">
-    <o-column title="{{'DATE_IN' | oTranslate}}" class="col" >
+<o-row-collapsible title="{{'DATE_FILTER' | oTranslate}}" expanded="no"  id="filter_date"> 
+    <o-row title="{{'DATE_IN' | oTranslate}}" class="col" layout-gap="15px">
       <o-date-input attr="startDateIn" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
       <o-date-input attr="endDateIn" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
-    </o-column>
+    </o-row>
   
-    <o-column title="{{'DATE_OUT' | oTranslate}}" class="col" >
+    <o-row title="{{'DATE_OUT' | oTranslate}}" class="col" layout-gap="15px">
       <o-date-input attr="startDateOut" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
       <o-date-input attr="endDateOut" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
-    </o-column> 
-  </o-row>
+    </o-row> 
 
-  <o-row layout-align="center" layout-gap="18px" >
-    <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder" label="FILTER" color="primary" class="button"></o-button>
-    <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR" class="button"></o-button>        
-  </o-row>
-    
-</o-column-collapsible>
+    <o-row layout-gap="15px" >
+      <o-column layout-align="center">
+        <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder" label="FILTER" color="primary" class="button"></o-button>
+      </o-column>
+      <o-column layout-align="center">
+        <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR" class="button"></o-button>        
+      </o-column>
+    </o-row>
+  
+</o-row-collapsible>
 
 <o-form-layout-manager >
   <div fxFill fxLayout="column" fxLayoutAlign="start">
     <o-table #registersTable attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="completedDiscrepancy" keys="id" 
       columns="id;delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;width;height;length;scan_volume_in;scan_volume_out;volume_diference;discrepancia"
       visible-columns="delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;volume_diference;discrepancia" query-rows="20" auto-adjust="no" [row-class]="setRowClass.bind(this)" (onDataLoaded)="loadData($event)"
-    >
+      virtual-scroll="no"
+      >
     
       <o-table-column attr="delivery_note" title="DELIVERY_NOTE"></o-table-column>
       <o-table-column attr="date_in"  title="DATE_IN"  type="date" format="DD/MM/YYYY HH:MM"></o-table-column>

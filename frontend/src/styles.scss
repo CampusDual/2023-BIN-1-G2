@@ -6,3 +6,12 @@
 .error-row {
     background-color: #ff15008f;
 }
+
+
+.col .o-container .o-container-scroll.o-container-gap {
+    padding: 0;
+}
+
+.o-row-collapsible > .o-container.mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body > .o-container-scroll:has(.col) {
+    padding: 0;
+}
