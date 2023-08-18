@@ -1,13 +1,11 @@
 
   <o-chart       
   type="line"
-  service="registers"
-  entity="affluence"
   x-label="Time"
   y-label="Nº"
-  x-axis="day_hour"
-  y-axis="afluencia"
-  x-data-type="time"
+  x-axis="hour"
+  y-axis="lunes;martes;miercoles;jueves;viernes;sabado"
+  x-data-type="hour"
   [chart-parameters]="movementTypesChartParamsAffluence"
   [data]="dataChartAffluence"
 ></o-chart>
