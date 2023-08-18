@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import {
   DataAdapterUtils,
   DiscreteBarChartConfiguration,
 } from "ontimize-web-ngx-charts";
 import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
 import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
+import { TargetChartService } from "src/app/shared/target-chart.service";
 
 
 @Component({
@@ -16,12 +17,13 @@ export class ResumeDeliveryBalanceComponent implements OnInit {
   public movementTypesChartParamsBalance: DiscreteBarChartConfiguration;
   public dataChartBalance: any = [];
 
-  constructor(protected d3LocaleService: D3LocaleService) {
+  constructor(protected d3LocaleService: D3LocaleService, protected targetChart:TargetChartService) {
     const d3Locale = this.d3LocaleService.getD3LocaleConfiguration();
     this._configureLineChart(d3Locale);
   }
 
   ngOnInit() {
+    this.targetChart.addChart(this.balanceChart)
   }
 
   private _configureLineChart(locale: any): void {
@@ -34,45 +36,9 @@ export class ResumeDeliveryBalanceComponent implements OnInit {
     this.movementTypesChartParamsBalance.color = ["#1464a5"]
   }
 
-  createFilterTraffic(values: Array<{ attr; value }>): Expression {
-    let filters: Array<Expression> = [];
-    values.forEach((fil) => {
-      if (fil.value) {
-        if (fil.attr === "STARTDATE_I") {
-          filters.push(
-            FilterExpressionUtils.buildExpressionMoreEqual(
-              "date_bigint",
-              fil.value
-            )
-          );
-        }
-        if (fil.attr === "ENDDATE_I") {
-          let d = new Date(fil.value);
-          d.setHours(23);
-          d.setMinutes(59);
-          d.setSeconds(59);
-          filters.push(
-            FilterExpressionUtils.buildExpressionLessEqual(
-              "date_bigint",
-              Number(d)
-            )
-          );
-        }
-      }
-    });
+  @ViewChild("balanceChart",{static:true}) balanceChart
 
-    if (filters.length > 0) {
-      return filters.reduce((exp1, exp2) =>
-        FilterExpressionUtils.buildComplexExpression(
-          exp1,
-          exp2,
-          FilterExpressionUtils.OP_AND
-        )
-      );
-    } else {
-      return null;
-    }
-  }
+
 
   createFilterBalance(values: Array<{ attr; value }>): Expression {
     let filters: Array<Expression> = [];
@@ -81,7 +47,7 @@ export class ResumeDeliveryBalanceComponent implements OnInit {
         if (fil.attr === "STARTDATE_I") {
           filters.push(
             FilterExpressionUtils.buildExpressionMoreEqual(
-              "day_date",
+              "day_bigint",
               fil.value
             )
           );
@@ -93,7 +59,7 @@ export class ResumeDeliveryBalanceComponent implements OnInit {
           d.setSeconds(59);
           filters.push(
             FilterExpressionUtils.buildExpressionLessEqual(
-              "day_date",
+              "day_bigint",
               Number(d)
             )
           );
@@ -115,18 +81,10 @@ export class ResumeDeliveryBalanceComponent implements OnInit {
   }
 
   loadDataBalance  (data: Array<any>) {
-    // console.log(data)
-    // const colors = data.map((d) => (d.acumulated >= 0 ? "blue" : "red"));
-    // this.createBarChartParameters()
-    // this.colors= colors;
-
     const adapter = DataAdapterUtils.createDataAdapter(
       this.movementTypesChartParamsBalance
     );
           
     this.dataChartBalance = adapter.adaptResult(data);
-        
-    // console.log(colors)
-    // console.log(this.movementTypesChartParamsBalance.color)
   }
 }

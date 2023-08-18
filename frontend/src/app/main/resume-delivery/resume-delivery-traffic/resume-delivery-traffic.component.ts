@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,ViewChild } from "@angular/core";
 import {
   LineChartConfiguration,
   DataAdapterUtils,
 } from "ontimize-web-ngx-charts";
 import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
 import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
+import { TargetChartService } from "src/app/shared/target-chart.service";
 
 
 @Component({
@@ -16,12 +17,13 @@ export class ResumeDeliveryTrafficComponent implements OnInit {
   public movementTypesChartParams: LineChartConfiguration;
 
   public dataChartTraffic: any = [];
-  constructor(protected d3LocaleService: D3LocaleService) {
+  constructor(protected d3LocaleService: D3LocaleService, protected targetChart:TargetChartService ) {
     const d3Locale = this.d3LocaleService.getD3LocaleConfiguration();
     this._configureLineChart(d3Locale);
   }
 
   ngOnInit() {
+    this.targetChart.addChart(this.trafficChart)
   }
   
   private _configureLineChart(locale: any): void {
@@ -30,6 +32,9 @@ export class ResumeDeliveryTrafficComponent implements OnInit {
     this.movementTypesChartParams.legendPosition = "bottom";
     this.movementTypesChartParams.legend.maxKeyLength = 23;
   }
+
+  @ViewChild("trafficChart",{static:true}) trafficChart
+
   createFilterTraffic(values: Array<{ attr; value }>): Expression {
     let filters: Array<Expression> = [];
     values.forEach((fil) => {

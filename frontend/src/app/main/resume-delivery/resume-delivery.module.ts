@@ -7,6 +7,7 @@ import { OChartModule } from 'ontimize-web-ngx-charts';
 import { ResumeDeliveryBalanceComponent } from './resume-delivery-balance/resume-delivery-balance.component';
 import { ResumeDeliveryTrafficComponent } from './resume-delivery-traffic/resume-delivery-traffic.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
