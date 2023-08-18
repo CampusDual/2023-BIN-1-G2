@@ -82,7 +82,7 @@ SELECT #COLUMNS# from T #WHERE#
                                     (SELECT MAX(date_in) FROM registros_camiones),
                                     '1 day'
                                 )::DATE AS generated_date )
-                            SELECT extract(epoch from date_range.generated_date) * 1000  as day_bigint,
+                            SELECT extract(epoch from date_range.generated_date) * 1000  as date_bigint,
                             COALESCE(vol_acumulado, 0) as acumulated
                             FROM date_range
                             LEFT JOIN (
@@ -91,7 +91,7 @@ SELECT #COLUMNS# from T #WHERE#
                                 GROUP BY date(date_in) )
                             AS sr_count ON extract(epoch from date_range.generated_date) * 1000 = sr_count.fecha
                             ORDER BY date_range.generated_date
-                        )select day_bigint ,round(acumulated::numeric,2) as acumulated from wraper
+                        )select date_bigint ,round(acumulated::numeric,2) as acumulated from wraper
                         #WHERE#;
                 ]]>
             </Sentence>
