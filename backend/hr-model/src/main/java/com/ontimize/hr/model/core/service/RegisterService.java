@@ -156,4 +156,9 @@ public class RegisterService implements IRegisterService {
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_BALANCE);
     }
+
+    public EntityResult affluenceQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_AFFLUENCE);
+    }
 }

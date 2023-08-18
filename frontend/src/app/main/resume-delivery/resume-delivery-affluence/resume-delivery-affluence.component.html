@@ -1,0 +1,22 @@
+
+  <o-chart       
+  type="line"
+  service="registers"
+  entity="affluence"
+  x-label="Time"
+  y-label="Nº"
+  x-axis="day_hour"
+  y-axis="afluencia"
+  x-data-type="time"
+  [chart-parameters]="movementTypesChartParamsAffluence"
+  [data]="dataChartAffluence"
+></o-chart>
+
+
+<o-table style="display: none;" #affluenceChart attr="affluenceTable" insert-button="no" delete-button="no" service="registers" entity="affluence" keys="day_date;day_hour"
+  columns="day_date;day_hour;afluencia" (onDataLoaded)="loadDataAffluence($event)"
+  visible-columns="day_date;day_hour;afluencia" query-rows="20">      
+
+  <o-table-column attr="date_bigint" type="date"></o-table-column>
+
+</o-table>

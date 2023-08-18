@@ -97,5 +97,35 @@ SELECT #COLUMNS# from T #WHERE#
             </Sentence>
         </Query>
 
+        <Query id="affluence">
+            <Sentence>
+                <![CDATA[
+
+                with date_range as
+                    (SELECT generate_series(
+                                    (SELECT MIN(date_in)
+                                    FROM registros_camiones),
+                                    (SELECT MAX(date_in) FROM registros_camiones), '1 hour' ) AS generated_date)
+                             select extract(dow from date_range.generated_date::DATE) as day_date,
+                             to_char(date_range.generated_date, 'HH24') as day_hour,
+                             coalesce (sum(conteo)/count(extract(dow from date_range.generated_date::DATE)),0) as afluencia
+                             from date_range
+                             left join(
+                                 select date(date_in) as fecha,
+                                 to_char(date_in,'HH24') as hora,
+                                 count(*) as conteo
+                                 from registros_camiones sr
+                                 group by date(date_in),to_char(date_in,'HH24')
+                             )as sr_count
+                             on (date_range.generated_date::DATE)=sr_count.fecha and (to_char(date_range.generated_date, 'HH24'))=sr_count.hora
+                             group by day_date,to_char(date_range.generated_date, 'HH24')
+                             having extract(dow from date_range.generated_date::DATE)>0
+                                 and to_char(date_range.generated_date, 'HH24')::numeric<=22
+                                 and to_char(date_range.generated_date, 'HH24')::numeric>=06
+                               order by day_date,to_char(date_range.generated_date, 'HH24')
+                ]]>
+            </Sentence>
+        </Query>
+
     </Queries>
 </JdbcEntitySetup>
