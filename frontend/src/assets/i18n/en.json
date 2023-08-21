@@ -43,6 +43,18 @@
   "FILTER":"Filter",
   "CLEAR":"Clear",
   "VOLUME_DIFERENCE": "Volume Diference",
-  "DISCREPANCY":"Discrepancy(%)"
-
+  "DISCREPANCY":"Discrepancy(%)",
+  "date_bigint": "Daily net volume(m³)",
+  "LUNES": "Monday",
+  "MARTES": "Tuesday",
+  "MIERCOLES": "Wednesday",
+  "JUEVES": "Thursday",
+  "VIERNES": "Friday",
+  "SABADO": "Saturday",
+  "DELIVERY_TRAFFIC": "Resume Delivery Traffic",
+  "DELIVERY_TRAFFIC_DESCRIPTION": "Graph representing the number of daily orders arriving at the factory.",
+  "DELIVERY_BALANCE": "Resume Daily Net Volume" ,
+  "DELIVERY_BALANCE_DESCRIPTION": "Graph representing daily net factory volume.",
+  "DELIVERY_AFFLUENCE": "Mean of Delivery Affluence",
+  "DELIVERY_AFFLUENCE_DESCRIPTION": "Each graph represents the average daily hourly flow for each day of the week."
 }

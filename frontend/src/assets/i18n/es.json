@@ -43,5 +43,18 @@
   "FILTER":"Filtrar",
   "CLEAR":"Borrar",
   "VOLUME_DIFERENCE": "Diferencia de Volúmenes",
-  "DISCREPANCY":"Discrepancia(%)"
+  "DISCREPANCY":"Discrepancia(%)",
+  "date_bigint": "Saldo neto diario(m³)",
+  "LUNES": "Lunes",
+  "MARTES": "Martes",
+  "MIERCOLES": "Miércoles",
+  "JUEVES": "Jueves",
+  "VIERNES": "Viernes",
+  "SABADO": "Sábado",
+  "DELIVERY_TRAFFIC": "Resumen de Tráfico de Pedidos",
+  "DELIVERY_TRAFFIC_DESCRIPTION": "Gráfica que representa el número de pedidos diario que llega a la planta.",
+  "DELIVERY_BALANCE": "Resumen Volumen Neto Diario",
+  "DELIVERY_BALANCE_DESCRIPTION": "Gráfica que representa el volumen neto diario de la planta.",
+  "DELIVERY_AFFLUENCE": "Media de la Afluencia de Pedidos",
+  "DELIVERY_AFFLUENCE_DESCRIPTION": "Cada gráfica representa la media de la afluencia diaria en cada hora para cada día de la semana"
 }

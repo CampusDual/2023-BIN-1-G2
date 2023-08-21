@@ -9,8 +9,10 @@ import { TargetChartService } from "src/app/shared/target-chart.service";
 })
 export class ResumeDeliveryViewComponent implements OnInit {
   
-  @ViewChild("buttonQuery",{static:true}) buttonQuery
-  @ViewChild("buttonClear",{static:true}) buttonClear
+  @ViewChild("buttonQuery2",{static:true}) buttonQuery2
+  @ViewChild("buttonClear2",{static:true}) buttonClear2
+  @ViewChild("buttonQuery3",{static:true}) buttonQuery3
+  @ViewChild("buttonClear3",{static:true}) buttonClear3
 
   constructor(protected targetChart:TargetChartService) {
 
@@ -20,11 +22,13 @@ export class ResumeDeliveryViewComponent implements OnInit {
   ngOnInit() {}
 
   onClickQuery(){
-    this.buttonQuery.click.emit()
+    this.buttonQuery2.click.emit()
+    this.buttonQuery3.click.emit()
   }
 
   onClickClear(){
-    this.buttonClear.click.emit()
+    this.buttonClear2.click.emit()
+    this.buttonClear3.click.emit()
   }
 
 

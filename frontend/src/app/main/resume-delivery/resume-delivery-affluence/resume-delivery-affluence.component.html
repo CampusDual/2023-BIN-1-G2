@@ -1,20 +1,30 @@
-
-  <o-chart       
+<div class="chart">
+  <div>
+    <h3>
+      {{'DELIVERY_AFFLUENCE' | oTranslate}}
+    </h3>
+    <span>
+      {{'DELIVERY_AFFLUENCE_DESCRIPTION' | oTranslate}}
+    </span>
+  </div>
+  
+  <o-chart      
   type="line"
   x-label="Time"
   y-label="Nº"
   x-axis="hour"
-  y-axis="lunes;martes;miercoles;jueves;viernes;sabado"
+  y-axis="LUNES;MARTES;MIERCOLES;JUEVES;VIERNES;SABADO"
   x-data-type="hour"
   [chart-parameters]="movementTypesChartParamsAffluence"
   [data]="dataChartAffluence"
-></o-chart>
-
-
-<o-table style="display: none;" #affluenceChart attr="affluenceTable" insert-button="no" delete-button="no" service="registers" entity="affluence" keys="day_date;day_hour"
+  ></o-chart>
+  
+  
+  <o-table style="display: none;" #affluenceChart attr="affluenceTable" insert-button="no" delete-button="no" service="registers" entity="affluence" keys="day_date;day_hour"
   columns="day_date;day_hour;afluencia" (onDataLoaded)="loadDataAffluence($event)"
   visible-columns="day_date;day_hour;afluencia" query-rows="20">      
-
+  
   <o-table-column attr="date_bigint" type="date"></o-table-column>
-
+  
 </o-table>
+</div>

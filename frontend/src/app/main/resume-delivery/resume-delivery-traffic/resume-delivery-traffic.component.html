@@ -1,6 +1,10 @@
-
+<div class="chart">
+  <div>
+    <h3>{{'DELIVERY_TRAFFIC' | oTranslate}}</h3>
+    <span>{{'DELIVERY_TRAFFIC_DESCRIPTION' | oTranslate}}</span>
+  </div>
   
-      <o-column>
+  <o-column>
         <o-chart       
         type="line"
         service="registers"
@@ -12,17 +16,18 @@
         x-data-type="time"
         [chart-parameters]="movementTypesChartParams"
         [data]="dataChartTraffic"
-      ></o-chart>
+        ></o-chart>
       </o-column>
-  
+      
       <o-table style="display: none;" #trafficChart attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="trafficDate" keys="date_bigint" 
-        columns="date_bigint;acumulated" (onDataLoaded)="loadDataTraffic($event)"
-        visible-columns="date_bigint;acumulated" query-rows="20">      
+      columns="date_bigint;acumulated" (onDataLoaded)="loadDataTraffic($event)"
+      visible-columns="date_bigint;acumulated" query-rows="20">      
   
         <o-table-column attr="date_bigint" type="date"></o-table-column>
       
       </o-table>
+</div>
       
       
-     
+      
       

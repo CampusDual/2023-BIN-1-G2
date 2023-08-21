@@ -1,27 +1,34 @@
+<div class="chart">
 
-      <o-column >
-        <o-chart 
-        #discreteBar   
-        type="discreteBar"
-        service="registers"
-        entity="balance"
-        x-label="Time"
-        y-label="Nº"
-        x-axis="date_bigint"
-        y-axis="acumulated"
-        x-data-type="time"
-        [chart-parameters]="movementTypesChartParamsBalance"
-        [data]="dataChartBalance"
-      ></o-chart>
-      </o-column>
+  <div>
+    <h3>{{'DELIVERY_BALANCE' | oTranslate }}</h3>
+    <span>{{'DELIVERY_BALANCE_DESCRIPTION' | oTranslate}}</span>
+  </div>
+
+  <o-column >
+    <o-chart    
+    type="discreteBar"
+    service="registers"
+    entity="balance"
+    x-label="Time"
+    y-label="Nº"
+    x-axis="date_bigint"
+    y-axis="acumulated"
+    x-data-type="time"
+    [chart-parameters]="movementTypesChartParamsBalance"
+    [data]="dataChartBalance"
+    ></o-chart>
+  </o-column>
   
       <o-table style="display: none;" #balanceChart attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="balance" keys="date_bigint" 
         columns="date_bigint;acumulated" (onDataLoaded)="loadDataBalance($event)"
         visible-columns="date_bigint;acumulated" query-rows="20">      
-  
+        
         <o-table-column attr="date_bigint" type="date"></o-table-column>
         
-      
+        
       </o-table>      
+</div>
+      
       
       

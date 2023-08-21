@@ -17,12 +17,15 @@
 </o-row> 
 
 
-  <o-button #buttonQuery attr="filter" class="filter-button" type="RAISED"  [oFilterBuilderQuery]="filterBuilder" label="FILTER" color="primary" class="button" style="display:none" ></o-button>
-  <o-button #buttonClear attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR" class="button" style="display:none"></o-button>        
+  <o-button #buttonQuery2 attr="filter" class="filter-button" type="RAISED"  [oFilterBuilderQuery]="filterBuilder" label="FILTER" color="primary" class="button" style="display:none" ></o-button>
+  <o-button #buttonClear2 attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR" class="button" style="display:none"></o-button>        
 
+  <o-button #buttonQuery3 attr="filter" class="filter-button" type="RAISED"  [oFilterBuilderQuery]="filterBuilder3" label="FILTER" color="primary" class="button" style="display:none" ></o-button>
+  <o-button #buttonClear3 attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder3" label="CLEAR" class="button" style="display:none"></o-button>        
 
 <app-resume-delivery-traffic  ></app-resume-delivery-traffic>
 <app-resume-delivery-balance ></app-resume-delivery-balance>
+<app-resume-delivery-affluence></app-resume-delivery-affluence>
 
 <o-filter-builder #filterBuilder2 attr="thefilter"  filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn" 
 [expression-builder]="createFilter" [target]="targetChart.chartObjects[0]"   query-on-change="no" query-on-change-delay="500">
@@ -30,7 +33,8 @@
 <o-filter-builder #filterBuilder attr="thefilter"  filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn" 
 [expression-builder]="createFilter" [target]="targetChart.chartObjects[1]"   query-on-change="no" query-on-change-delay="500">
 </o-filter-builder>
+<o-filter-builder #filterBuilder3 attr="thefilter"  filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn" 
+[expression-builder]="createFilter" [target]="targetChart.chartObjects[2]" query-on-change="no" query-on-change-delay="500">
+</o-filter-builder>
 
-
-  <app-resume-delivery-affluence></app-resume-delivery-affluence>
 </o-form>
