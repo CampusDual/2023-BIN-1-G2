@@ -4,7 +4,7 @@
 }
 
 .error-row {
-    background-color: #ff15008f;
+    background-color: #ff408094;
 }
 
 
@@ -35,3 +35,11 @@
 .chart > div > h3 {
     margin-bottom: 0;
 }
+
+.o-app-sidenav .o-app-sidenav-menu-group:not([disabled=true]) a.o-app-sidenav-viewer-sidenav-item-selected, .o-app-sidenav .o-app-sidenav-menu-group:not([disabled=true]) a:hover, .o-app-sidenav .o-app-sidenav-menu-item:not([disabled=true]) a.o-app-sidenav-viewer-sidenav-item-selected, .o-app-sidenav .o-app-sidenav-menu-item:not([disabled=true]) a:hover {
+    color: #000000;
+}
+
+.editable-row .mat-form-field-flex {
+   color: rgba(255, 0, 0, 0.904);
+  }
