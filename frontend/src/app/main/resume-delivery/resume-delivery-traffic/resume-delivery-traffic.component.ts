@@ -30,6 +30,7 @@ export class ResumeDeliveryTrafficComponent implements OnInit {
     this.movementTypesChartParams.noDataMessage = "NO_DATA_FOUND";
     this.movementTypesChartParams.legend.rightAlign = false
     this.movementTypesChartParams.legend.maxKeyLength = 23;
+    this.movementTypesChartParams.color = ['#3f51b5']
   }
 
   @ViewChild("trafficChart",{static:true}) trafficChart

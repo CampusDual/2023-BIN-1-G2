@@ -31,7 +31,7 @@ export class ResumeDeliveryBalanceComponent implements OnInit {
     this.movementTypesChartParamsBalance.showLegend = true
     this.movementTypesChartParamsBalance.legend.rightAlign = false
     this.movementTypesChartParamsBalance.height = 600;
-    this.movementTypesChartParamsBalance.color = ["#1464a5"]
+    this.movementTypesChartParamsBalance.color = ['#3f51b5']
     this.movementTypesChartParamsBalance.x1Axis.fontSize = 0
   }
 
