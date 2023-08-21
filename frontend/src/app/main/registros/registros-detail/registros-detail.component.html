@@ -3,56 +3,69 @@
 
   <o-row >
     <o-column title-label="DELIVERY_NOTE"  fxFlex="70">
-      <o-integer-input class="input-padding" attr="delivery_note" label="DELIVERY_NOTE" thousand-separator="" required="yes" [read-only]="isDuplicated()" ></o-integer-input>
+      <o-integer-input class="input-padding" attr="delivery_note" [label]="isNotDuplicated() === 'yes' ? 'DELIVERY_NOTE' : ('DELIVERY_NOTE' | oTranslate) + ' ⚠️'" [class]="isNotDuplicated() === 'yes' ? '': 'editable-row'" label="DELIVERY_NOTE" thousand-separator="" required="yes" [read-only]="isNotDuplicated()" appearance="outline" >
+      </o-integer-input>
     </o-column>
     <o-column title-label="ID" fxFlex="30">
-      <o-integer-input class="input-padding" attr="id" label="ID" sql-type="INTEGER" enabled="no"></o-integer-input>
+      <o-integer-input class="input-padding" attr="id" thousand-separator="" label="ID" sql-type="INTEGER" appearance="outline" enabled="no">
+      </o-integer-input>
     </o-column> 
   </o-row>
 
 
   <o-row>
     <o-column title-label="PLATE" fxFlex="33">
-      <o-text-input class="input-padding" attr="plate_name" label="PLATE_NAME"  ></o-text-input>
+      <o-text-input class="input-padding" attr="plate_name" label="PLATE_NAME" appearance="outline">
+        <mat-icon oMatSuffix>local_shipping</mat-icon>
+      </o-text-input>
     </o-column>
     <o-column title-label="TRAILER_PLATE" fxFlex="34">
-      <o-text-input class="input-padding" attr="trailer_plate_name" label="TRAILER_PLATE_NAME"  read-only="yes"></o-text-input>
+      <o-text-input class="input-padding" attr="trailer_plate_name" label="TRAILER_PLATE_NAME" appearance="outline"  read-only="yes">
+        <mat-icon oMatSuffix>rv_hookup</mat-icon>
+      </o-text-input>
     </o-column>
-  <o-column title-label="CALCULATED_VOLUME" fxFlex="33">
-    <o-real-input class="input-padding" attr="calculated_volume" label="CALCULATED_VOLUME"  decimal-digits="2" read-only="yes"></o-real-input>
+  <o-column title-label="CALCULATED_VOLUME (m³)" fxFlex="33">
+    <o-real-input class="input-padding" attr="calculated_volume" [label]="('CALCULATED_VOLUME' | oTranslate) + ' (m³)'" appearance="outline"  decimal-digits="2" read-only="yes">
+    </o-real-input>
   </o-column>
   </o-row>
 
 
   <o-row>
-    <o-column title-label="WIDTH" fxFlex="33">
-      <o-real-input class="input-padding" attr="width" label="WIDTH" decimal-digits="2" read-only="yes"></o-real-input>
+    <o-column title-label="WIDTH (m)" fxFlex="33">
+      <o-real-input class="input-padding" attr="width" [label]="('WIDTH' | oTranslate) + ' (m)'" appearance="outline" decimal-digits="2" read-only="yes"></o-real-input>
     </o-column>
-    <o-column title-label="HEIGHT" fxFlex="33">
-      <o-real-input class="input-padding" attr="height" label="HEIGHT"  decimal-digits="2" read-only="yes"></o-real-input>
+    <o-column title-label="HEIGHT (m)" fxFlex="33">
+      <o-real-input class="input-padding" attr="height" [label]="('HEIGHT' | oTranslate) + ' (m)'" appearance="outline"  decimal-digits="2" read-only="yes"></o-real-input>
     </o-column>
-    <o-column title-label="LENGTH" fxFlex="34">
-      <o-real-input class="input-padding" attr="length" label="LENGTH" decimal-digits="2" read-only="yes"></o-real-input>
+    <o-column title-label="LENGTH (m)" fxFlex="34">
+      <o-real-input class="input-padding" attr="length" [label]="('LENGTH' | oTranslate) + ' (m)'" appearance="outline" decimal-digits="2" read-only="yes"></o-real-input>
     </o-column>
   </o-row>
 
 <o-row>
   <o-column title-label="IN" fxFlex="50" class="col-in-out">
-    <h3 class="cabecera">{{'IN' | oTranslate}}</h3>
+    <div class="row-icon">
+      <mat-icon oMatSuffix>exit_to_app</mat-icon>
+      <h3 class="cabecera">{{'IN' | oTranslate}}</h3>
+    </div>
     <o-row title-label="DATE" >
       <o-time-input class="input-padding" label="DATE_IN" attr="date_in" fxFlex="100" read-only="yes"></o-time-input>
     </o-row>
-    <o-row  title-label="SCAN_VOLUME" >
-      <o-real-input class="input-padding" label="SCAN_VOLUME_IN" attr="scan_volume_in" decimal-digits="2" fxFlex="100" read-only="yes"></o-real-input>
+    <o-row  title-label="SCAN_VOLUME (m³) 📦" >
+      <o-real-input class="input-padding" [label]="('SCAN_VOLUME_IN' | oTranslate) + ' (m³)'" attr="scan_volume_in" appearance="outline" decimal-digits="2" fxFlex="100" read-only="yes"></o-real-input>
     </o-row>
   </o-column>
   <o-column title-label="OUT" fxFlex="50" class="col-in-out">
-    <h3 class="cabecera">{{'OUT' | oTranslate}}</h3>
+    <div class="row-icon">
+      <h3 class="cabecera">{{'OUT' | oTranslate}}</h3>
+      <mat-icon oMatSuffix>exit_to_app</mat-icon>
+    </div>
     <o-row title-label="DATE">
       <o-time-input class="input-padding" label="DATE_OUT" attr="date_out" fxFlex="100" read-only="yes"></o-time-input>
     </o-row>
-    <o-row  title-label="SCAN_VOLUME">
-      <o-real-input class="input-padding" label="SCAN_VOLUME_OUT"  attr="scan_volume_out" decimal-digits="2" fxFlex="100" read-only="yes"></o-real-input>
+    <o-row title-label="SCAN_VOLUME (m³)">
+      <o-real-input class="input-padding" [label]="('SCAN_VOLUME_OUT' | oTranslate) + ' (m³)'"  attr="scan_volume_out" appearance="outline" decimal-digits="2" fxFlex="100" read-only="yes"></o-real-input>
     </o-row>
   </o-column>
 </o-row>

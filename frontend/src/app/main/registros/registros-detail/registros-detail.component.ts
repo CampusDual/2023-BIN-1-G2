@@ -18,7 +18,7 @@ export class RegistrosDetailComponent implements OnInit {
     this.delivery_note=data.delivery_note;
   }
 
-   isDuplicated(): "yes"|"no" {
+   isNotDuplicated(): "yes"|"no" {
       if(this.duplicatedService.duplicatedDelivery.includes(this.delivery_note)){
         return "no"
       }
