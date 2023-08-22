@@ -56,5 +56,6 @@
   "DELIVERY_BALANCE": "Resume Daily Net Volume" ,
   "DELIVERY_BALANCE_DESCRIPTION": "Graph representing daily net factory volume.",
   "DELIVERY_AFFLUENCE": "Mean of Delivery Affluence",
-  "DELIVERY_AFFLUENCE_DESCRIPTION": "Each graph represents the average daily hourly flow for each day of the week."
+  "DELIVERY_AFFLUENCE_DESCRIPTION": "Each graph represents the average daily hourly flow for each day of the week.",
+  "NO_DATA_FOUND": "No Data Found"
 }

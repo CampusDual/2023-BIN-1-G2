@@ -9,6 +9,7 @@ import { ResumeDeliveryTrafficComponent } from './resume-delivery-traffic/resume
 import { ResumeDeliveryAffluenceComponent } from './resume-delivery-affluence/resume-delivery-affluence.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,5 +18,7 @@ import { ResumeDeliveryAffluenceComponent } from './resume-delivery-affluence/re
     OChartModule
   ],
   declarations: [ResumeDeliveryViewComponent,ResumeDeliveryBalanceComponent,ResumeDeliveryTrafficComponent, ResumeDeliveryAffluenceComponent]
+
+
 })
 export class ResumeDeliveryModule { }

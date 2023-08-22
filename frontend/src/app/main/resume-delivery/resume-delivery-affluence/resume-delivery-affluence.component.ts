@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {  DataAdapterUtils,  LineChartConfiguration,} from "ontimize-web-ngx-charts";
+import {  DataAdapterUtils,  LineChartConfiguration} from "ontimize-web-ngx-charts";
 import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
 import { TargetChartService } from "src/app/shared/target-chart.service";
 
@@ -17,6 +17,7 @@ export class ResumeDeliveryAffluenceComponent implements OnInit {
   constructor(protected d3LocaleService: D3LocaleService,protected targetChart:TargetChartService) { 
     const d3Locale = this.d3LocaleService.getD3LocaleConfiguration();
     this._configureLineChart(d3Locale);
+
   }
     
   ngOnInit() {
@@ -34,7 +35,19 @@ export class ResumeDeliveryAffluenceComponent implements OnInit {
 
     loadDataAffluence(data : any[]){
       let newData:Array<any>=[]
+
+      let isEmpty = data.every((d)=>d.afluencia===0);
+
+        if(isEmpty){
+          const adapter = DataAdapterUtils.createDataAdapter(
+            this.movementTypesChartParamsAffluence
+          );
+          this.dataChartAffluence = adapter.adaptResult(newData);
+          return;
+        }
+
       this.arrayHours.forEach(h=>{
+        let pushObject: boolean = false;
         let hourObject={hour: h, 
         LUNES:0,
         MARTES:0,
@@ -43,18 +56,21 @@ export class ResumeDeliveryAffluenceComponent implements OnInit {
         VIERNES:0,
         SABADO:0}
 
-        let dataHasHour=data.filter(d=> d.day_hour===h)
+        
+
+        let dataHasHour=data.filter(d=> d.day_hour===h);
+
 
         dataHasHour.forEach(d=> {switch (d.day_date){
           case 1: hourObject.LUNES=d.afluencia; break;
-          case 2: hourObject.MARTES=d.afluencia;break;
-          case 3: hourObject.MIERCOLES=d.afluencia;break;
-          case 4: hourObject.JUEVES=d.afluencia;break;
-          case 5: hourObject.VIERNES=d.afluencia;break;
-          case 6: hourObject.SABADO=d.afluencia;break;
-        }})
+          case 2: hourObject.MARTES=d.afluencia; break;
+          case 3: hourObject.MIERCOLES=d.afluencia; break;
+          case 4: hourObject.JUEVES=d.afluencia; break;
+          case 5: hourObject.VIERNES=d.afluencia; break;
+          case 6: hourObject.SABADO=d.afluencia; break;
+        }})        
+          newData.push(hourObject)
         
-        newData.push(hourObject)
       })
       
         const adapter = DataAdapterUtils.createDataAdapter(
