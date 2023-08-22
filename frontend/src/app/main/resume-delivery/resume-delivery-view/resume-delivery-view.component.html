@@ -8,10 +8,10 @@
   </o-row>
   <o-row id="filter_btn"  layout-gap="15px">
     <o-column layout-align="center">
-      <o-button attr="filter" class="filter-button" type="RAISED"  [oFilterBuilderQuery]="filterBuilder2" label="FILTER" color="primary" class="button" (onClick)="onClickQuery($event)"></o-button>
+      <o-button attr="filter" class="filter-button" type="RAISED"  [oFilterBuilderQuery]="filterBuilder2" label="FILTER" icon="search" color="primary" class="button" (onClick)="onClickQuery($event)"></o-button>
     </o-column>
     <o-column layout-align="center">
-      <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder2" label="CLEAR" class="button" (onClick)="onClickClear($event)" ></o-button>        
+      <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder2" label="CLEAR" icon="restore" class="button" (onClick)="onClickClear($event)" ></o-button>        
     </o-column>
   </o-row>
 </o-row> 
