@@ -137,7 +137,7 @@ public class RegisterService implements IRegisterService {
         }
         if (attrMap.containsKey(DeliveryNotesDao.ATTR_DELIVERY_NOTE)){
             Map<String,Object> attrMapCast = new HashMap<>();
-            attrMapCast.put(DeliveryNotesDao.ATTR_DELIVERY_NOTE, new BigInteger((String) attrMap.get(DeliveryNotesDao.ATTR_DELIVERY_NOTE)));
+            attrMapCast.put(DeliveryNotesDao.ATTR_DELIVERY_NOTE, attrMap.get(DeliveryNotesDao.ATTR_DELIVERY_NOTE));
             List<String> attr = new ArrayList<String>();
             attr.add(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
             EntityResult query = this.registerDeliveryNotesQuery(attrMapCast, attr);
