@@ -1,4 +1,17 @@
-<o-form fxFlex="100" show-header="no">
+<mat-tab-group>
+  <mat-tab label="{{'DELIVERY_TRAFFIC'| oTranslate}}">
+    <app-resume-delivery-traffic></app-resume-delivery-traffic>
+  </mat-tab>
+  <mat-tab label="{{'DELIVERY_BALANCE'| oTranslate}}">
+    <app-resume-delivery-balance></app-resume-delivery-balance>
+  </mat-tab>
+  <mat-tab label="{{'DELIVERY_AFFLUENCE'| oTranslate}}">
+    <app-resume-delivery-affluence></app-resume-delivery-affluence>
+  </mat-tab>
+</mat-tab-group>
+
+
+<!-- <o-form fxFlex="100" show-header="no">
 
 <o-row>
   <o-row title="{{'DATE_FILTER' | oTranslate}}"   class="col" layout-gap="10px">  
@@ -37,4 +50,4 @@
 [expression-builder]="createFilter" [target]="targetChart.chartObjects[2]" query-on-change="no" query-on-change-delay="500">
 </o-filter-builder>
 
-</o-form>
+</o-form> -->

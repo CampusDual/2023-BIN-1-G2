@@ -1,3 +1,22 @@
+<o-form show-header="no">
+
+  <o-row>
+    <o-row title="{{'DATE_FILTER' | oTranslate}}" class="col" layout-gap="10px">
+      <o-date-input attr="startDateIn" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
+      <o-date-input attr="endDateIn" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
+
+    </o-row>
+    <o-row id="filter_btn" layout-gap="15px">
+      <o-column layout-align="center">
+        <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder"
+          label="FILTER" icon="search" color="primary" class="button" ></o-button>
+      </o-column>
+      <o-column layout-align="center">
+        <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR"
+          icon="restore" class="button" ></o-button>
+      </o-column>
+    </o-row>
+  </o-row>
 <div class="chart">
   <div>
     <h3>{{ "DELIVERY_TRAFFIC" | oTranslate }}</h3>
@@ -37,3 +56,8 @@
     <o-table-column attr="date_bigint" type="date"></o-table-column>
   </o-table>
 </div>
+<o-filter-builder #filterBuilder attr="thefilter" filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn"
+    [expression-builder]="filterChart.createFilter" [target]="trafficChart" query-on-change="no"
+    query-on-change-delay="500">
+  </o-filter-builder>
+</o-form>

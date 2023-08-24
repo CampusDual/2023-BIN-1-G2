@@ -58,4 +58,5 @@
   "DELIVERY_AFFLUENCE": "Mean of Delivery Affluence",
   "DELIVERY_AFFLUENCE_DESCRIPTION": "Each graph represents the average daily hourly flow for each day of the week.",
   "NO_DATA_FOUND": "No results found"
+
 }

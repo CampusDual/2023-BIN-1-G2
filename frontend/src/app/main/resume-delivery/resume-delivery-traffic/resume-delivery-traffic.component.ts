@@ -7,7 +7,7 @@ import {
 } from "ontimize-web-ngx-charts";
 import { Subscription } from "rxjs";
 import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
-import { TargetChartService } from "src/app/shared/target-chart.service";
+import { FilterChartService } from "src/app/shared/filter-chart.service";
 
 @Component({
   selector: "app-resume-delivery-traffic",
@@ -25,7 +25,7 @@ export class ResumeDeliveryTrafficComponent implements OnInit, OnDestroy {
   public dataChartTraffic: any = [];
   constructor(
     protected d3LocaleService: D3LocaleService,
-    protected targetChart: TargetChartService,
+    protected filterChart:FilterChartService,
     translate: OTranslateService
   ) {
     const d3Locale = this.d3LocaleService.getD3LocaleConfiguration();
@@ -42,7 +42,6 @@ export class ResumeDeliveryTrafficComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.targetChart.addChart(this.trafficChart);
   }
 
   ngOnDestroy(): void {

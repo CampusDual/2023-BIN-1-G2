@@ -5,9 +5,9 @@ import {
   OChartComponent,
 } from "ontimize-web-ngx-charts";
 import { D3LocaleService } from "src/app/shared/d3-locale/d3Locale.service";
-import { TargetChartService } from "src/app/shared/target-chart.service";
 import { OTableComponent, OTranslateService } from "ontimize-web-ngx";
 import { Subscription } from "rxjs";
+import { FilterChartService } from "src/app/shared/filter-chart.service";
 
 @Component({
   selector: "app-resume-delivery-affluence",
@@ -46,7 +46,7 @@ export class ResumeDeliveryAffluenceComponent implements OnInit, OnDestroy {
 
   constructor(
     protected d3LocaleService: D3LocaleService,
-    protected targetChart: TargetChartService,
+    protected filterChart:FilterChartService,
     translate: OTranslateService
   ) {
     const d3Locale = this.d3LocaleService.getD3LocaleConfiguration();
@@ -65,7 +65,6 @@ export class ResumeDeliveryAffluenceComponent implements OnInit, OnDestroy {
   private translateServiceSubscription: Subscription;
 
   ngOnInit() {
-    this.targetChart.addChart(this.affluenceChart);
   }
 
   ngOnDestroy(): void {

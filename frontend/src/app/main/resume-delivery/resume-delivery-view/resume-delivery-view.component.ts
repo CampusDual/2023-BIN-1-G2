@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild } from "@angular/core";
 import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
-import { TargetChartService } from "src/app/shared/target-chart.service";
+
 
 @Component({
   selector: "app-resume-delivery-view",
@@ -14,22 +14,12 @@ export class ResumeDeliveryViewComponent implements OnInit {
   @ViewChild("buttonQuery3",{static:true}) buttonQuery3
   @ViewChild("buttonClear3",{static:true}) buttonClear3
 
-  constructor(protected targetChart:TargetChartService) {
+  constructor() {
 
   }
   
 
   ngOnInit() {}
-
-  onClickQuery(){
-    this.buttonQuery2.click.emit()
-    this.buttonQuery3.click.emit()
-  }
-
-  onClickClear(){
-    this.buttonClear2.click.emit()
-    this.buttonClear3.click.emit()
-  }
 
 
 

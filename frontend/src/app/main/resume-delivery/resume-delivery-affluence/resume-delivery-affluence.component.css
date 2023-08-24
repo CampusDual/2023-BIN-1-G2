@@ -1,0 +1,23 @@
+
+.col {
+    border: 1px solid gray;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #f6f8faa1;
+    -webkit-box-shadow: 0px 7px 18px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 21px 18px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 18px -5px rgba(0,0,0,0.75);
+}
+
+.button{
+   border-color: grey;
+   border: 2px solid;
+   border-radius: 4px;
+}
+
+#filter_btn{
+    display: flex;
+    flex-wrap: wrap;
+}
