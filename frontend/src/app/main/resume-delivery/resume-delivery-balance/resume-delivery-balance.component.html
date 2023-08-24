@@ -8,55 +8,41 @@
     </o-row>
     <o-row id="filter_btn" layout-gap="15px">
       <o-column layout-align="center">
-        <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder"
-          label="FILTER" icon="search" color="primary" class="button" ></o-button>
+        <o-button attr="filter" class="filter-button" type="RAISED" [oFilterBuilderQuery]="filterBuilder" label="FILTER"
+          icon="search" color="primary" class="button"></o-button>
       </o-column>
       <o-column layout-align="center">
         <o-button attr="clear" class="filter-button" type="RAISED" [oFilterBuilderClear]="filterBuilder" label="CLEAR"
-          icon="restore" class="button" ></o-button>
+          icon="restore" class="button"></o-button>
       </o-column>
     </o-row>
   </o-row>
-<div class="chart">
-  <div>
-    <h3>{{ "DELIVERY_BALANCE" | oTranslate }}</h3>
-    <span>{{ "DELIVERY_BALANCE_DESCRIPTION" | oTranslate }}</span>
+  <div class="chart">
+    <div>
+      <h3>{{ "DELIVERY_BALANCE" | oTranslate }}</h3>
+      <span>{{ "DELIVERY_BALANCE_DESCRIPTION" | oTranslate }}</span>
+    </div>
+
+
+
+
+    <o-chart #chart type="discreteBar" service="registers" entity="balance" x-label="Time" y-label="Nº"
+      x-axis="date_bigint" y-axis="acumulated" x-data-type="time" [chart-parameters]="movementTypesChartParamsBalance"
+      [data]="dataChartBalance"></o-chart>
+
+    <o-chart #chart2 type="multiBar" layout-fill x-label="Time" y-label="Nº"
+      x-axis="date_bigint" y-axis="acumulated;acumulated_in;acumulated_out" x-data-type="time" 
+      [chart-parameters]="movementTypesChartParamsBalanceMulti" [data]="dataCharBalanceMulti"></o-chart>
+
+
+
+    <o-table style="display: none" #balanceChart attr="registersTable" insert-button="no" delete-button="no"
+      service="registers" entity="balance" keys="date_bigint" columns="date_bigint;acumulated;acumulated_in;acumulated_out"
+      (onDataLoaded)="loadDataBalance($event)" visible-columns="date_bigint;acumulated;acumulated_in,acumulated_out" query-rows="20">
+      <o-table-column attr="date_bigint" type="date"></o-table-column>
+    </o-table>
   </div>
-
-  <o-column>
-    <o-chart
-      #chart
-      type="discreteBar"
-      service="registers"
-      entity="balance"
-      x-label="Time"
-      y-label="Nº"
-      x-axis="date_bigint"
-      y-axis="acumulated"
-      x-data-type="time"
-      [chart-parameters]="movementTypesChartParamsBalance"
-      [data]="dataChartBalance"
-    ></o-chart>
-  </o-column>
-
-  <o-table
-    style="display: none"
-    #balanceChart
-    attr="registersTable"
-    insert-button="no"
-    delete-button="no"
-    service="registers"
-    entity="balance"
-    keys="date_bigint"
-    columns="date_bigint;acumulated"
-    (onDataLoaded)="loadDataBalance($event)"
-    visible-columns="date_bigint;acumulated"
-    query-rows="20"
-  >
-    <o-table-column attr="date_bigint" type="date"></o-table-column>
-  </o-table>
-</div>
-<o-filter-builder #filterBuilder attr="thefilter" filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn"
+  <o-filter-builder #filterBuilder attr="thefilter" filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn"
     [expression-builder]="filterChart.createFilter" [target]="balanceChart" query-on-change="no"
     query-on-change-delay="500">
   </o-filter-builder>
