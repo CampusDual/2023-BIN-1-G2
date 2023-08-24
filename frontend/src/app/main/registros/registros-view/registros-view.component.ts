@@ -9,17 +9,19 @@ import { DuplicatedDeliveryService } from "src/app/shared/duplicatedDelivery.ser
 })
 export class RegistrosViewComponent implements OnInit {
 
-  
 
-  loadData(data:any[]) {
 
-    const delivery_notes = data.map(d => d.delivery_note) 
+  loadData(data: any[]) {
+
+    const delivery_notes = data.map(d => d.delivery_note)
 
     const delivery_notes_filtered = delivery_notes.filter((delivery_note, index, arr) => {
       return arr.indexOf(delivery_note) !== index;
     })
 
-    this.duplicatedService.duplicatedDelivery = delivery_notes_filtered
+    this.duplicatedService.duplicatedDelivery = delivery_notes_filtered;
+
+    this.duplicatedService.everyDelivery = delivery_notes;
 
   }
 
@@ -33,15 +35,15 @@ export class RegistrosViewComponent implements OnInit {
 
   }
 
-  
 
-  constructor( private duplicatedService: DuplicatedDeliveryService) { }
+
+  constructor(private duplicatedService: DuplicatedDeliveryService) { }
 
   ngOnInit() {
-   
+
   }
 
-  
+
 
 
   createFilter(values: Array<{ attr; value }>): Expression {
@@ -54,7 +56,7 @@ export class RegistrosViewComponent implements OnInit {
           );
         }
         if (fil.attr === "ENDDATE_I") {
-          let d=new Date(fil.value);
+          let d = new Date(fil.value);
           d.setHours(23);
           d.setMinutes(59);
           d.setSeconds(59);
@@ -68,7 +70,7 @@ export class RegistrosViewComponent implements OnInit {
           );
         }
         if (fil.attr === "ENDDATE_O") {
-          let d=new Date(fil.value);
+          let d = new Date(fil.value);
           d.setHours(23);
           d.setMinutes(59);
           d.setSeconds(59);

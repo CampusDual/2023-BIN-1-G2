@@ -5,11 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class DuplicatedDeliveryService {
 
-  private _duplicatedDelivery =  [];
+  private _duplicatedDelivery = [];
+  private _everyDelivery = [];
 
-constructor() { }
+  constructor() { }
 
-get duplicatedDelivery(){ return this._duplicatedDelivery}
-set duplicatedDelivery(duplicatedDeliveryArray){ this._duplicatedDelivery=duplicatedDeliveryArray}
+  get duplicatedDelivery() { return this._duplicatedDelivery };
+  set duplicatedDelivery(duplicatedDeliveryArray) { this._duplicatedDelivery = duplicatedDeliveryArray };
+
+  get everyDelivery() { return this._everyDelivery };
+  set everyDelivery(everyDeliveryArray) { this._everyDelivery = everyDeliveryArray };
 
 }
