@@ -12,6 +12,7 @@ export class ConfigDiscrepancyComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   updateDiscrepancy(value: number) {
