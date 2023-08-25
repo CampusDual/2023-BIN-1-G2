@@ -61,6 +61,7 @@
   "acumulated_diff": "Volume Diference",
   "acumulated_in": "Entry Volume",
   "acumulated_out": "Exit Volume",
-  "BALANCE_STATS":"Show advanced"
+  "BALANCE_STATS":"Show advanced",
+  "CONFIG":"Settings"
 
 }

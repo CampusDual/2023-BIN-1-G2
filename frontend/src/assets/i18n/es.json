@@ -61,5 +61,6 @@
   "acumulated_diff": "Diferencia de Volúmenes",
   "acumulated_in": "Volumen entrada",
   "acumulated_out": "Volumen Salida",
-  "BALANCE_STATS":"Mostrar completo"
+  "BALANCE_STATS":"Mostrar completo",
+  "CONFIG":"Configuración"
 }

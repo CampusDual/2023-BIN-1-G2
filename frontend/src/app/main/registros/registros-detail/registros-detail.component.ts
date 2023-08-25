@@ -14,6 +14,8 @@ export class RegistrosDetailComponent implements OnInit {
 
   public isDuplicated: string = "no";
 
+  private timer: any;
+
   ngOnInit() {
   }
 
@@ -29,22 +31,31 @@ export class RegistrosDetailComponent implements OnInit {
   }
 
   validateDelivery(data: any) {
-    if(typeof(data)==='number'){
-      if (this.duplicatedService.duplicatedDelivery.includes(Number(data))) {
-        this.isDuplicated = "yes";
+    if(this.timer){
+      clearTimeout(this.timer);
+    }
+
+    this.timer = setTimeout(()=>{
+      console.log(data);
+      if (typeof (data) === 'number') {
+        if (this.duplicatedService.duplicatedDelivery.includes(Number(data))) {
+          this.isDuplicated = "yes";
+        }
+        else {
+          this.isDuplicated = "no";
+        }
       }
       else {
-        this.isDuplicated = "no";
+        if (this.duplicatedService.everyDelivery.includes(Number(data))) {
+          this.isDuplicated = "yes";
+        }
+        else {
+          this.isDuplicated = "no";
+        }
       }
-    }
-    else{
-      if (this.duplicatedService.everyDelivery.includes(Number(data))) {
-        this.isDuplicated = "yes";
-      }
-      else {
-        this.isDuplicated = "no";
-      }
-    }
+    },750)
+    
+    
 
     
   }
