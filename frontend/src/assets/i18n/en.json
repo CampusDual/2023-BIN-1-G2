@@ -62,6 +62,7 @@
   "acumulated_in": "Entry Volume",
   "acumulated_out": "Exit Volume",
   "BALANCE_STATS":"Show advanced",
-  "CONFIG":"Settings"
+  "CONFIG":"Settings",
+  "DISCREPANCY_PERCENT":"Discrepancy (%)"
 
 }

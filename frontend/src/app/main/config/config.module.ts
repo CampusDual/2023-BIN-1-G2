@@ -3,6 +3,7 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { SharedModule } from '../../shared/shared.module';
 import { ConfigViewComponent } from './config-view/config-view.component';
 import { ConfigRoutingModule } from './config-routing.module';
+import { ConfigDiscrepancyComponent } from './config-discrepancy/config-discrepancy.component';
 
 
 
@@ -12,6 +13,6 @@ import { ConfigRoutingModule } from './config-routing.module';
     ConfigRoutingModule,
     OntimizeWebModule
   ],
-  declarations: [ConfigViewComponent]
+  declarations: [ConfigViewComponent, ConfigDiscrepancyComponent]
 })
 export class ConfigModule { }

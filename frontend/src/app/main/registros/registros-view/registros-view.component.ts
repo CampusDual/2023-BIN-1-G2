@@ -1,6 +1,7 @@
 import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DuplicatedDeliveryService } from "src/app/shared/duplicatedDelivery.service";
+import { ConfigService } from "src/app/shared/config.service";
 
 @Component({
   selector: 'app-registros-view',
@@ -9,7 +10,11 @@ import { DuplicatedDeliveryService } from "src/app/shared/duplicatedDelivery.ser
 })
 export class RegistrosViewComponent implements OnInit {
 
+  constructor(private duplicatedService: DuplicatedDeliveryService, private discrepancyService:ConfigService) { }
 
+  ngOnInit() {
+
+  }
 
   loadData(data: any[]) {
 
@@ -34,15 +39,6 @@ export class RegistrosViewComponent implements OnInit {
     return ""
 
   }
-
-
-
-  constructor(private duplicatedService: DuplicatedDeliveryService) { }
-
-  ngOnInit() {
-
-  }
-
 
 
 
