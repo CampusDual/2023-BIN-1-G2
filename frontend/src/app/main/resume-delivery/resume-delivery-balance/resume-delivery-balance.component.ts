@@ -21,6 +21,7 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
   public movementTypesChartParamsBalanceMulti: MultiBarChartConfiguration;
   public dataChartBalance: any = [];
   public dataCharBalanceMulti:any=[];
+  public isCheck: boolean=false;
   private translateServiceSubscription: Subscription;
 
   @ViewChild("balanceChart", { static: true }) balanceChart: OTableComponent;
@@ -83,11 +84,13 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
     this.movementTypesChartParamsBalanceMulti.legend.maxKeyLength = 23;
     this.movementTypesChartParamsBalanceMulti.showLegend = true;
     this.movementTypesChartParamsBalanceMulti.legend.rightAlign = false;
-    this.movementTypesChartParamsBalanceMulti.color = ["#3f51b5"];
+    this.movementTypesChartParamsBalanceMulti.color = ["#3f51b5","#ff90b5","#5496c4"];
     this.movementTypesChartParamsBalanceMulti.x1Axis.fontSize = 0;
+    this.movementTypesChartParamsBalanceMulti.showControls=false;
+    this.movementTypesChartParamsBalanceMulti.stacked=false;
+    
   }
   loadDataBalance(data: Array<any>) {
-    console.log(data)
     const adapter = DataAdapterUtils.createDataAdapter(
       this.movementTypesChartParamsBalance
     );
@@ -97,5 +100,11 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
 
     this.dataChartBalance = adapter.adaptResult(data);
     this.dataCharBalanceMulti=adapter2.adaptResult(data);
+  }
+
+  onChange(data:boolean){
+    this.balanceChart.reloadData(true);
+    this.isCheck=data;
+    
   }
 }

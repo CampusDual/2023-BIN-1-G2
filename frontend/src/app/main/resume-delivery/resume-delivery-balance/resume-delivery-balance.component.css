@@ -32,13 +32,9 @@
     box-shadow: 0px 7px 18px -5px rgba(0,0,0,0.75);
 }
 
-.button{
-   border-color: grey;
-   border: 2px solid;
-   border-radius: 4px;
-}
 
-#filter_btn{
-    display: flex;
-    flex-wrap: wrap;
+#encabezado{
+display: flex;
+justify-content: space-between;
+padding-right: 50px;
 }
