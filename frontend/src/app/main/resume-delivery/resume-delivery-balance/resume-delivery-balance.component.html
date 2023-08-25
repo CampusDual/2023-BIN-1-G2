@@ -33,7 +33,7 @@
       x-label="Time" y-label="Nº" x-axis="date_bigint" y-axis="acumulated_diff" x-data-type="time"
       [chart-parameters]="movementTypesChartParamsBalance" [data]="dataChartBalance"></o-chart>
 
-    <o-chart [class]="isCheck? '':'hidden'" type="multiBar" layout-fill x-label="Time" y-label="Nº" x-axis="date_bigint"
+    <o-chart [class]="isCheck? '':'hidden'" #chart2 type="multiBar" layout-fill x-label="Time" y-label="Nº" x-axis="date_bigint"
       y-axis="acumulated_diff;acumulated_in;acumulated_out" x-data-type="time"
       [chart-parameters]="movementTypesChartParamsBalanceMulti" [data]="dataCharBalanceMulti"></o-chart>
 

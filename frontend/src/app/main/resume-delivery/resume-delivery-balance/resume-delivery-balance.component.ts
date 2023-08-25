@@ -73,6 +73,7 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
     this.movementTypesChartParamsBalance.legend.rightAlign = false;
     this.movementTypesChartParamsBalance.color = ["#3f51b5"];
     this.movementTypesChartParamsBalance.x1Axis.fontSize = 0;
+    this.movementTypesChartParamsBalance.showValues=true;
   }
   private _configureMultiBarChart(
     _locale: any,
@@ -89,6 +90,7 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
     this.movementTypesChartParamsBalanceMulti.showControls=false;
     this.movementTypesChartParamsBalanceMulti.stacked=false;
     
+    
   }
   loadDataBalance(data: Array<any>) {
     const adapter = DataAdapterUtils.createDataAdapter(
@@ -103,6 +105,8 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
   }
 
   onChange(data:boolean){
+    this.chart.updateOptions(this.movementTypesChartParamsBalance)
+    this.chart2.updateOptions(this.movementTypesChartParamsBalanceMulti)
     this.balanceChart.reloadData(true);
     this.isCheck=data;
     
