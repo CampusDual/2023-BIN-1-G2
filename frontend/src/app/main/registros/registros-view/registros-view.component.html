@@ -36,7 +36,9 @@
       <o-table-column attr="plate_name" title="PLATE_NAME" content-align="end"></o-table-column>
       <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2" ></o-table-column>
       <o-table-column attr="volume_diference" title="VOLUME_DIFERENCE" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2"></o-table-column>
-      <o-table-column attr="discrepancia" type="currency" currency-symbol= "% ☢️" currency-symbol-position="right" title="DISCREPANCY" decimal-digits="2" content-align="end"></o-table-column>
+      <o-table-column attr="discrepancia" title="DISCREPANCY" content-align="end">
+        <app-registros-discrepancy-render></app-registros-discrepancy-render>
+      </o-table-column>
     
     </o-table>
     </div>

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
-  private _discrepancyValue: number;
+  private _discrepancyValue: number = 10;
 
   constructor() { }
 

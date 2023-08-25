@@ -1,5 +1,5 @@
 <div class="card">
-  <h3>{{"DISCREPANCY_PERCENT"|oTranslate}}</h3>
-    <o-slider attr="discrepancy" (onChange)="updateDiscrepancy($event)" label-visible="true" label="slider" thumb-label="true">
+  <h3>{{"DISCREPANCY_PERCENT"|oTranslate}}: <o-integer-input (onChange)="updateDiscrepancy($event)" [data]="configService.discrepancyValue"></o-integer-input></h3>
+    <o-slider attr="discrepancy" [data]="configService.discrepancyValue" (onChange)="updateDiscrepancy($event)" label-visible="true" label="slider" thumb-label="true">
     </o-slider>
 </div>
