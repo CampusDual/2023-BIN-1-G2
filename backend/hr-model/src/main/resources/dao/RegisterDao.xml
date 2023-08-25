@@ -75,33 +75,39 @@ SELECT #COLUMNS# from T #WHERE#
         <Query id="balance">
             <Sentence>
                 <![CDATA[
-                          with WRAPER AS(
-                            WITH date_range AS(
-                                SELECT generate_series(
-                                    (SELECT MIN(date_in) FROM registros_camiones),
-                                    (SELECT MAX(date_in) FROM registros_camiones),
-                                    '1 day'
-                                )::DATE AS generated_date )
-                            SELECT extract(epoch from date_range.generated_date) * 1000  as date_bigint,
-                            COALESCE(vol_acumulado, 0) as acumulated,
-                            coalesce(vol_in_acumulado,0) as acumulated_in,
-                            coalesce(vol_out_acumulado,0) as acumulated_out
-                            FROM date_range
-                            LEFT JOIN (
-                                SELECT extract(epoch from date(date_in)) * 1000 as fecha,
-                                sum(scan_volume_in-scan_volume_out) AS vol_acumulado,
-                                sum(scan_volume_in) as vol_in_acumulado,
-                                sum(scan_volume_out)  as vol_out_acumulado
-                                FROM registros_camiones sr
-                                GROUP BY date(date_in) )
-                            AS sr_count ON extract(epoch from date_range.generated_date) * 1000 = sr_count.fecha
-                            ORDER BY date_range.generated_date
-                        )select date_bigint ,
-                        round(acumulated::numeric,2) as acumulated,
-                        round(acumulated_in::numeric,2) as acumulated_in,
-                        round(acumulated_out::numeric,2) as acumulated_out
-                        from wraper
-                        #WHERE#;
+with WRAPER AS(
+	WITH date_range AS(
+	    SELECT
+		    generate_series(
+		        (SELECT MIN(date_in) FROM registros_camiones),
+		        (SELECT MAX(date_in) FROM registros_camiones),
+		        '1 day'
+		        )::DATE AS generated_date
+	    )
+	    SELECT
+		    extract(epoch from date_range.generated_date) * 1000  as date_bigint,
+		    coalesce(vol_in_acumulado,0) as acumulated_in,
+		    coalesce(vol_out_acumulado,0) as acumulated_out
+	    FROM date_range
+	    LEFT JOIN (
+	        SELECT
+		        extract(epoch from date(date_in)) * 1000 as fecha,
+		        sum(scan_volume_in) as vol_in_acumulado,
+		        sum(scan_volume_out)  as vol_out_acumulado
+	        FROM registros_camiones sr
+	        GROUP BY date(date_in)
+	    )
+	    AS sr_count
+	    ON extract(epoch from date_range.generated_date) * 1000 = sr_count.fecha
+	    ORDER BY date_range.generated_date
+	)
+select
+	date_bigint ,
+	round((acumulated_in-acumulated_out)::numeric,2) acumulated_diff,
+	round(acumulated_in::numeric,2) as acumulated_in,
+	round(acumulated_out::numeric,2) as acumulated_out
+from wraper
+#WHERE#;
                 ]]>
             </Sentence>
         </Query>
