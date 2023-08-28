@@ -49,6 +49,9 @@ public class RegisterRestController extends ORestController<IRegisterService> {
         mapPlates.put("plate_name", body.get("plate"));
         mapTrailerPlates.put("trailer_plate_name", body.get("trailer_plate"));
         mapDeliveryNotes.put("delivery_note", body.get("delivery_note"));
+/*        if(body.get("scan_volume").equals("NaN")){
+           body.put("scan_volume",null);
+        }*/
 
         if (is_in) {
             mapRegister.put(RegisterDao.ATTR_DATE_IN, Timestamp.valueOf( (String)body.get("date")));
