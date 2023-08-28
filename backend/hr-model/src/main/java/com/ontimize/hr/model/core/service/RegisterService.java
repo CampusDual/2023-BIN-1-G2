@@ -20,6 +20,7 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 public class RegisterService implements IRegisterService {
 
     @Autowired private RegisterDao registerDao;
+    @Autowired private ConfigDao configDao;
     @Autowired private DevicesDao devicesDao;
     @Autowired private PlatesDao platesDao;
     @Autowired private TrailerPlatesDao trailerPlatesDao;
@@ -112,6 +113,17 @@ public class RegisterService implements IRegisterService {
     public EntityResult trafficDateQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_TRAFFIC_DATE);
+    }
+
+    @Override
+    public EntityResult registerConfigQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.configDao, keyMap, attrList);
+    }
+    @Override
+    public EntityResult registerConfigUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.update(this.configDao, attrMap, keyMap);
     }
     public EntityResult completedDiscrepancyQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {

@@ -34,4 +34,7 @@ public interface IRegisterService {
     public EntityResult trafficDateQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult completedDiscrepancyQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult completedDiscrepancyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+
+    public EntityResult registerConfigQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult registerConfigUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 }
