@@ -65,5 +65,7 @@
   "CONFIG":"Settings",
   "DISCREPANCY_PERCENT":"Discrepancy (%)",
   "NAME_CONFIG":"Configuration Name",
-  "VALUE_CONFIG": "Configuration Value (EDITABLE)"
+  "VALUE_CONFIG": "Configuration Value (EDITABLE)",
+  "TRUCKS":"Trucks",
+  "TRAVELS": "Travels number"
 }
