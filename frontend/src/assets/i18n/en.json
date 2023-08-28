@@ -63,6 +63,7 @@
   "acumulated_out": "Exit Volume",
   "BALANCE_STATS":"Show advanced",
   "CONFIG":"Settings",
-  "DISCREPANCY_PERCENT":"Discrepancy (%)"
-
+  "DISCREPANCY_PERCENT":"Discrepancy (%)",
+  "NAME_CONFIG":"Configuration Name",
+  "VALUE_CONFIG": "Configuration Value (EDITABLE)"
 }

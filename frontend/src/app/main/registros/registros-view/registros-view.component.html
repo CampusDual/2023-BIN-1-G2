@@ -21,6 +21,10 @@
   
 </o-row-collapsible>
 
+<o-table #configTable service="registers" entity="registerConfig" keys="config_name" columns="config_name;config_value"
+ visible-columns="" detail-mode="none" edition-mode="click"  controls="no" visible="no" (onDataLoaded)="loadConfigData($event)">
+</o-table>
+
 <o-form-layout-manager >
   <div fxFill fxLayout="column" fxLayoutAlign="start">
     <o-table #registersTable attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="completedDiscrepancy" keys="id" 
@@ -37,7 +41,7 @@
       <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2" ></o-table-column>
       <o-table-column attr="volume_diference" title="VOLUME_DIFERENCE" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2"></o-table-column>
       <o-table-column attr="discrepancia" title="DISCREPANCY" content-align="end">
-        <app-registros-discrepancy-render></app-registros-discrepancy-render>
+        <app-registros-discrepancy-render [discrepancy]="discrepancyData"></app-registros-discrepancy-render>
       </o-table-column>
     
     </o-table>
@@ -47,5 +51,7 @@
 <o-filter-builder #filterBuilder attr="thefilter"  filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn;STARTDATE_O:startDateOut;ENDDATE_O:endDateOut" 
     [expression-builder]="createFilter" [target]="registersTable" query-on-change="no" query-on-change-delay="500">
 </o-filter-builder> 
+
+
 
 </o-form>

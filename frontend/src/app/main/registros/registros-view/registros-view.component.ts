@@ -1,4 +1,4 @@
-import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
+import { FilterExpressionUtils, Expression, OTableComponent } from "ontimize-web-ngx";
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DuplicatedDeliveryService } from "src/app/shared/duplicatedDelivery.service";
 
@@ -10,6 +10,10 @@ import { DuplicatedDeliveryService } from "src/app/shared/duplicatedDelivery.ser
 export class RegistrosViewComponent implements OnInit {
 
   constructor(private duplicatedService: DuplicatedDeliveryService) { }
+
+  public discrepancyData: number = 10
+
+  @ViewChild("configTable", { static: true }) configTable: OTableComponent
 
   ngOnInit() {
 
@@ -26,6 +30,15 @@ export class RegistrosViewComponent implements OnInit {
     this.duplicatedService.duplicatedDelivery = delivery_notes_filtered;
 
     this.duplicatedService.everyDelivery = delivery_notes;
+
+  }
+
+  loadConfigData(data: Array<any>) {
+    let dataDiscrepancyArray: any[] = data.filter(d => d.config_name === "discrepancy").map(d => Number(d.config_value));
+    if (dataDiscrepancyArray.length === 0) {
+      return
+    }
+    this.discrepancyData = dataDiscrepancyArray[0]
 
   }
 

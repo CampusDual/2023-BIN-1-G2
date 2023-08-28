@@ -63,5 +63,7 @@
   "acumulated_out": "Volumen Salida",
   "BALANCE_STATS":"Mostrar completo",
   "CONFIG":"Configuración",
-  "DISCREPANCY_PERCENT":"Discrepancia (%)"
+  "DISCREPANCY_PERCENT":"Discrepancia (%)",
+  "NAME_CONFIG":"Nombre de la Configuración",
+  "VALUE_CONFIG": "Valor de Configuración (EDITABLE)"
 }

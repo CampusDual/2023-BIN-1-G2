@@ -1,4 +1,4 @@
-import { Component, Injector, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Injector, Input, TemplateRef, ViewChild } from '@angular/core';
 import { OBaseTableCellRenderer } from 'ontimize-web-ngx';
 import { ConfigService } from 'src/app/shared/config.service';
 
@@ -10,8 +10,9 @@ import { ConfigService } from 'src/app/shared/config.service';
 export class RegistrosDiscrepancyRenderComponent extends OBaseTableCellRenderer {
 
   @ViewChild('templateref', { read: TemplateRef, static: false }) public templateref: TemplateRef<any>;
+  @Input() discrepancy:number
 
-  constructor(protected injector: Injector, private discrepancyService:ConfigService) {
+  constructor(protected injector: Injector) {
     super(injector);
   }
 
@@ -21,7 +22,7 @@ export class RegistrosDiscrepancyRenderComponent extends OBaseTableCellRenderer 
 
     const cellvaluePorcentage = cellvalue * 100
 
-    const isHigherThanDiscrepancy = cellvaluePorcentage > this.discrepancyService.discrepancyValue;
+    const isHigherThanDiscrepancy = cellvaluePorcentage > this.discrepancy;
 
     return (isHigherThanDiscrepancy ? "🟣" : "") + " " + Math.round(cellvaluePorcentage * 100) / 100 + " %"
    

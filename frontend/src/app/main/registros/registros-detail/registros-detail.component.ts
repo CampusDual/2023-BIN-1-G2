@@ -31,32 +31,34 @@ export class RegistrosDetailComponent implements OnInit {
   }
 
   validateDelivery(data: any) {
-    if(this.timer){
-      clearTimeout(this.timer);
+    if(data===undefined){
+      return 
     }
 
-    this.timer = setTimeout(()=>{
-      console.log(data);
-      if (typeof (data) === 'number') {
-        if (this.duplicatedService.duplicatedDelivery.includes(Number(data))) {
-          this.isDuplicated = "yes";
-        }
-        else {
-          this.isDuplicated = "no";
-        }
+    if (typeof (data) === 'number') {
+      if (this.duplicatedService.duplicatedDelivery.includes(data)) {
+        this.isDuplicated = "yes";
       }
       else {
+        this.isDuplicated = "no";
+      }
+    }
+    else {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
         if (this.duplicatedService.everyDelivery.includes(Number(data))) {
           this.isDuplicated = "yes";
         }
         else {
           this.isDuplicated = "no";
         }
-      }
-    },750)
-    
-    
+      }, 750)
+    }
 
-    
+
+
+
   }
 }
