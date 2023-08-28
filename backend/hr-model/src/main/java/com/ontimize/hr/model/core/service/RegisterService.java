@@ -114,6 +114,11 @@ public class RegisterService implements IRegisterService {
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_TRAFFIC_DATE);
     }
+    @Override
+    public EntityResult countTravelsQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.platesDao, keyMap, attrList, PlatesDao.QUERY_COUNT_TRAVELS);
+    }
 
     @Override
     public EntityResult registerConfigQuery(Map<String, Object> keyMap, List<String> attrList)

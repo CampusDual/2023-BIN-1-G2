@@ -11,4 +11,5 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 public class PlatesDao extends OntimizeJdbcDaoSupport{
     public static final String ATTR_ID_PLATE= "id_plate";
     public static final String ATTR_PLATE_NAME= "plate_name";
+    public static final String QUERY_COUNT_TRAVELS= "countTravels";
 }
