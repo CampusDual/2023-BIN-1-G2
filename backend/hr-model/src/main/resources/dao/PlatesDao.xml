@@ -26,6 +26,7 @@
         <Query id="detailTravels">
             <Sentence>
                 <![CDATA[
+
 select
     delivery_note,
     trailer_plate_name,
