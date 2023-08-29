@@ -67,5 +67,8 @@
   "NAME_CONFIG":"Nombre de la Configuración",
   "VALUE_CONFIG": "Valor de Configuración (EDITABLE)",
   "TRUCKS":"Camiones",
-  "TRAVELS": "Número de viajes"
+  "TRAVELS": "Número de viajes",
+  "VOL_TEORICO":"Volumen Teórico",
+  "PORCENTAJE_ENTRADA":"Entrada (% carga máx.)",
+  "PORCENTAJE_SALIDA":"Salida (% carga máx.)"
 }

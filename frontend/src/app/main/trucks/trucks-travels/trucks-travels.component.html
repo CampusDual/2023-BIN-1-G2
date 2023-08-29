@@ -1,0 +1,20 @@
+<o-form service="registers" entity="countTravels" keys="plate_name" show-header-navigation="yes" show-header="no"
+  editable-detail="yes">
+  <o-table service="registers" entity="detailTravels" parent-keys="plate_name"
+    columns="delivery_note;trailer_plate_name;scan_volume_in;scan_volume_out;vol_teorico;porcentaje_entrada;porcentaje_salida"
+    visible-columns="delivery_note;trailer_plate_name;scan_volume_in;scan_volume_out;vol_teorico;porcentaje_entrada;porcentaje_salida"
+    insert-button="no" delete-button="no" virtual-scroll="no">
+    <o-table-column title="DELIVERY_NOTE" attr="delivery_note" content-align="center"></o-table-column>
+    <o-table-column title="TRAILER_PLATE_NAME" attr="trailer_plate_name" content-align="center"></o-table-column>
+    <o-table-column title="SCAN_VOLUME_IN" attr="scan_volume_in" type="currency" currency-symbol=" m³"
+      currency-symbol-position="right" decimal-digits="2" content-align="center"></o-table-column>
+    <o-table-column title="SCAN_VOLUME_OUT" attr="scan_volume_out" type="currency" currency-symbol=" m³"
+      currency-symbol-position="right" decimal-digits="2" content-align="center"></o-table-column>
+    <o-table-column title="VOL_TEORICO" attr="vol_teorico" type="currency" currency-symbol=" m³"
+      currency-symbol-position="right" decimal-digits="2" content-align="center"></o-table-column>
+    <o-table-column title="PORCENTAJE_ENTRADA" attr="porcentaje_entrada" type="percentage" decimal-digits="2"
+      content-align="center"></o-table-column>
+    <o-table-column title="PORCENTAJE_SALIDA" attr="porcentaje_salida" type="percentage" decimal-digits="2"
+      content-align="center"></o-table-column>
+  </o-table>
+</o-form>

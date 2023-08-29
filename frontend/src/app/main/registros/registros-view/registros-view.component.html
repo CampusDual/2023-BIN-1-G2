@@ -33,14 +33,14 @@
       virtual-scroll="no"
       >
     
-      <o-table-column attr="delivery_note" title="DELIVERY_NOTE"></o-table-column>
-      <o-table-column attr="date_in"  title="DATE_IN"  type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
-      <o-table-column attr="date_out" title="DATE_OUT"  type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
-      <o-table-column attr="trailer_plate_name" title="TRAILER_PLATE_NAME" content-align="end"></o-table-column>
-      <o-table-column attr="plate_name" title="PLATE_NAME" content-align="end"></o-table-column>
-      <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2" ></o-table-column>
-      <o-table-column attr="volume_diference" title="VOLUME_DIFERENCE" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2"></o-table-column>
-      <o-table-column attr="discrepancia" title="DISCREPANCY" content-align="end">
+      <o-table-column attr="delivery_note" title="DELIVERY_NOTE" content-align="center"></o-table-column>
+      <o-table-column attr="date_in"  title="DATE_IN"  type="date" format="DD/MM/YYYY HH:MM" content-align="center"></o-table-column>
+      <o-table-column attr="date_out" title="DATE_OUT"  type="date" format="DD/MM/YYYY HH:MM" content-align="center"></o-table-column>
+      <o-table-column attr="trailer_plate_name" title="TRAILER_PLATE_NAME" content-align="center"></o-table-column>
+      <o-table-column attr="plate_name" title="PLATE_NAME" content-align="center"></o-table-column>
+      <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2" content-align="center"></o-table-column>
+      <o-table-column attr="volume_diference" title="VOLUME_DIFERENCE" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2" content-align="center"></o-table-column>
+      <o-table-column attr="discrepancia" title="DISCREPANCY" content-align="center">
         <app-registros-discrepancy-render [discrepancy]="discrepancyData"></app-registros-discrepancy-render>
       </o-table-column>
     

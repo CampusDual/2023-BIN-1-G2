@@ -1,5 +1,12 @@
-<o-form service="registers" entity="completedDiscrepancy" keys="id" show-header-navigation="yes" editable-detail="yes">
-  <p>
-    trucks-detail works!
-  </p>
-</o-form>
+<mat-tab-group>
+  <mat-tab label="{{'DELIVERY_TRAFFIC'| oTranslate}}">
+    <app-trucks-travels></app-trucks-travels>
+  </mat-tab>
+  <mat-tab label="{{'DELIVERY_BALANCE'| oTranslate}}">
+
+
+  </mat-tab>
+
+</mat-tab-group>
+
+<!-- <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2" ></o-table-column> -->
