@@ -23,6 +23,28 @@
                 ]]>
             </Sentence>
         </Query>
+        <Query id="detailTravels">
+            <Sentence>
+                <![CDATA[
+select
+    delivery_note,
+    trailer_plate_name,
+    scan_volume_in,
+    scan_volume_out,
+    length*height *width as vol_teorico,
+    (scan_volume_in/(length*height*width)) as porcentaje_entrada,
+    (scan_volume_out/(length*height*width)) as porcentaje_salida
+from registros_camiones rc
+left join plates p
+on rc.id_plate =p.id_plate
+left join trailer_plates tp
+on rc.id_trailer_plate=tp.id_trailer_plate
+left join delivery_notes dn
+on rc.id_delivery_note =dn.id_delivery_note
+#WHERE#
+                ]]>
+            </Sentence>
+        </Query>
     </Queries>
 
 

@@ -39,4 +39,5 @@ public interface IRegisterService {
     public EntityResult registerConfigUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 
     public EntityResult countTravelsQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult detailTravelsQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 }
