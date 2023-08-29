@@ -70,5 +70,8 @@
   "TRAVELS": "Número de viajes",
   "VOL_TEORICO":"Volumen Teórico",
   "PORCENTAJE_ENTRADA":"Entrada (% carga máx.)",
-  "PORCENTAJE_SALIDA":"Salida (% carga máx.)"
+  "PORCENTAJE_SALIDA":"Salida (% carga máx.)",
+  "TRUCK_STATISTICS":"Estadísticas del camión",
+  "RESUME_TRAVELS":"Historial viajes",
+  "TRUCKS_TITLE_VIEW":"Resumen de Camiones"
 }

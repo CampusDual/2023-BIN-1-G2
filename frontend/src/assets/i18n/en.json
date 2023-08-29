@@ -70,5 +70,8 @@
   "TRAVELS": "Travels number",
   "VOL_TEORICO":"Theorical Volume",
   "PORCENTAJE_ENTRADA":"Entry (% max. load)",
-  "PORCENTAJE_SALIDA":"Exit (% max. load)"
+  "PORCENTAJE_SALIDA":"Exit (% max. load)",
+  "TRUCK_STATISTICS":"Truck Statistics",
+  "RESUME_TRAVELS":"Travels Track Record",
+  "TRUCKS_TITLE_VIEW":"Truck Summary"
 }
