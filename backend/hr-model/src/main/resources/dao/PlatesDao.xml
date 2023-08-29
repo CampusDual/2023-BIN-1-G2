@@ -45,6 +45,37 @@ on rc.id_delivery_note =dn.id_delivery_note
                 ]]>
             </Sentence>
         </Query>
+        <Query id="volume">
+            <Sentence>
+                <![CDATA[
+
+                select
+                    plate_name,
+                    sum(rc.scan_volume_in) as volume_in,
+                    sum(rc.scan_volume_out) as volume_out
+                from plates p
+                join registros_camiones rc on rc.id_plate = p.id_plate
+                #WHERE#
+                group by plate_name
+
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="descarga">
+            <Sentence>
+                <![CDATA[
+
+                select
+                    extract(min from avg(rc.date_out - rc.date_in)) as time
+                from plates p
+                join registros_camiones rc on rc.id_plate = p.id_plate
+                #WHERE#
+                group by plate_name
+
+                ]]>
+
+            </Sentence>
+        </Query>
     </Queries>
 
 

@@ -1,3 +1,27 @@
-<p>
-  trucks-statistics works!
-</p>
+<o-form service="registers" entity="countTravels" keys="plate_name" show-header="no">
+
+  <o-table visible="no" attr="countTravels" service="registers" entity="countTravels" columns="julio_iglesias" parent-keys="plate_name" (onDataLoaded)="loadCountTravels($event)"></o-table>
+  <o-table visible="no" attr="volume" service="registers" entity="volumeByPlate" columns="julio_iglesias" parent-keys="plate_name" (onDataLoaded)="loadVolumes($event)"></o-table>
+
+  
+      
+  <!-- <o-chart type="gaugeSimpleChart" parent-keys="plate_name" chart-height="350" service="registers" entity="percentage" y-axis="percentage"></o-chart> -->
+  
+  
+  
+  <o-column layout-gap="50px">
+    <o-row>
+      <o-column fxFlex>{{countTravels}}</o-column>
+      <o-column fxFlex>{{volume_in}}</o-column>
+      <o-column fxFlex>{{volume_out}}</o-column>
+    </o-row>
+    <o-row>
+      <o-column fxFlex>
+        <!-- <o-chart attr="charTiempoDescarga" y-data-type="real" type="gaugeSimpleChart" parent-keys="plate_name" chart-height="350" service="registers" entity="tiempoDescargaByPlate" y-axis="time"></o-chart> -->
+      </o-column>
+      <o-column fxFlex></o-column>
+    </o-row>
+  </o-column>
+
+    
+</o-form>

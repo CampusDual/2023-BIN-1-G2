@@ -134,10 +134,22 @@ public class RegisterService implements IRegisterService {
             throws OntimizeJEERuntimeException {
         return this.daoHelper.update(this.configDao, attrMap, keyMap);
     }
+    @Override
     public EntityResult completedDiscrepancyQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
                 return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_COMPLETED_DISCREPANCY);
     }
+
+    @Override
+    public EntityResult volumeByPlateQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.platesDao, keyMap, attrList, PlatesDao.QUERY_VOLUME);
+    }
+
+    @Override
+    public EntityResult tiempoDescargaByPlateQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.platesDao, keyMap, attrList, PlatesDao.QUERY_DESCARGA);
+    }
+
     @Override
     public EntityResult completedDiscrepancyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {
