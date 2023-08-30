@@ -1,34 +1,91 @@
-<o-form service="registers" entity="countTravels" keys="plate_name" show-header="no">
+<o-form
+  service="registers"
+  entity="countTravels"
+  keys="plate_name"
+  show-header="no"
+>
+  <o-table
+    visible="no"
+    class="hidden"
+    attr="countTravels"
+    service="registers"
+    entity="countTravels"
+    columns="julio_iglesias"
+    parent-keys="plate_name"
+    (onDataLoaded)="loadCountTravels($event)"
+  ></o-table>
+  <o-table
+    visible="no"
+    class="hidden"
+    attr="volume"
+    service="registers"
+    entity="volumeByPlate"
+    columns="julio_iglesias"
+    parent-keys="plate_name"
+    (onDataLoaded)="loadVolumes($event)"
+  ></o-table>
+  <o-table
+    visible="no"
+    class="hidden"
+    attr="tiempoDescargaByPlate"
+    service="registers"
+    entity="tiempoDescargaByPlate"
+    columns="julio_iglesias"
+    parent-keys="plate_name"
+    (onDataLoaded)="loadTime($event)"
+  ></o-table>
 
-  <o-table visible="no" class="hidden" attr="countTravels" service="registers" entity="countTravels" columns="julio_iglesias" parent-keys="plate_name" (onDataLoaded)="loadCountTravels($event)"></o-table>
-  <o-table visible="no" class="hidden" attr="volume" service="registers" entity="volumeByPlate" columns="julio_iglesias" parent-keys="plate_name" (onDataLoaded)="loadVolumes($event)"></o-table>
-  <o-table visible="no" class="hidden" attr ="tiempoDescargaByPlate" service="registers" entity="tiempoDescargaByPlate" columns="julio_iglesias" parent-keys="plate_name" (onDataLoaded)="loadTime($event)"></o-table>
-  
-      
-  <!-- <o-chart type="gaugeSimpleChart" parent-keys="plate_name" chart-height="350" service="registers" entity="percentage" y-axis="percentage"></o-chart> -->
-  
-  
-  
+  <o-table
+    visible="no"
+    class="hidden"
+    attr="percentage"
+    service="registers"
+    entity="optimalVolPercentByPlate"
+    columns="julio_iglesias"
+    parent-keys="plate_name"
+    (onDataLoaded)="loadPercentage($event)"
+  ></o-table>
+
   <o-column layout-gap="50px">
     <o-row>
-      <o-column fxFlex>{{countTravels}}</o-column>
-      <o-column fxFlex>{{volume_in}}</o-column>
-      <o-column fxFlex>{{volume_out}}</o-column>
+        <div class="card">
+          <h3>{{'TRAVELS' | oTranslate}}</h3>
+          {{ countTravels }}
+        </div>
+        <div class="card">
+          <h3>
+            {{'SCAN_VOLUME_IN' |oTranslate}}
+          </h3>
+          {{ volume_in }}
+        </div>
+        <div class="card">
+          <h3>
+            {{'SCAN_VOLUME_OUT' | oTranslate}}
+          </h3>
+          {{ volume_out }}
+        </div>
     </o-row>
     <o-row>
       <o-column fxFlex>
+        <h3>{{'AVG_TIME' | oTranslate}}</h3>
         <div id="clock">
           <mat-icon id="icon-timer">timer</mat-icon>
-            {{time}}
+          {{ time }}
         </div>
       </o-column>
       <o-column fxFlex>
-
-        
-
+        <h3>{{'AVG_VOL_PERCENT' | oTranslate}}</h3>
+        <o-chart
+          #percentageChart
+          type="gaugeDashboardChart"
+          parent-keys="plate_name"
+          chart-height="400"
+          service="registers"
+          entity="optimalVolPercentByPlate"
+          y-axis="percentage"
+          [chart-parameters]="gaugeDashboardConf"
+        ></o-chart>
       </o-column>
     </o-row>
   </o-column>
-
-    
 </o-form>

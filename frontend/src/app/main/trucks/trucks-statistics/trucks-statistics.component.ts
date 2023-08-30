@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { DataAdapterUtils, GaugeDashboardChartConfiguration, OChartComponent } from "ontimize-web-ngx-charts";
 
 @Component({
   selector: "app-trucks-statistics",
@@ -6,13 +7,34 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./trucks-statistics.component.css"],
 })
 export class TrucksStatisticsComponent implements OnInit {
-  constructor() {}
-
+ 
+  
   private countTravels: number = 0;
   private volume_in: number = 0.00;
   private volume_out: number = 0.00;
   private time: string = "00:00:00";
 
+  private gaugeDashboardConf: GaugeDashboardChartConfiguration
+
+  @ViewChild('percentageChart', {static: true}) percentageChart: OChartComponent
+  
+  constructor() {
+    this.gaugeDashboardConf = new GaugeDashboardChartConfiguration()
+    this.gaugeDashboardConf.color = ['#3f51b5', '#eceff1']
+  }
+
+  ngOnInit() {
+  }
+
+  loadPercentage(data:any) {
+
+    const percentage = data[0].percentage
+
+    this.gaugeDashboardConf.title = Math.round(percentage * 100) / 100 + " %"
+    this.percentageChart.reloadData()
+
+  }
+  
   loadCountTravels(data: any[]) {
 
     this.countTravels = data[0].travels
@@ -52,5 +74,4 @@ export class TrucksStatisticsComponent implements OnInit {
   
   }
 
-  ngOnInit() {}
 }

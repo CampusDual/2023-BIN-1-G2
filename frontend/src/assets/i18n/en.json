@@ -73,5 +73,7 @@
   "PORCENTAJE_SALIDA":"Exit (% max. load)",
   "TRUCK_STATISTICS":"Truck Statistics",
   "RESUME_TRAVELS":"Travels Track Record",
-  "TRUCKS_TITLE_VIEW":"Truck Summary"
+  "TRUCKS_TITLE_VIEW":"Truck Summary",
+  "AVG_TIME": "Average time on factory",
+  "AVG_VOL_PERCENT": "Optimal average load"
 }
