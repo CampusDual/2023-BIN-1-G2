@@ -35,7 +35,7 @@ select
     case
         when length*height*width <=0
             then null
-    	else scan_volume_out/(length*height*width)
+    	else scan_volume_in/(length*height*width)
     end as porcentaje_entrada,
     case
         when length*height*width <=0
@@ -83,6 +83,28 @@ on rc.id_delivery_note =dn.id_delivery_note
 
                 ]]>
 
+            </Sentence>
+        </Query>
+        <Query id="optimalVolPercent">
+            <Sentence>
+                <![CDATA[
+
+                    with wrapp as (
+                        select
+                            case
+                                when length*height*width <=0
+                                    then null
+                                when scan_volume_out/(length*height*width) >= scan_volume_in /(length*height*width)
+                                    then scan_volume_out/(length*height*width)
+                                else scan_volume_in/(length*height*width)
+                            end as percentage
+                        from registros_camiones rc
+                        left join plates p
+                        on rc.id_plate =p.id_plate
+                        #WHERE#
+                    ) select (avg(wrapp.percentage) * 100) as percentage, 'MEAN_VOLUME' as title from wrapp
+
+                ]]>
             </Sentence>
         </Query>
     </Queries>

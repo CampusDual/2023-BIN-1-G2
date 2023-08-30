@@ -151,6 +151,10 @@ public class RegisterService implements IRegisterService {
     }
 
     @Override
+    public EntityResult optimalVolPercentByPlateQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.platesDao, keyMap, attrList, PlatesDao.QUERY_OPTIMAL_VOL_PERCENT);
+    }
+    @Override
     public EntityResult completedDiscrepancyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {
 

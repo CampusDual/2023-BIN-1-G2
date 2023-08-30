@@ -15,5 +15,7 @@ public class PlatesDao extends OntimizeJdbcDaoSupport{
     public static final String QUERY_DETAIL_TRAVELS="detailTravels";
 
     public static final String QUERY_VOLUME = "volume";
-    public static  final String QUERY_DESCARGA = "descarga";
+    public static final String QUERY_DESCARGA = "descarga";
+
+    public static final String QUERY_OPTIMAL_VOL_PERCENT = "optimalVolPercent";
 }
