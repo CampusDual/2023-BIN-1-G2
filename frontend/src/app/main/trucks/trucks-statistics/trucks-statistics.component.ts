@@ -8,9 +8,10 @@ import { Component, OnInit } from "@angular/core";
 export class TrucksStatisticsComponent implements OnInit {
   constructor() {}
 
-  private countTravels: number;
-  private volume_in: number;
-  private volume_out: number;
+  private countTravels: number = 0;
+  private volume_in: number = 0.00;
+  private volume_out: number = 0.00;
+  private time: string = "00:00:00";
 
   loadCountTravels(data: any[]) {
 
@@ -27,6 +28,28 @@ export class TrucksStatisticsComponent implements OnInit {
 
     if (vol_obj.volume_out) this.volume_out = Math.round(vol_obj.volume_out * 100)/100 
 
+  }
+
+  loadTime(data:any[]) {
+
+    if (data.length <= 0) return;
+
+
+    console.log(data[0])
+
+    const time = data[0].time
+
+    const hours = time.hours
+    const minutes = time.minutes
+    const seconds = time.seconds
+
+    const date = new Date()
+    date.setHours(hours);
+    date.setMinutes(minutes)
+    date.setSeconds(seconds)
+
+    this.time = date.toLocaleTimeString()
+  
   }
 
   ngOnInit() {}
