@@ -102,7 +102,7 @@ on rc.id_delivery_note =dn.id_delivery_note
                         left join plates p
                         on rc.id_plate =p.id_plate
                         #WHERE#
-                    ) select (avg(wrapp.percentage) * 100) as percentage, 'MEAN_VOLUME' as title from wrapp
+                    ) select (avg(wrapp.percentage) * 100) as percentage from wrapp
 
                 ]]>
             </Sentence>
