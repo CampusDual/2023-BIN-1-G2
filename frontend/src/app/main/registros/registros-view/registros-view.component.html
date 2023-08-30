@@ -28,8 +28,8 @@
 <o-form-layout-manager >
   <div fxFill fxLayout="column" fxLayoutAlign="start">
     <o-table #registersTable attr="registersTable" insert-button="no" delete-button="no" service="registers" entity="completedDiscrepancy" keys="id" 
-      columns="id;delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;width;height;length;scan_volume_in;scan_volume_out;volume_diference;discrepancia"
-      visible-columns="delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;volume_diference;discrepancia" query-rows="20" auto-adjust="no" [row-class]="setRowClass.bind(this)" (onDataLoaded)="loadData($event)"
+      columns="id;delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;width;height;length;scan_volume_in;scan_volume_out;volume_diference;discrepancia;order_name"
+      visible-columns="delivery_note;date_in;date_out;plate_name;trailer_plate_name;calculated_volume;volume_diference;discrepancia;order_name" query-rows="20" auto-adjust="no" [row-class]="setRowClass.bind(this)" (onDataLoaded)="loadData($event)"
       virtual-scroll="no"
       >
     
@@ -40,9 +40,10 @@
       <o-table-column attr="plate_name" title="PLATE_NAME" content-align="center"></o-table-column>
       <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2" content-align="center"></o-table-column>
       <o-table-column attr="volume_diference" title="VOLUME_DIFERENCE" type="currency" currency-symbol=" m³" currency-symbol-position="right" decimal-digits="2" content-align="center"></o-table-column>
-      <o-table-column attr="discrepancia" title="DISCREPANCY" content-align="center">
+      <o-table-column attr="discrepancia" title="DISCREPANCY" content-align="center">      
         <app-registros-discrepancy-render [discrepancy]="discrepancyData"></app-registros-discrepancy-render>
       </o-table-column>
+      <o-table-column attr="order_name" title="ORDER_NAME" content-align="center"></o-table-column>
     
     </o-table>
     </div>
