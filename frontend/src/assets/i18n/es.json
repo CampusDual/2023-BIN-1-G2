@@ -74,5 +74,6 @@
   "TRUCK_STATISTICS":"Estadísticas del camión",
   "RESUME_TRAVELS":"Historial viajes",
   "TRUCKS_TITLE_VIEW":"Resumen de Camiones",
-  "ORDER_NAME":"Pedido"
+  "ORDER_NAME":"Pedido",
+  "TYPETRUCK":"Articulado"
 }
