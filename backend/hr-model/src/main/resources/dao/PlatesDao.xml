@@ -32,8 +32,16 @@ select
     scan_volume_in,
     scan_volume_out,
     length*height *width as vol_teorico,
-    (scan_volume_in/(length*height*width)) as porcentaje_entrada,
-    (scan_volume_out/(length*height*width)) as porcentaje_salida
+    case
+        when length*height*width <=0
+            then null
+    	else scan_volume_out/(length*height*width)
+    end as porcentaje_entrada,
+    case
+        when length*height*width <=0
+            then null
+    	else scan_volume_out/(length*height*width)
+    end as porcentaje_salida
 from registros_camiones rc
 left join plates p
 on rc.id_plate =p.id_plate
@@ -64,6 +72,7 @@ on rc.id_delivery_note =dn.id_delivery_note
         <Query id="descarga">
             <Sentence>
                 <![CDATA[
+
 
                 select
                     extract(min from avg(rc.date_out - rc.date_in)) as time
