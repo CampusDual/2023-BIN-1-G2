@@ -75,5 +75,7 @@
   "RESUME_TRAVELS":"Travels Track Record",
   "TRUCKS_TITLE_VIEW":"Truck Summary",
   "AVG_TIME": "Average time on factory",
-  "AVG_VOL_PERCENT": "Optimal average load"
+  "AVG_VOL_PERCENT": "Optimal average load",
+  "ORDER_NAME":"Order",
+  "TYPETRUCK":"Articulated"
 }

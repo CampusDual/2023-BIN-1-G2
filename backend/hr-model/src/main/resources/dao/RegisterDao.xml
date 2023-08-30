@@ -66,6 +66,7 @@ with T as (
 	left join delivery_notes dn on rc.id_delivery_note = dn.id_delivery_note
     left join plates p on rc.id_plate =p.id_plate
     left join trailer_plates tp on rc.id_trailer_plate =tp.id_trailer_plate
+    left join orders o on rc.id_order =o.id_order
 )
 SELECT #COLUMNS# from T #WHERE#
    ]]>

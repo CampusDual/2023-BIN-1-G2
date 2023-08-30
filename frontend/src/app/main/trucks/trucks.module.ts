@@ -7,6 +7,7 @@ import { TrucksDetailComponent } from './trucks-detail/trucks-detail.component';
 import { TrucksStatisticsComponent } from './trucks-statistics/trucks-statistics.component';
 import { TrucksTravelsComponent } from './trucks-travels/trucks-travels.component';
 import { OChartModule } from 'ontimize-web-ngx-charts';
+import { TruckArticulatedRenderComponent } from './truck-articulated-render/truck-articulated-render.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { OChartModule } from 'ontimize-web-ngx-charts';
     OntimizeWebModule,
     OChartModule
   ],
-  declarations: [TrucksViewComponent, TrucksDetailComponent,TrucksStatisticsComponent,TrucksTravelsComponent]
+  declarations: [TrucksViewComponent, TrucksDetailComponent,TrucksStatisticsComponent,TrucksTravelsComponent,TruckArticulatedRenderComponent]
 })
 export class TrucksModule { }

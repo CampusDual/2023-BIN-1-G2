@@ -75,5 +75,7 @@
   "RESUME_TRAVELS":"Historial viajes",
   "TRUCKS_TITLE_VIEW":"Resumen de Camiones",
   "AVG_TIME": "Tiempo medio en la planta",
-  "AVG_VOL_PERCENT": "Media óptima de carga"
+  "AVG_VOL_PERCENT": "Media óptima de carga",
+  "ORDER_NAME":"Pedido",
+  "TYPETRUCK":"Articulado"
 }

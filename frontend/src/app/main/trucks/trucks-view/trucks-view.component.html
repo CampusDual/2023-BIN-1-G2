@@ -1,9 +1,12 @@
 <o-form-layout-manager title="TRUCKS_TITLE_VIEW" mode="tab" >
-  <o-table service="registers" entity="countTravels" keys="plate_name" columns="plate_name;travels"
-  visible-columns="plate_name;travels" delete-button="no" insert-button="no" query-rows="100" auto-adjust="no"
+  <o-table fxFlex service="registers" entity="countTravels" keys="plate_name" columns="plate_name;travels,tipo_camion"
+  visible-columns="plate_name;travels;checkTruck" delete-button="no" insert-button="no" query-rows="100" auto-adjust="no"
   virtual-scroll="no">
   <o-table-column attr="plate_name" title="PLATE_NAME" class="plate"
   content-align="center"></o-table-column>
   <o-table-column attr="travels" title="TRAVELS" content-align="center"></o-table-column>
+  <o-table-column attr="checkTruck" title="TYPETRUCK" width="30px" content-align="center">
+    <app-truck-articulated-render></app-truck-articulated-render>
+  </o-table-column>
 </o-table>
 </o-form-layout-manager>

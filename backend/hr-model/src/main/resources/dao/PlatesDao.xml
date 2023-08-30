@@ -16,10 +16,18 @@
         <Query id="countTravels">
             <Sentence>
                 <![CDATA[
-    select p.plate_name, count(*) as travels from registros_camiones rc
-    inner join plates p on rc.id_plate =p.id_plate
-    #WHERE#
-    group by p.plate_name
+select
+	p.plate_name,
+	count(*) as travels,
+	case
+		when  exists(select plate_name from camiones_articulados ca where ca.plate_name=p.plate_name)
+			then 'no_articulado'
+		else 'articulado'
+	end as tipo_camion
+from registros_camiones rc
+inner join plates p on rc.id_plate =p.id_plate
+#WHERE#
+group by p.plate_name
                 ]]>
             </Sentence>
         </Query>
