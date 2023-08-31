@@ -27,5 +27,22 @@ left join delivery_notes dn on rc.id_delivery_note =dn.id_delivery_note
                 ]]>
         </Sentence>
     </Query>
+        <Query id="allDeliveries">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="id_order" prefix="o" databaseName="id_order" />
+            </AmbiguousColumns>
+
+            <Sentence>
+                <![CDATA[
+	select #COLUMNS#
+	from registros_camiones rc
+	left join delivery_notes dn on rc.id_delivery_note = dn.id_delivery_note
+    left join plates p on rc.id_plate =p.id_plate
+    left join trailer_plates tp on rc.id_trailer_plate =tp.id_trailer_plate
+    left join orders o on rc.id_order =o.id_order
+    #WHERE#
+   ]]>
+            </Sentence>
+        </Query>
     </Queries>
 </JdbcEntitySetup>

@@ -184,6 +184,11 @@ public class RegisterService implements IRegisterService {
     public EntityResult orderDeliverysQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.orderDao, keyMap, attrList,OrderDao.QUERY_ORDER_DELIVERYS);
     }
+
+    @Override
+    public EntityResult orderAllDeliveriesQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.orderDao, keyMap, attrList,OrderDao.QUERY_ALL_DELIVERIES);
+    }
     @Override
     public EntityResult completedDiscrepancyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {
