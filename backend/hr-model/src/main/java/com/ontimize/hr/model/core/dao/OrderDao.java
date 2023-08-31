@@ -12,4 +12,5 @@ public class OrderDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_ID_ORDER= "id_order";
     public static final String ATTR_ORDER_NAME= "order_name";
     public static final String ATTR_PRICE_PER_VOL= "price_per_vol";
+    public static final String QUERY_ORDER_DELIVERYS= "orderDeliverys";
 }

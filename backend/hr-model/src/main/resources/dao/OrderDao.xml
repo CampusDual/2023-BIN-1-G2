@@ -12,4 +12,20 @@
         <Column>id_order</Column>
     </UpdateKeys>
     <GeneratedKey>id_order</GeneratedKey>
+    <Queries>
+    <Query id="orderDeliverys">
+        <AmbiguousColumns>
+            <AmbiguousColumn name="id_order" prefix="o" databaseName="id_order" />
+        </AmbiguousColumns>
+        <Sentence>
+            <![CDATA[
+SELECT #COLUMNS#
+from orders o
+left join registros_camiones rc on o.id_order =rc.id_order
+left join delivery_notes dn on rc.id_delivery_note =dn.id_delivery_note
+#WHERE#
+                ]]>
+        </Sentence>
+    </Query>
+    </Queries>
 </JdbcEntitySetup>

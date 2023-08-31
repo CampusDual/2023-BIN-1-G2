@@ -174,6 +174,10 @@ public class RegisterService implements IRegisterService {
         return this.daoHelper.query(this.platesDao, keyMap, attrList, PlatesDao.QUERY_OPTIMAL_VOL_PERCENT);
     }
     @Override
+    public EntityResult orderDeliverysQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.orderDao, keyMap, attrList,OrderDao.QUERY_ORDER_DELIVERYS);
+    }
+    @Override
     public EntityResult completedDiscrepancyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {
 
