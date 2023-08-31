@@ -1,14 +1,52 @@
 <o-form service="registers" entity="order" keys="id_order">
   <o-text-input attr="order_name"></o-text-input>
   <o-real-input attr="price_per_vol"></o-real-input>
-  <o-integer-input class="hidden" attr="id_order" thousand-separator="" label="ID" sql-type="INTEGER"
-    appearance="outline" visible="no"></o-integer-input>
+  <o-integer-input
+    class="hidden"
+    attr="id_order"
+    thousand-separator=""
+    label="ID"
+    sql-type="INTEGER"
+    appearance="outline"
+    visible="no"
+  ></o-integer-input>
 
-  <o-combo #combo label="SELECT_DELIVERY" entity="notMatchedDeliverys" service="registers" value-column="delivery_note"
-    searchable="yes" columns="id_delivery_note;delivery_note" visible-columns="delivery_note" multiple="yes">
-  </o-combo>
-  <o-table service="registers" entity="orderDeliverys" parent-keys="id_order"
+  <o-table
+    visible="no"
+    class="hidden"
+    service="registers"
+    entity="notMatchedDeliverys"
+    (onDataLoaded)="loadDeliveries($event)"
+  ></o-table>
+
+  <!-- <o-combo #combo label="SELECT_DELIVERY" entity="notMatchedDeliverys" service="registers" value-column="delivery_note"
+    searchable="yes" columns="id_delivery_note;delivery_note" visible-columns="delivery_note" multiple="yes" multiple-trigger-label="yes">
+  </o-combo> -->
+
+  <o-row>
+    <o-list-picker
+      fxFlex
+      label="SELECT_DELIVERY"
+      entity="notMatchedDeliverys"
+      service="registers"
+      value-column="delivery_note"
+      columns="id_delivery_note;delivery_note"
+      visible-columns="delivery_note"
+      query-rows="10"
+    ></o-list-picker>
+
+    <o-button type="ICON" icon="add_circle" layout-padding (onClick)="addDelivery($event)"></o-button>
+    <o-button type="ICON" icon="remove_circle" layout-padding (onClick)="removeDelivery($event)"></o-button>
+  </o-row>
+
+  <o-table
+    #deliveryTable
+    service="registers"
+    entity="orderDeliverys"
+    parent-keys="id_order"
     columns="id_order;order_name;price_per_vol;date_in;date_out;calculated_volume;delivery_note"
-    visible-columns="delivery_note;date_in;date_out;calculated_volume" (onDataLoaded)="cargaDatosTabla($event)">
+    visible-columns="delivery_note;date_in;date_out;calculated_volume"
+    (onDataLoaded)="cargaDatosTabla($event)"
+  >
   </o-table>
 </o-form>

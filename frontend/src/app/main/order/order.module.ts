@@ -5,13 +5,15 @@ import { OChartModule } from 'ontimize-web-ngx-charts';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { OrderRoutingModule } from './order-routing.module';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     OntimizeWebModule,
     OrderRoutingModule,
-    OChartModule
+    OChartModule,
+    HttpClientModule
   ],
   declarations: [OrderViewComponent,OrderDetailComponent]
 })
