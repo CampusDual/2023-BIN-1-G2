@@ -2,11 +2,13 @@
   <o-text-input attr="order_name"></o-text-input>
   <o-real-input attr="price_per_vol"></o-real-input>
   <o-integer-input class="hidden" attr="id_order" thousand-separator="" label="ID" sql-type="INTEGER"
-  appearance="outline"  visible="no"></o-integer-input>
+    appearance="outline" visible="no"></o-integer-input>
 
+  <o-combo #combo label="SELECT_DELIVERY" entity="notMatchedDeliverys" service="registers" value-column="delivery_note"
+    searchable="yes" columns="id_delivery_note;delivery_note" visible-columns="delivery_note" multiple="yes">
+  </o-combo>
   <o-table service="registers" entity="orderDeliverys" parent-keys="id_order"
     columns="id_order;order_name;price_per_vol;date_in;date_out;calculated_volume;delivery_note"
-    visible-columns="delivery_note;date_in;date_out;calculated_volume">
-
+    visible-columns="delivery_note;date_in;date_out;calculated_volume" (onDataLoaded)="cargaDatosTabla($event)">
   </o-table>
 </o-form>
