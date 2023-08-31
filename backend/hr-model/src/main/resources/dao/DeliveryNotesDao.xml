@@ -12,4 +12,24 @@
         <Column>id_delivery_note</Column>
     </UpdateKeys>
     <GeneratedKey>id_delivery_note</GeneratedKey>
+    <Queries>
+        <Query id="notMatchedDeliverys">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="id_order" prefix="o" databaseName="id_order" />
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+select delivery_note from registros_camiones rc
+left join orders o on o.id_order =rc.id_order
+left join delivery_notes dn on rc.id_delivery_note =dn.id_delivery_note
+where o.id_order is null
+union
+select delivery_note from registros_camiones rc
+left join orders o on o.id_order =rc.id_order
+left join delivery_notes dn on rc.id_delivery_note =dn.id_delivery_note
+#WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+    </Queries>
 </JdbcEntitySetup>

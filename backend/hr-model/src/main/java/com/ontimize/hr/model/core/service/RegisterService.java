@@ -65,6 +65,7 @@ public class RegisterService implements IRegisterService {
 
         return this.daoHelper.query(this.orderDao, keyMap, attrList);
     }
+
     @Override
     public EntityResult registerInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
 
@@ -147,6 +148,12 @@ public class RegisterService implements IRegisterService {
     public EntityResult registerConfigQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.configDao, keyMap, attrList);
+    }
+    @Override
+    public EntityResult notMatchedDeliverysQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+
+        return this.daoHelper.query(this.deliveryNotesDao, keyMap, attrList,DeliveryNotesDao.QUERY_NOT_MATCHED_DELIVERYS);
     }
     @Override
     public EntityResult registerConfigUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
