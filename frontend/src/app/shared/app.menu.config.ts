@@ -5,6 +5,7 @@ export const MENU_CONFIG: MenuRootItem[] = [
   { id: 'registros', name: 'REGISTERS', icon: 'list', route: '/main/registros' },
   { id: 'resumeDelivery', name: 'RESUME', route: '/main/resume-delivery', icon: 'donut_small'},
   { id: 'trucks', name: 'TRUCKS', route: '/main/trucks', icon: 'local_shipping' },
+  { id: 'order', name: 'ORDER', route: '/main/order', icon: 'folder_shared' },
   { id: 'config', name: 'CONFIG', route: '/main/config', icon: 'settings' },
   { id: 'logout', name: 'LOGOUT', route: '/login', icon: 'power_settings_new', confirm: 'yes' },
  
