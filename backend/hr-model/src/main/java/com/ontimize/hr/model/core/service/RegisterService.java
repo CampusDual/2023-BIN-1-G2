@@ -25,7 +25,9 @@ public class RegisterService implements IRegisterService {
     @Autowired private PlatesDao platesDao;
     @Autowired private TrailerPlatesDao trailerPlatesDao;
     @Autowired private DeliveryNotesDao deliveryNotesDao;
+    @Autowired private OrderDao orderDao;
     @Autowired private DefaultOntimizeDaoHelper daoHelper;
+
 
     @Override
     public EntityResult registerQuery(Map<String, Object> keyMap, List<String> attrList)
@@ -58,6 +60,12 @@ public class RegisterService implements IRegisterService {
         return this.daoHelper.query(this.deliveryNotesDao, keyMap, attrList);
     }
     @Override
+    public EntityResult orderQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+
+        return this.daoHelper.query(this.orderDao, keyMap, attrList);
+    }
+    @Override
     public EntityResult registerInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
 
         return this.daoHelper.insert(this.registerDao, attrMap);
@@ -85,6 +93,12 @@ public class RegisterService implements IRegisterService {
     }
 
     @Override
+    public EntityResult orderInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
+
+        return this.daoHelper.insert(this.orderDao, attrMap);
+    }
+
+    @Override
     public EntityResult registerUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.update(this.registerDao, attrMap, keyMap);
@@ -93,6 +107,11 @@ public class RegisterService implements IRegisterService {
     public EntityResult registerPlatesUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.update(this.platesDao, attrMap, keyMap);
+    }
+    @Override
+    public EntityResult orderUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.update(this.orderDao, attrMap, keyMap);
     }
     @Override
     public EntityResult registerDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {

@@ -14,6 +14,7 @@ public interface IRegisterService {
     public EntityResult registerPlatesQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult registerTrailerPlatesQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult registerDeliveryNotesQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult orderQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult registerInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
 
     public EntityResult registerDevicesInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
@@ -23,10 +24,11 @@ public interface IRegisterService {
     public EntityResult registerTrailerPlatesInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
 
     public EntityResult registerDeliveryNotesInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
+    public EntityResult orderInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
 
     public EntityResult registerUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult registerPlatesUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-
+    public EntityResult orderUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult registerDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult completedQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult resumeDeliveryQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
