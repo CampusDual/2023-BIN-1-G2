@@ -80,6 +80,6 @@
   "TYPETRUCK":"Articulado",
   "order_name":"Nombre Orden",
   "price_per_vol":"Precio/(m³)",
-  "ORDER_TITLE_VIEW": "Tabla de Órdenes",
-  "ORDER": "Órdenes"
+  "ORDER_TITLE_VIEW": "Tabla de Pedidos",
+  "ORDER": "Pedidos"
 }

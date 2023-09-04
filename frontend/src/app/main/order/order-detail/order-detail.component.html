@@ -9,44 +9,32 @@
     sql-type="INTEGER"
     appearance="outline"
     visible="no"
+    (onChange)="getIdOrder($event)"
   ></o-integer-input>
+  
+  <o-filter-builder
+    #filterBuilder
+    attr="thefilter"
+    filters="id_order"
+    [expression-builder]="createFilter"
+    [target]="deliveryTable"
+    query-on-change="no"
+    query-on-change-delay="500"
+  >
+  </o-filter-builder>
 
-  <o-table
-    visible="no"
-    class="hidden"
-    service="registers"
-    entity="notMatchedDeliverys"
-    (onDataLoaded)="loadDeliveries($event)"
-  ></o-table>
+</o-form>
 
-  <!-- <o-combo #combo label="SELECT_DELIVERY" entity="notMatchedDeliverys" service="registers" value-column="delivery_note"
-    searchable="yes" columns="id_delivery_note;delivery_note" visible-columns="delivery_note" multiple="yes" multiple-trigger-label="yes">
-  </o-combo> -->
-
-  <o-row>
-    <o-list-picker
-      fxFlex
-      label="SELECT_DELIVERY"
-      entity="notMatchedDeliverys"
-      service="registers"
-      value-column="delivery_note"
-      columns="id_delivery_note;delivery_note"
-      visible-columns="delivery_note"
-      query-rows="10"
-    ></o-list-picker>
-
-    <o-button type="ICON" icon="add_circle" layout-padding (onClick)="addDelivery($event)"></o-button>
-    <o-button type="ICON" icon="remove_circle" layout-padding (onClick)="removeDelivery($event)"></o-button>
-  </o-row>
-
+<o-form-layout-manager attr="delivery_layout_manager" title="ORDER_TITLE_VIEW">
   <o-table
     #deliveryTable
+    attr="deliveryTable"
     service="registers"
     entity="orderDeliverys"
-    parent-keys="id_order"
-    columns="id_order;order_name;price_per_vol;date_in;date_out;calculated_volume;delivery_note"
+    keys="id_order;id"
+    columns="id_order;order_name;price_per_vol;date_in;date_out;calculated_volume;delivery_note;id"
     visible-columns="delivery_note;date_in;date_out;calculated_volume"
-    (onDataLoaded)="cargaDatosTabla($event)"
   >
   </o-table>
-</o-form>
+</o-form-layout-manager>
+

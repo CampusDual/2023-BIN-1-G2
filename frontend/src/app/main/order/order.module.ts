@@ -6,6 +6,7 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { OrderRoutingModule } from './order-routing.module';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { OrderDeliveryDetailComponent } from './order-delivery-detail/order-delivery-detail.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     OChartModule,
     HttpClientModule
   ],
-  declarations: [OrderViewComponent,OrderDetailComponent]
+  declarations: [OrderViewComponent,OrderDetailComponent, OrderDeliveryDetailComponent]
 })
 export class OrderModule { }
