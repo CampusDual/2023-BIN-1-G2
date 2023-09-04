@@ -1,5 +1,6 @@
-<o-form keys="id_order">
-    <o-list-picker
+<o-form service="registers" entity="orderDeliverys" keys="id_order">
+  <o-list-picker
+    attr="delivery_note"
     fxFlex
     required="yes"
     label="SELECT_DELIVERY"
@@ -9,5 +10,6 @@
     columns="id_delivery_note;delivery_note"
     visible-columns="delivery_note"
     query-rows="10"
-    ></o-list-picker>
+  ></o-list-picker>
+  <o-integer-input attr="id_order" class="hidden" sqlType="INTEGER"></o-integer-input>
 </o-form>
