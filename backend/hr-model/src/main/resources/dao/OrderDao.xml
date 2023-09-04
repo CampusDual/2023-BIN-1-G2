@@ -13,6 +13,7 @@
     </UpdateKeys>
     <GeneratedKey>id_order</GeneratedKey>
     <Queries>
+
     <Query id="orderDeliverys">
         <AmbiguousColumns>
             <AmbiguousColumn name="id_order" prefix="o" databaseName="id_order" />
