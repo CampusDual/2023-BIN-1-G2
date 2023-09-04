@@ -22,7 +22,7 @@
 select delivery_note from registros_camiones rc
 left join orders o on o.id_order =rc.id_order
 left join delivery_notes dn on rc.id_delivery_note =dn.id_delivery_note
-where o.id_order is null
+where (o.id_order is null) OR (o.id_order = -1)
 union
 select delivery_note from registros_camiones rc
 left join orders o on o.id_order =rc.id_order

@@ -186,6 +186,15 @@ public class RegisterService implements IRegisterService {
     }
 
     @Override
+    public EntityResult orderDeliverysDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
+
+        Map<String, Object> attrMap = new HashMap<>();
+        attrMap.put("id_order", null);
+
+        return registerUpdate(attrMap, keyMap);
+    }
+
+    @Override
     public EntityResult orderAllDeliveriesQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.orderDao, keyMap, attrList,OrderDao.QUERY_ALL_DELIVERIES);
     }
