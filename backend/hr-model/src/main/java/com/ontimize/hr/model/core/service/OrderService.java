@@ -102,5 +102,9 @@ public class OrderService implements IOrderService {
             throws OntimizeJEERuntimeException {
         return this.daoHelper.update(this.orderDao, attrMap, keyMap);
     }
-
+    @Override
+    public EntityResult orderIsCompletedQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.orderDao, keyMap, attrList, OrderDao.QUERY_ORDER_IS_COMPLETED);
+    }
 }
