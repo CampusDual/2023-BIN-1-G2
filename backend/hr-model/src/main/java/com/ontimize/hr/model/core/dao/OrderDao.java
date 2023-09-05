@@ -15,4 +15,5 @@ public class OrderDao extends OntimizeJdbcDaoSupport {
     public static final String QUERY_ORDER_DELIVERYS= "orderDeliverys";
 
     public static final String QUERY_ALL_DELIVERIES = "allDeliveries";
+    public static final String QUERY_ORDER_IS_COMPLETED = "orderIsCompleted";
 }

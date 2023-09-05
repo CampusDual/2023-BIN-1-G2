@@ -13,7 +13,35 @@
     </UpdateKeys>
     <GeneratedKey>id_order</GeneratedKey>
     <Queries>
-
+        <Query id="orderIsCompleted">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="id_order" prefix="o" databaseName="id_order" />
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+SELECT
+	o.id_order,
+	order_name,
+	price_per_vol,
+	target_volume,
+	price_per_vol *target_volume as target_cost,
+	sum(calculated_volume) as real_volume,
+	sum(calculated_volume)*price_per_vol as real_cost,
+	case
+		when sum(calculated_volume) is null
+			then 'not_finished'
+		when target_volume-sum(calculated_volume)>target_volume*0.05
+			then 'not_finished'
+		else 'finished'
+	end as is_finished
+from orders o
+left join registros_camiones rc on o.id_order =rc.id_order
+left join delivery_notes dn on rc.id_delivery_note =dn.id_delivery_note
+group by o.id_order
+#WHERE#
+                ]]>
+            </Sentence>
+        </Query>
     <Query id="orderDeliverys">
         <AmbiguousColumns>
             <AmbiguousColumn name="id_order" prefix="o" databaseName="id_order" />

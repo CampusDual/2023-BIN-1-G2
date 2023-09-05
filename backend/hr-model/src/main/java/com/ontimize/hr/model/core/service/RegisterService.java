@@ -278,4 +278,10 @@ public class RegisterService implements IRegisterService {
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.registerDao, keyMap, attrList, RegisterDao.QUERY_AFFLUENCE);
     }
+
+    @Override
+    public EntityResult orderIsCompletedQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.orderDao, keyMap, attrList, OrderDao.QUERY_ORDER_IS_COMPLETED);
+    }
 }

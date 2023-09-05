@@ -58,4 +58,6 @@ public interface IRegisterService {
     public EntityResult orderDeliverysInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
 
     public EntityResult orderDelete(Map<String,Object> attrMap) throws  OntimizeJEERuntimeException;
+    public EntityResult orderIsCompletedQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException;
+
 }
