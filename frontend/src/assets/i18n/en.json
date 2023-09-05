@@ -76,15 +76,20 @@
   "TRUCKS_TITLE_VIEW":"Truck Summary",
   "AVG_TIME": "Average time on factory",
   "AVG_VOL_PERCENT": "Optimal average load",
-  "ORDER_NAME":"Order",
+  "ORDER_NAME":"Order Name",
   "TYPETRUCK":"Articulated",
   "order_name":"Order Name",
   "price_per_vol":"Price/(m³)",
   "ORDER_TITLE_VIEW": "Order Table",
   "ORDER": "Order",
   "BALANCE_STATS_TEXT": "Show values",
-  "target_volume":"Target Volume",
+  "TARGET_VOLUME":"Target Volume",
   "COST":"Cost",
   "VOLUME_AGGREGATE":"Total Volume",
-  "PRICE":"Total Cost"
+  "PRICE":"Total Cost",
+  "PRICE_PER_VOL":"Price/(m³)",
+  "TARGET_COST":"Target Cost",
+  "REAL_VOLUME": "Actual Volume",
+  "REAL_COST":"Actual Cost",
+  "is_finished":"Finished"
 }
