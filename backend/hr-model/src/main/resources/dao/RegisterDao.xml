@@ -61,7 +61,13 @@ SELECT *  FROM WRAPER
 with T as (
 	select *,
 	abs(scan_volume_in -scan_volume_out) as volume_diference,
-	coalesce(abs(calculated_volume - abs(scan_volume_in -scan_volume_out))/nullif(calculated_volume,0),-1) as "discrepancia"
+	case
+		when calculated_volume <1
+		then null
+		when abs(scan_volume_in -scan_volume_out)<1
+		then null
+		else abs(calculated_volume - abs(scan_volume_in -scan_volume_out))/calculated_volume
+	end as discrepancia
 	from registros_camiones rc
 	left join delivery_notes dn on rc.id_delivery_note = dn.id_delivery_note
     left join plates p on rc.id_plate =p.id_plate
