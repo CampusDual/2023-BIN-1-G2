@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ConfigService } from 'src/app/shared/config.service';
 
 
@@ -7,18 +7,8 @@ import { ConfigService } from 'src/app/shared/config.service';
   templateUrl: './config-discrepancy.component.html',
   styleUrls: ['./config-discrepancy.component.css']
 })
-export class ConfigDiscrepancyComponent implements OnInit {
+export class ConfigDiscrepancyComponent {
 
   constructor(protected configService: ConfigService) {
-  }
-  @ViewChild ("intInput",{static:true}) intInput
-
-
-  ngOnInit() {
-    // this.intInput.setValue(this.configService.discrepancyValue)
-  }
-
-  updateDiscrepancy(value: number|string) {
-   
   }
 }

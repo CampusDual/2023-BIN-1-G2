@@ -1,6 +1,6 @@
 package com.ontimize.hr.ws.core.rest;
 
-import com.ontimize.hr.api.core.service.IRegisterService;
+import com.ontimize.hr.api.core.service.*;
 import com.ontimize.hr.model.core.dao.*;
 import com.ontimize.jee.common.dto.EntityResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +25,14 @@ public class RegisterRestController extends ORestController<IRegisterService> {
 
     @Autowired
     private IRegisterService registerService;
+    @Autowired
+    private IDevicesService devicesService;
+    @Autowired
+    private IPlateService plateService;
+    @Autowired
+    private ITrailerPlateService trailerPlateService;
+    @Autowired
+    private IDeliveryNoteService deliveryNoteService;
 
     @Override
     public IRegisterService getService() {
@@ -65,37 +73,37 @@ public class RegisterRestController extends ORestController<IRegisterService> {
         List<String> attr = new ArrayList<String>();
         attr.add(DevicesDao.ATTR_ID_DEV);
 
-        query = this.registerService.registerDevicesQuery(mapDevices, attr);
+        query = this.devicesService.devicesQuery(mapDevices, attr);
         attr.remove(0);
         if (query.calculateRecordNumber() > 0) {
             mapRegister.put(attr_id_dev, query.getRecordValues(0).get(DevicesDao.ATTR_ID_DEV));
         } else {
-            EntityResult resultDevices = registerService.registerDevicesInsert(mapDevices);
+            EntityResult resultDevices = this.devicesService.devicesInsert(mapDevices);
             mapRegister.put(attr_id_dev, resultDevices.get(DevicesDao.ATTR_ID_DEV));
         }
 
         attr.add(PlatesDao.ATTR_ID_PLATE);
-        query = this.registerService.registerPlatesQuery(mapPlates, attr);
+        query = this.plateService.platesQuery(mapPlates, attr);
         attr.remove(0);
         if (query.calculateRecordNumber() > 0) {
             mapRegister.put(RegisterDao.ATTR_ID_PLATE, query.getRecordValues(0).get(PlatesDao.ATTR_ID_PLATE));
         } else {
-            EntityResult resultPlates = registerService.registerPlatesInsert(mapPlates);
+            EntityResult resultPlates = this.plateService.platesInsert(mapPlates);
             mapRegister.put(RegisterDao.ATTR_ID_PLATE, resultPlates.get(PlatesDao.ATTR_ID_PLATE));
         }
 
         attr.add(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE);
-        query = this.registerService.registerTrailerPlatesQuery(mapTrailerPlates, attr);
+        query = this.trailerPlateService.trailerPlatesQuery(mapTrailerPlates, attr);
         attr.remove(0);
         if (query.calculateRecordNumber() > 0) {
             mapRegister.put(RegisterDao.ATTR_ID_TRAILER_PLATE, query.getRecordValues(0).get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE));
         } else {
-            EntityResult resultTrailerPlates = registerService.registerTrailerPlatesInsert(mapTrailerPlates);
+            EntityResult resultTrailerPlates = this.trailerPlateService.trailerPlatesInsert(mapTrailerPlates);
             mapRegister.put(RegisterDao.ATTR_ID_TRAILER_PLATE, resultTrailerPlates.get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE));
         }
 
         attr.add(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
-        query = this.registerService.registerDeliveryNotesQuery(mapDeliveryNotes, attr);
+        query = this.deliveryNoteService.deliveryNotesQuery(mapDeliveryNotes, attr);
         attr.remove(0);
 
 
@@ -116,7 +124,7 @@ public class RegisterRestController extends ORestController<IRegisterService> {
             if()
             registerService.registerUpdate(mapRegister,query.getRecordValues(0));*/
         } else {
-            EntityResult resultDeliveryNotes = registerService.registerDeliveryNotesInsert(mapDeliveryNotes);
+            EntityResult resultDeliveryNotes = this.deliveryNoteService.deliveryNotesInsert(mapDeliveryNotes);
             mapRegister.put(RegisterDao.ATTR_ID_DELIVERY_NOTE, resultDeliveryNotes.get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
             //podemos aprovechar la query de los delivery_notes porque van a tener una entrada única en la tabla de registro_camiones
             // registerService.registerInsert(mapRegister);

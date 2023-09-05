@@ -76,16 +76,21 @@
   "TRUCKS_TITLE_VIEW":"Resumen de Camiones",
   "AVG_TIME": "Tiempo medio en la planta",
   "AVG_VOL_PERCENT": "Media óptima de carga",
-  "ORDER_NAME":"Pedido",
+  "ORDER_NAME":"Nombre Pedido",
   "TYPETRUCK":"Articulado",
   "order_name":"Nombre Orden",
   "price_per_vol":"Precio/(m³)",
   "ORDER_TITLE_VIEW": "Tabla de Pedidos",
   "ORDER": "Pedidos",
   "BALANCE_STATS_TEXT":"Mostrar Valores",
-  "target_volume":"Volumen Objetivo",
+  "TARGET_VOLUME":"Volumen Objetivo",
   "COST":"Coste",
   "VOLUME_AGGREGATE":"Volumen Total",
-  "PRICE":"Coste Total"
+  "PRICE":"Coste Total",
+  "PRICE_PER_VOL":"Precio/(m³)",
+  "TARGET_COST":"Coste Objetivo",
+  "REAL_VOLUME": "Volumen Actual",
+  "REAL_COST":" Coste Actual",
+  "is_finished":"Finalizado"
 
 }

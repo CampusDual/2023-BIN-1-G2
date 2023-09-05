@@ -16,7 +16,7 @@
   
 </o-row-collapsible>
 
-<o-table #configTable service="registers" entity="registerConfig" keys="config_name" columns="config_name;config_value"
+<o-table #configTable service="config" entity="config" keys="config_name" columns="config_name;config_value"
  visible-columns="" detail-mode="none" edition-mode="click"  controls="no" visible="no" (onDataLoaded)="loadConfigData($event)">
 </o-table>
 
