@@ -22,6 +22,7 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
   public dataChartBalance: any = [];
   public dataCharBalanceMulti:any=[];
   public isCheck: boolean=false;
+  public isCheckText:boolean=false;
   private translateServiceSubscription: Subscription;
 
   @ViewChild("balanceChart", { static: true }) balanceChart: OTableComponent;
@@ -73,7 +74,7 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
     this.movementTypesChartParamsBalance.legend.rightAlign = false;
     this.movementTypesChartParamsBalance.color = ["#3f51b5"];
     this.movementTypesChartParamsBalance.x1Axis.fontSize = 0;
-    this.movementTypesChartParamsBalance.showValues=true;
+    this.movementTypesChartParamsBalance.showValues=false;
   }
   private _configureMultiBarChart(
     _locale: any,
@@ -110,5 +111,10 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
     this.balanceChart.reloadData(true);
     this.isCheck=data;
     
+  }
+  onChangeText(data:boolean){
+    this.movementTypesChartParamsBalance.showValues=data;
+    this.chart.updateOptions(this.movementTypesChartParamsBalance)
+
   }
 }

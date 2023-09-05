@@ -4,11 +4,6 @@
       <o-date-input attr="startDateIn" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
       <o-date-input attr="endDateIn" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
     </o-row>
-  
-    <o-row title="{{'DATE_OUT' | oTranslate}}" class="col" layout-gap="15px">
-      <o-date-input attr="startDateOut" label="{{'START' | oTranslate}}" read-only="no" required="no"></o-date-input>
-      <o-date-input attr="endDateOut" label="{{'END' | oTranslate}}" read-only="no" required="no"></o-date-input>
-    </o-row> 
 
     <o-row layout-gap="15px" >
       <o-column layout-align="center">
@@ -49,7 +44,7 @@
     </div>
 </o-form-layout-manager>
 
-<o-filter-builder #filterBuilder attr="thefilter"  filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn;STARTDATE_O:startDateOut;ENDDATE_O:endDateOut" 
+<o-filter-builder #filterBuilder attr="thefilter"  filters="STARTDATE_I:startDateIn;ENDDATE_I:endDateIn" 
     [expression-builder]="createFilter" [target]="registersTable" query-on-change="no" query-on-change-delay="500">
 </o-filter-builder> 
 

@@ -24,6 +24,7 @@
         <span>{{ "DELIVERY_BALANCE_DESCRIPTION" | oTranslate }} </span>
       </div>
       <o-checkbox attr="my_checkbox" label="{{'BALANCE_STATS'| oTranslate}}" (onChange)="onChange($event)"></o-checkbox>
+      <o-checkbox [class]="isCheck? 'hidden':''" attr="my_checkbox_text" label="{{'BALANCE_STATS_TEXT'| oTranslate}}" (onChange)="onChangeText($event)"></o-checkbox>
     </div>
 
 

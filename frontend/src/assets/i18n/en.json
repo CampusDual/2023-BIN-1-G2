@@ -81,5 +81,10 @@
   "order_name":"Order Name",
   "price_per_vol":"Price/(m³)",
   "ORDER_TITLE_VIEW": "Order Table",
-  "ORDER": "Order"
+  "ORDER": "Order",
+  "BALANCE_STATS_TEXT": "Show values",
+  "target_volume":"Target Volume",
+  "COST":"Cost",
+  "VOLUME_AGGREGATE":"Total Volume",
+  "PRICE":"Total Cost"
 }

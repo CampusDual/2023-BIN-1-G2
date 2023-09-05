@@ -1,0 +1,39 @@
+#clock {
+    background-color: #3f51b5;
+    padding: 2rem;
+    text-align: center;
+    color: whitesmoke;
+    display: flex;
+    font-size: xx-large;
+    border-radius: 100%;
+    border: 1px solid #212121;
+    gap: calc(10rem/5);
+    width: 10rem;
+    height: 10rem;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+#icon-timer {
+    font-size: 2rem;
+    width: 2rem;
+}
+
+.card {
+    text-align: center;
+    background-color: #f2f4f6;
+    padding: 1rem;
+    border-left: 1px solid black;
+    width: 100%;
+}
+
+.card:first-child {
+    border: none;
+}

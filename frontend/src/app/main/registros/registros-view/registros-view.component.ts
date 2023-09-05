@@ -72,21 +72,9 @@ export class RegistrosViewComponent implements OnInit {
             FilterExpressionUtils.buildExpressionLessEqual("date_in", Number(d))
           );
         }
-        if (fil.attr === "STARTDATE_O") {
-          filters.push(
-            FilterExpressionUtils.buildExpressionMoreEqual("date_out", fil.value)
-          );
+       
         }
-        if (fil.attr === "ENDDATE_O") {
-          let d = new Date(fil.value);
-          d.setHours(23);
-          d.setMinutes(59);
-          d.setSeconds(59);
-          filters.push(
-            FilterExpressionUtils.buildExpressionLessEqual("date_out", Number(d))
-          );
-        }
-      }
+      
     });
 
     if (filters.length > 0) {

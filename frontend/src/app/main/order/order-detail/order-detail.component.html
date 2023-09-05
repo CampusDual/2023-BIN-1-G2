@@ -1,7 +1,27 @@
 <o-form #formDetail service="registers" entity="order" keys="id_order" (onDataLoaded)="changeNew($event)">
-  <o-text-input attr="order_name"></o-text-input>
-  <o-currency-input #priceVol attr="price_per_vol" decimal-digits="2" currency-symbol="€/m³"></o-currency-input>
-  <o-integer-input attr="target_volume" ></o-integer-input>
+
+
+  <o-row>
+    <div class="card">
+      <h3>{{'order_name' | oTranslate}}</h3>
+      <o-text-input attr="order_name" label="" ></o-text-input>
+    </div>
+    <div class="card">
+      <h3>
+        {{'price_per_vol' |oTranslate}}
+      </h3>
+      <o-currency-input #priceVol attr="price_per_vol" decimal-digits="2" currency-symbol="€/m³" label=""></o-currency-input>
+    </div>
+    <div class="card">
+      <h3>
+        {{'target_volume' | oTranslate}}
+      </h3>
+      <o-integer-input attr="target_volume" label=""></o-integer-input>
+    </div>
+  </o-row>
+  
+  
+  
   <o-integer-input
     class="hidden"
     attr="id_order"
@@ -11,7 +31,7 @@
     appearance="outline"
     visible="no"
   ></o-integer-input>
-  
+
   <o-filter-builder
     #filterBuilder
     attr="thefilter"
@@ -25,6 +45,7 @@
 
 </o-form>
 
+
 <o-form-layout-manager attr="delivery_layout_manager" title="ORDER_TITLE_VIEW">
   <o-table
     #deliveryTable
@@ -35,10 +56,10 @@
     columns="id_order;order_name;price_per_vol;date_in;date_out;calculated_volume;delivery_note;id"
     visible-columns="delivery_note;date_in;date_out;calculated_volume"
   >
-  <o-table-column attr="delivery_note" content-align="center"></o-table-column>
-  <o-table-column attr="date_in" type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
-  <o-table-column attr="date_out" type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
-  <o-table-column attr="calculated_volume" type="real" decimal-digits="2" content-align="center"></o-table-column>
+  <o-table-column attr="delivery_note" title="DELIVERY_NOTE" content-align="center"></o-table-column>
+  <o-table-column attr="date_in" title="DATE_IN" type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
+  <o-table-column attr="date_out" title="DATE_OUT" type="date" format="DD/MM/YYYY HH:MM"></o-table-column>
+  <o-table-column attr="calculated_volume" title="CALCULATED_VOLUME" type="real" decimal-digits="2" content-align="center"></o-table-column>
   <o-table-column-calculated attr="cost" title="COST" type="currency" currency-symbol="€"
   currency-symbol-position="right" operation="(calculated_volume*price_per_vol)" decimal-digits="2" > </o-table-column-calculated>
   <o-table-column-aggregate attr="calculated_volume" title="VOLUME_AGGREGATE" aggregate="sum"></o-table-column-aggregate>
