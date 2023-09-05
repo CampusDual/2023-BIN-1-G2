@@ -107,4 +107,35 @@ public class OrderService implements IOrderService {
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.orderDao, keyMap, attrList, OrderDao.QUERY_ORDER_IS_COMPLETED);
     }
+
+
+    @Override
+    public EntityResult orderIsCompletedDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
+
+        Map<String, Object> attrMap = new HashMap<>();
+        attrMap.put("id_order", null);
+        ArrayList<String> attr= new ArrayList<String>();
+        attr.add(RegisterDao.ATTR_ID);
+        EntityResult query = this.registerService.completedQuery(keyMap,attr);
+        if(query.calculateRecordNumber()>0){
+
+            for(int i=0; i< query.calculateRecordNumber();i++){
+                Map<String,Object> keyMap2= new HashMap<>();
+                keyMap2.put("id",query.getRecordValues(i).get("id"));
+                this.registerService.registerUpdate(attrMap,keyMap2);
+            }
+
+        }
+
+
+
+        return this.daoHelper.delete(this.orderDao, keyMap);
+    }
+
+
+    @Override
+    public EntityResult orderIsCompletedInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
+        attrMap.put("id_order",null);
+        return this.daoHelper.insert(this.orderDao, attrMap);
+    }
 }
