@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   public mi_valor = true;
 
@@ -16,20 +16,9 @@ export class HomeComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
-    // nothing to do
-  }
 
   navigate() {
     this.router.navigate(['../', 'login'], { relativeTo: this.actRoute });
-  }
-
-  public do_something(event: Event) {
-
-    console.log(event)
-
-    console.log("Something")
-
   }
 
 }

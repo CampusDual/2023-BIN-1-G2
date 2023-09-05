@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Component, OnDestroy, ViewChild } from "@angular/core";
 import { OTableComponent, OTranslateService } from "ontimize-web-ngx";
 import {
   DataAdapterUtils,
@@ -16,7 +16,7 @@ import { FilterChartService } from "src/app/shared/filter-chart.service";
   templateUrl: "./resume-delivery-balance.component.html",
   styleUrls: ["./resume-delivery-balance.component.css"],
 })
-export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
+export class ResumeDeliveryBalanceComponent implements OnDestroy {
   public movementTypesChartParamsBalance: DiscreteBarChartConfiguration;
   public movementTypesChartParamsBalanceMulti: MultiBarChartConfiguration;
   public dataChartBalance: any = [];
@@ -51,11 +51,6 @@ export class ResumeDeliveryBalanceComponent implements OnInit, OnDestroy {
     );
     this._configureBarChart(d3Locale, translate);
     this._configureMultiBarChart(d3Locale, translate);
-  }
-
-  
-
-  ngOnInit() {
   }
 
   ngOnDestroy(): void {

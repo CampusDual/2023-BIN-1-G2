@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
 
 
@@ -7,21 +7,10 @@ import { FilterExpressionUtils, Expression } from "ontimize-web-ngx";
   templateUrl: "./resume-delivery-view.component.html",
   styleUrls: ["./resume-delivery-view.component.css"],
 })
-export class ResumeDeliveryViewComponent implements OnInit {
-  
-  @ViewChild("buttonQuery2",{static:true}) buttonQuery2
-  @ViewChild("buttonClear2",{static:true}) buttonClear2
-  @ViewChild("buttonQuery3",{static:true}) buttonQuery3
-  @ViewChild("buttonClear3",{static:true}) buttonClear3
-
-  constructor() {
-
-  }
-  
-
-  ngOnInit() {}
+export class ResumeDeliveryViewComponent {
 
 
+  constructor() {}
 
   createFilter(values: Array<{ attr; value }>): Expression {
     let filters: Array<Expression> = [];

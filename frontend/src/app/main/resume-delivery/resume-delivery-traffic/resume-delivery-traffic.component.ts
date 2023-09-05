@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Component, OnDestroy, ViewChild } from "@angular/core";
 import { OTableComponent, OTranslateService } from "ontimize-web-ngx";
 import {
   LineChartConfiguration,
@@ -14,7 +14,7 @@ import { FilterChartService } from "src/app/shared/filter-chart.service";
   templateUrl: "./resume-delivery-traffic.component.html",
   styleUrls: ["./resume-delivery-traffic.component.css"],
 })
-export class ResumeDeliveryTrafficComponent implements OnInit, OnDestroy {
+export class ResumeDeliveryTrafficComponent implements OnDestroy {
   public movementTypesChartParams: LineChartConfiguration;
   private translateServiceSubscription: Subscription;
 
@@ -41,14 +41,11 @@ export class ResumeDeliveryTrafficComponent implements OnInit, OnDestroy {
     this._configureLineChart(d3Locale, translate);
   }
 
-  ngOnInit() {
-  }
-
   ngOnDestroy(): void {
     this.translateServiceSubscription.unsubscribe();
   }
 
-  private _configureLineChart(locale: any, translate: OTranslateService): void {
+  private _configureLineChart(_: any, translate: OTranslateService): void {
     this.movementTypesChartParams = new LineChartConfiguration();
     this.movementTypesChartParams.noDataMessage =
       translate.get("NO_DATA_FOUND");

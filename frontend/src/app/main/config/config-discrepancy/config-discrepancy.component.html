@@ -1,14 +1,5 @@
-<o-table service="registers" entity="registerConfig" keys="config_name" columns="config_name;config_value"
+<o-table service="config" entity="config" keys="config_name" columns="config_name;config_value"
   visible-columns="config_name;config_value" detail-mode="none" edition-mode="click"  controls="no">
   <o-table-column attr="config_value" title="VALUE_CONFIG" type="integer" content-align="center" editable="yes"></o-table-column>
   <o-table-column attr="config_name" title="NAME_CONFIG" content-align="center"></o-table-column>
 </o-table>
-
-<!-- <o-form show-header="no" service="registers" entity="config" keys="config_name">
-  <div class="card">
-    <h3>{{"DISCREPANCY_PERCENT"|oTranslate}}:
-      <o-integer-input #intInput attr="config_value" label="" (onChange)="updateDiscrepancy($event)" appearance="outline"
-        max="100" min="0"></o-integer-input>
-    </h3>
-  </div>
-</o-form> -->

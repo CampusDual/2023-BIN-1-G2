@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Component, OnDestroy, ViewChild } from "@angular/core";
 import {
   DataAdapterUtils,
   LineChartConfiguration,
@@ -14,7 +14,7 @@ import { FilterChartService } from "src/app/shared/filter-chart.service";
   templateUrl: "./resume-delivery-affluence.component.html",
   styleUrls: ["./resume-delivery-affluence.component.css"],
 })
-export class ResumeDeliveryAffluenceComponent implements OnInit, OnDestroy {
+export class ResumeDeliveryAffluenceComponent implements OnDestroy {
   public movementTypesChartParamsAffluence: LineChartConfiguration;
   public dataChartAffluence: any = [];
   public arrayHours: Array<string> = [
@@ -37,6 +37,7 @@ export class ResumeDeliveryAffluenceComponent implements OnInit, OnDestroy {
     "22",
     "23",
   ];
+  private translateServiceSubscription: Subscription;
 
   @ViewChild("affluenceChart", { static: true })
   affluenceChart: OTableComponent;
@@ -62,10 +63,6 @@ export class ResumeDeliveryAffluenceComponent implements OnInit, OnDestroy {
     this._configureLineChart(d3Locale, translate);
   }
 
-  private translateServiceSubscription: Subscription;
-
-  ngOnInit() {
-  }
 
   ngOnDestroy(): void {
     if (this.translateServiceSubscription) {

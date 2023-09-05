@@ -1,6 +1,5 @@
 import { Component, Injector, Input, TemplateRef, ViewChild } from '@angular/core';
 import { OBaseTableCellRenderer } from 'ontimize-web-ngx';
-import { ConfigService } from 'src/app/shared/config.service';
 
 @Component({
   selector: 'app-registros-discrepancy-render',

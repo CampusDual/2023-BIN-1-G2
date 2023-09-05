@@ -1,5 +1,5 @@
 import { FilterExpressionUtils, Expression, OTableComponent } from "ontimize-web-ngx";
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { DuplicatedDeliveryService } from "src/app/shared/duplicatedDelivery.service";
 
 @Component({
@@ -7,17 +7,13 @@ import { DuplicatedDeliveryService } from "src/app/shared/duplicatedDelivery.ser
   templateUrl: './registros-view.component.html',
   styleUrls: ['./registros-view.component.css']
 })
-export class RegistrosViewComponent implements OnInit {
+export class RegistrosViewComponent {
 
   constructor(private duplicatedService: DuplicatedDeliveryService) { }
 
   public discrepancyData: number = 10
 
   @ViewChild("configTable", { static: true }) configTable: OTableComponent
-
-  ngOnInit() {
-
-  }
 
   loadData(data: any[]) {
 
@@ -42,7 +38,7 @@ export class RegistrosViewComponent implements OnInit {
 
   }
 
-  setRowClass(rowData: any, rowIndex: number): string | string[] {
+  setRowClass(rowData: any, _: number): string | string[] {
 
     if (this.duplicatedService.duplicatedDelivery.includes(rowData.delivery_note)) {
       return "error-row"

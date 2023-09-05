@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DuplicatedDeliveryService } from 'src/app/shared/duplicatedDelivery.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DuplicatedDeliveryService } from 'src/app/shared/duplicatedDelivery.ser
   templateUrl: './registros-detail.component.html',
   styleUrls: ['./registros-detail.component.css']
 })
-export class RegistrosDetailComponent implements OnInit {
+export class RegistrosDetailComponent {
 
   constructor(private duplicatedService: DuplicatedDeliveryService) { }
 
@@ -15,9 +15,6 @@ export class RegistrosDetailComponent implements OnInit {
   public isDuplicated: string = "no";
 
   private timer: any;
-
-  ngOnInit() {
-  }
 
   onDataLoaded(data: any) {
     this.delivery_note = data.delivery_note;
