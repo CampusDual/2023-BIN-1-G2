@@ -1,8 +1,9 @@
 <o-form-layout-manager attr="order_layout_manager" title="ORDER_TITLE_VIEW" mode="tab">
-  <o-table service="registers" entity="order" columns="id_order;order_name;price_per_vol"
-    visible-columns="order_name;price_per_vol" keys="id_order">
+  <o-table service="registers" entity="order" columns="id_order;order_name;price_per_vol;target_volume"
+    visible-columns="order_name;price_per_vol;target_volume" keys="id_order">
     <o-table-column attr="id_order" sql-type="INTEGER"></o-table-column>
     <o-table-column attr="order_name" content-align="center"></o-table-column>
-    <o-table-column attr="price_per_vol" content-align="center"></o-table-column>
+    <o-table-column attr="price_per_vol" content-align="center" decimal-digits="2" type="currency" currency-symbol="€/(m³)" currency-symbol-position="right"></o-table-column>
+    <o-table-column attr="target_volume" content-align="center" type="currency" currency-symbol="m³" currency-symbol-position="right"></o-table-column>
   </o-table>
 </o-form-layout-manager>
