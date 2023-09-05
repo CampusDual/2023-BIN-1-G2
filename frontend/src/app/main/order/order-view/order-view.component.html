@@ -1,5 +1,5 @@
-<o-form-layout-manager attr="order_layout_manager" title="ORDER_TITLE_VIEW" mode="tab">
-  <o-table service="registers" entity="orderIsCompleted" columns="id_order;order_name;price_per_vol;target_volume;target_cost;real_volume;real_cost;is_finished"
+<o-form-layout-manager attr="order_layout_manager" title="ORDER_TITLE_VIEW" mode="tab" label-columns="order_name">
+  <o-table service="order" entity="orderIsCompleted" columns="id_order;order_name;price_per_vol;target_volume;target_cost;real_volume;real_cost;is_finished"
     visible-columns="order_name;price_per_vol;target_volume;target_cost;real_volume;real_cost;is_finished" keys="id_order">
     <o-table-column attr="id_order" title="ID_ORDER" sql-type="INTEGER"></o-table-column>
     <o-table-column attr="order_name" title="ORDER_NAME" content-align="center"></o-table-column>
@@ -8,5 +8,8 @@
     <o-table-column attr="target_cost" title="TARGET_COST" content-align="center" type="currency" currency-symbol="€" currency-symbol-position="right"></o-table-column>
     <o-table-column attr="real_volume" title="REAL_VOLUME" content-align="center" type="currency" currency-symbol="m³" currency-symbol-position="right"></o-table-column>
     <o-table-column attr="real_cost" title="REAL_COST" content-align="center" type="currency" currency-symbol="€" currency-symbol-position="right"></o-table-column>
+    <o-table-column attr="is_finished" title="IS_FINISHED" content-align="center">
+      <app-order-finished-render></app-order-finished-render>
+    </o-table-column>
   </o-table>
 </o-form-layout-manager>

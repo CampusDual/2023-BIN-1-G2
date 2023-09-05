@@ -38,3 +38,12 @@ display: flex;
 justify-content: space-between;
 padding-right: 50px;
 }
+
+div#checkbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 1.25rem;
+    gap: 0.5rem;
+}

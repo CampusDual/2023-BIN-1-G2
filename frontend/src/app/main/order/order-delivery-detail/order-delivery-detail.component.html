@@ -1,11 +1,11 @@
-<o-form service="registers" entity="orderDeliverys" keys="id_order">
+<o-form service="order" entity="orderDeliverys" keys="id_order">
   <o-list-picker
     attr="delivery_note"
     fxFlex
     required="yes"
     label="SELECT_DELIVERY"
+    service="deliveryNote"
     entity="notMatchedDeliverys"
-    service="registers"
     value-column="delivery_note"
     columns="id_delivery_note;delivery_note"
     visible-columns="delivery_note"

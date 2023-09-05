@@ -82,8 +82,9 @@
   "price_per_vol":"Precio/(m³)",
   "ORDER_TITLE_VIEW": "Tabla de Pedidos",
   "ORDER": "Pedidos",
-  "BALANCE_STATS_TEXT":"Mostrar Valores",
+  "BALANCE_STATS_TEXT":"Mostrar valores",
   "TARGET_VOLUME":"Volumen Objetivo",
+  "target_volume":"Volumen Objetivo",
   "COST":"Coste",
   "VOLUME_AGGREGATE":"Volumen Total",
   "PRICE":"Coste Total",
@@ -91,6 +92,7 @@
   "TARGET_COST":"Coste Objetivo",
   "REAL_VOLUME": "Volumen Actual",
   "REAL_COST":" Coste Actual",
-  "is_finished":"Finalizado"
+  "IS_FINISHED":"Completado",
+  "SELECT_DELIVERY": "Selección de Entrega"
 
 }

@@ -2,11 +2,11 @@ import { Component, Injector, Input, TemplateRef, ViewChild } from '@angular/cor
 import { OBaseTableCellRenderer } from 'ontimize-web-ngx';
 
 @Component({
-  selector: 'app-truck-articulated-render',
-  templateUrl: './truck-articulated-render.component.html'
+  selector: 'app-order-finished-render',
+  templateUrl: './order-finished-render.component.html',
+  styleUrls: ['./order-finished-render.component.scss']
 })
-
-export class TruckArticulatedRenderComponent extends OBaseTableCellRenderer {
+export class OrderFinishedRenderComponent extends OBaseTableCellRenderer {
 
   @ViewChild('templateref', { read: TemplateRef, static: false }) public templateref: TemplateRef<any>;
   @Input() discrepancy:number
@@ -15,8 +15,8 @@ export class TruckArticulatedRenderComponent extends OBaseTableCellRenderer {
     super(injector);
   }
 
-  getCellData(cellvalue: any, _rowvalue: Object) {
-    return _rowvalue['tipo_camion']==="articulado" ? "✅" : "❌";
+  getCellData(_: any, _rowvalue: Object) {
+    return _rowvalue['is_finished']==="finished" ? "✅" : "❌";
    
   }
 

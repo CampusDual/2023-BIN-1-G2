@@ -7,6 +7,7 @@ import { OrderRoutingModule } from './order-routing.module';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OrderDeliveryDetailComponent } from './order-delivery-detail/order-delivery-detail.component';
+import { OrderFinishedRenderComponent } from './order-finished-render/order-finished-render.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { OrderDeliveryDetailComponent } from './order-delivery-detail/order-deli
     OChartModule,
     HttpClientModule
   ],
-  declarations: [OrderViewComponent,OrderDetailComponent, OrderDeliveryDetailComponent]
+  declarations: [OrderViewComponent,OrderDetailComponent, OrderDeliveryDetailComponent, OrderFinishedRenderComponent]
 })
 export class OrderModule { }

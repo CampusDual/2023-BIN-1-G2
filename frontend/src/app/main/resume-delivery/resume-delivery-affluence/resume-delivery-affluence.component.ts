@@ -109,24 +109,27 @@ export class ResumeDeliveryAffluenceComponent implements OnDestroy {
       let dataHasHour = data.filter((d) => d.day_hour === h);
 
       dataHasHour.forEach((d) => {
+
+        const afluenciaRounded = Math.round(d.afluencia * 100) / 100;
+
         switch (d.day_date) {
           case 1:
-            hourObject.LUNES = d.afluencia;
+            hourObject.LUNES = afluenciaRounded;
             break;
           case 2:
-            hourObject.MARTES = d.afluencia;
+            hourObject.MARTES = afluenciaRounded;
             break;
           case 3:
-            hourObject.MIERCOLES = d.afluencia;
+            hourObject.MIERCOLES = afluenciaRounded;
             break;
           case 4:
-            hourObject.JUEVES = d.afluencia;
+            hourObject.JUEVES = afluenciaRounded;
             break;
           case 5:
-            hourObject.VIERNES = d.afluencia;
+            hourObject.VIERNES = afluenciaRounded;
             break;
           case 6:
-            hourObject.SABADO = d.afluencia;
+            hourObject.SABADO = afluenciaRounded;
             break;
         }
       });

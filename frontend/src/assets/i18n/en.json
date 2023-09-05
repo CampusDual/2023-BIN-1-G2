@@ -81,9 +81,10 @@
   "order_name":"Order Name",
   "price_per_vol":"Price/(m³)",
   "ORDER_TITLE_VIEW": "Order Table",
-  "ORDER": "Order",
+  "ORDER": "Orders",
   "BALANCE_STATS_TEXT": "Show values",
   "TARGET_VOLUME":"Target Volume",
+  "target_volume":"Target Volume",
   "COST":"Cost",
   "VOLUME_AGGREGATE":"Total Volume",
   "PRICE":"Total Cost",
@@ -91,5 +92,6 @@
   "TARGET_COST":"Target Cost",
   "REAL_VOLUME": "Actual Volume",
   "REAL_COST":"Actual Cost",
-  "is_finished":"Finished"
+  "IS_FINISHED":"Completed",
+  "SELECT_DELIVERY": "Delivery select"
 }

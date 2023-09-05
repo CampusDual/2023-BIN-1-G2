@@ -36,6 +36,7 @@
       service="registers" entity="affluence" keys="day_date;day_hour" columns="day_date;day_hour;afluencia"
       (onDataLoaded)="loadDataAffluence($event)" visible-columns="day_date;day_hour;afluencia" query-rows="20">
       <o-table-column attr="date_bigint" type="date"></o-table-column>
+      <o-table-column attr="afluencia" type="real" decimal-digits="2"></o-table-column>
     </o-table>
   </div>
 

@@ -17,12 +17,18 @@ export class OrderDetailComponent implements OnInit {
   @ViewChild("priceVol", { static: true }) priceVol: OCurrencyInputComponent;
   @ViewChild("deliveryTable", { static: true }) deliveryTable: OTableComponent;
 
+  private isNew: boolean = false;
+
   constructor() {}
 
   ngOnInit() {}
 
   changeNew(data: any) {
-    if (data.id_order === "new") this.formDetail.setFieldValue("id_order", -1);
+    
+    if (data.id_order === "new") {
+      this.formDetail.setFieldValue("id_order", -1);
+      this.isNew = true;
+    }
     this.deliveryTable.refresh()
   }
 
@@ -41,11 +47,5 @@ export class OrderDetailComponent implements OnInit {
     );
   }
 
-  priceFunction(value: any[]) {
-    if (this.formDetail === undefined) return 0;
-    console.log(value)
-    return value
-      .filter((a) => a.calculated_volume !== undefined)
-      .reduce((acc, newSumando) => acc + newSumando.calculated_volume,0);
-  }
+
 }

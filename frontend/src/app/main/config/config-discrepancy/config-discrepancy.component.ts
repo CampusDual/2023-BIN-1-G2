@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ConfigService } from 'src/app/shared/config.service';
-
 
 @Component({
   selector: 'app-config-discrepancy',
@@ -9,6 +7,6 @@ import { ConfigService } from 'src/app/shared/config.service';
 })
 export class ConfigDiscrepancyComponent {
 
-  constructor(protected configService: ConfigService) {
+  constructor() {
   }
 }
