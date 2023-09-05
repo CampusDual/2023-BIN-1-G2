@@ -123,7 +123,7 @@ public class RegisterService implements IRegisterService {
 
             for(int i=0; i< query.calculateRecordNumber();i++){
                 Map<String,Object> keyMap2= new HashMap<>();
-                keyMap2.put("id",query.getRecordValues(i));
+                keyMap2.put("id",query.getRecordValues(i).get("id"));
                 this.registerUpdate(attrMap,keyMap2);
             }
 
