@@ -7,28 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface IRegisterService {
-
-
     public EntityResult registerQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-    public EntityResult registerDevicesQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-    public EntityResult registerPlatesQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-    public EntityResult registerTrailerPlatesQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-    public EntityResult registerDeliveryNotesQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-    public EntityResult orderQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult registerInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
 
-    public EntityResult registerDevicesInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
-
-    public EntityResult registerPlatesInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
-
-    public EntityResult registerTrailerPlatesInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
-
-    public EntityResult registerDeliveryNotesInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
-    public EntityResult orderInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
-
     public EntityResult registerUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-    public EntityResult registerPlatesUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-    public EntityResult orderUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult registerDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult completedQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult resumeDeliveryQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
@@ -37,25 +19,11 @@ public interface IRegisterService {
     public EntityResult completedDiscrepancyQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult completedDiscrepancyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 
-    public EntityResult registerConfigQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-    public EntityResult registerConfigUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-
     public EntityResult countTravelsQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult detailTravelsQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 
-    public EntityResult volumeByPlateQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult balanceQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 
-    public EntityResult tiempoDescargaByPlateQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException;
-    public EntityResult optimalVolPercentByPlateQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException;
+    public EntityResult affluenceQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 
-    public EntityResult orderDeliverysQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException;
-
-    public EntityResult orderDeliverysDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-    public EntityResult notMatchedDeliverysQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException;
-
-    public EntityResult orderAllDeliveriesQuery(Map<String, Object> keyMap, List<String> attrList)throws OntimizeJEERuntimeException;
-
-    public EntityResult orderDeliverysInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
-
-    public EntityResult orderDelete(Map<String,Object> attrMap) throws  OntimizeJEERuntimeException;
 }
