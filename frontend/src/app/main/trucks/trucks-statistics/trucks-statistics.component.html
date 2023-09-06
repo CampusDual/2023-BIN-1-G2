@@ -56,13 +56,13 @@
           <h3>
             {{'SCAN_VOLUME_IN' |oTranslate}}
           </h3>
-          {{ volume_in }}
+          {{ volume_in }} m³
         </div>
         <div class="card">
           <h3>
             {{'SCAN_VOLUME_OUT' | oTranslate}}
           </h3>
-          {{ volume_out }}
+          {{ volume_out }} m³
         </div>
     </o-row>
     <o-row>
@@ -74,7 +74,7 @@
         </div>
       </o-column>
       <o-column fxFlex>
-        <h3>{{'AVG_VOL_PERCENT' | oTranslate}}</h3>
+        <h3 >{{'AVG_VOL_PERCENT' | oTranslate}} </h3>   
         <o-chart
           #percentageChart
           type="gaugeDashboardChart"

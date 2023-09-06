@@ -17,7 +17,7 @@ export class ConfigDiscrepancyRendererComponent extends OBaseTableCellRenderer {
 
   getCellData(_: any, _rowvalue: Object) {
     const config_name: string = _rowvalue['config_name']
-    return this.translate.get(config_name.toUpperCase())
+    return this.translate.get(config_name.toUpperCase())+"%" +" 🟣"
   }
 
 }

@@ -43,7 +43,7 @@
   "FILTER":"Filtrar",
   "CLEAR":"Borrar",
   "VOLUME_DIFERENCE": "Diferencia de Volúmenes",
-  "DISCREPANCY":"Discrepancia(%)",
+  "DISCREPANCY":"Discrepancia",
   "date_bigint": "Saldo neto diario(m³)",
   "LUNES": "Lunes",
   "MARTES": "Martes",
@@ -75,11 +75,11 @@
   "RESUME_TRAVELS":"Historial viajes",
   "TRUCKS_TITLE_VIEW":"Resumen de Camiones",
   "AVG_TIME": "Tiempo medio en la planta",
-  "AVG_VOL_PERCENT": "Media óptima de carga",
+  "AVG_VOL_PERCENT": "Porcentaje medio de carga",
   "ORDER_NAME":"Nombre Pedido",
   "TYPETRUCK":"Articulado",
   "order_name":"Nombre Orden",
-  "price_per_vol":"Precio/(m³)",
+  "price_per_vol":"Precio Unitario ",
   "ORDER_TITLE_VIEW": "Tabla de Pedidos",
   "ORDER": "Pedidos",
   "BALANCE_STATS_TEXT":"Mostrar valores",
@@ -88,11 +88,12 @@
   "COST":"Coste",
   "VOLUME_AGGREGATE":"Volumen Total",
   "PRICE":"Coste Total",
-  "PRICE_PER_VOL":"Precio/(m³)",
+  "PRICE_PER_VOL":"Precio Unitario",
   "TARGET_COST":"Coste Objetivo",
   "REAL_VOLUME": "Volumen Actual",
   "REAL_COST":" Coste Actual",
   "IS_FINISHED":"Completado",
-  "SELECT_DELIVERY": "Selección de Entrega"
+  "SELECT_DELIVERY": "Selección de Entrega",
+  "DESCRIPTION_AVG_VOL_PERCENT": "Porcentaje medio que ocupa la carga respecto a la capacidad máxima"
 
 }
