@@ -18,13 +18,13 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE "2023-BIN-1-G2";
+--DROP DATABASE "2023-BIN-1-G2";
 --
 -- TOC entry 3097 (class 1262 OID 268185)
 -- Name: 2023-BIN-1-G2; Type: DATABASE; Schema: -; Owner: -
 --
 
-CREATE DATABASE "2023-BIN-1-G2" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.UTF-8';
+--CREATE DATABASE "2023-BIN-1-G2" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.UTF-8';
 
 
 \connect -reuse-previous=on "dbname='2023-BIN-1-G2'"
@@ -45,7 +45,7 @@ SET row_security = off;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: -
 --
 
-CREATE SCHEMA public;
+--CREATE SCHEMA public;
 
 
 --
